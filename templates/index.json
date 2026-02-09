@@ -9,6 +9,35 @@
  */
 {
   "sections": {
+    "image_banner_slider": {
+      "type": "image-banner-slider",
+      "settings": {
+        "autoplay": true,
+        "autoplay_speed": 4000,
+        "show_dots": true,
+        "show_arrows": false,
+        "infinite_loop": true,
+        "image_height": "medium",
+        "color_scheme": "scheme-1",
+        "padding_top": 0,
+        "padding_bottom": 0
+      },
+      "blocks": {
+        "slide_1": {
+          "type": "slide",
+          "settings": {
+            "image": "shopify://shop_images/home_banner.jpg"
+          }
+        },
+        "slide_2": {
+          "type": "slide",
+          "settings": {
+            "image": "shopify://shop_images/home_banner.jpg"
+          }
+        }
+      },
+      "block_order": ["slide_1", "slide_2"]
+    },
     "image_banner": {
       "type": "image-banner",
       "blocks": {
@@ -22,7 +51,8 @@
         "text": {
           "type": "text",
           "settings": {
-            "text": "A handpicked selection of the world’s finest running brands - designed for performance, crafted with style."
+            "text": "A handpicked selection of the world’s finest running brands - designed for performance, crafted with style.",
+            "text_style": "body"
           }
         },
         "button": {
@@ -39,18 +69,18 @@
       },
       "block_order": ["heading", "text", "button"],
       "settings": {
-        "banner_content_id": "home_banner--custom",
         "image": "shopify://shop_images/home_banner.jpg",
         "image_overlay_opacity": 40,
         "image_height": "large",
         "image_behavior": "none",
         "desktop_content_position": "bottom-left",
-        "desktop_content_alignment": "center",
+        "desktop_content_alignment": "left",
         "show_text_box": false,
         "color_scheme": "scheme-3",
         "stack_images_on_mobile": false,
         "mobile_content_alignment": "center",
-        "show_text_below": false
+        "show_text_below": false,
+        "banner_content_id": "home__banner--custom"
       }
     },
     "featured_collection": {
@@ -82,5 +112,5 @@
       }
     }
   },
-  "order": ["image_banner", "featured_collection"]
+  "order": ["image_banner_slider", "image_banner", "featured_collection"]
 }

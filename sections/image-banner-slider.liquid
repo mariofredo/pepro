@@ -1,0 +1,56 @@
+{{ 'component-slider.css' | asset_url | stylesheet_tag }}
+{{ 'custom-image-banner-slider.css' | asset_url | stylesheet_tag }}
+
+<slider-component class="slider-mobile-gutter">
+  <ul class="slider slider--everywhere" role="list">
+    {% for block in section.blocks %}
+      <li class="slider__slide" {{ block.shopify_attributes }}>
+        {% if block.settings.image %}
+          <img
+            src="{{ block.settings.image | image_url: width: 1920 }}"
+            alt="{{ block.settings.image.alt | escape }}"
+            width="{{ block.settings.image.width }}"
+            height="{{ block.settings.image.height }}"
+            loading="lazy"
+            class="image_banner_slider__image" 
+          />
+        {% endif %}
+      </li>
+    {% endfor %}
+  </ul>
+</slider-component>
+
+
+{% schema %}
+{
+  "name": "Image Banner Slider",
+  "tag": "section",
+  "class": "section",
+  "settings": [
+    { "type": "checkbox", "id": "autoplay", "label": "Autoplay" }
+  ],
+  "blocks": [
+    {
+      "type": "slide",
+      "name": "Slide",
+      "settings": [
+        {
+          "type": "image_picker",
+          "id": "image",
+          "label": "Image"
+        }
+      ]
+    },
+  ],
+  "presets": [
+    {
+      "name": "Image Banner Slider",
+      "blocks": [
+        {
+          "type": "slide"
+        },  
+      ]
+    }
+  ]
+}
+{% endschema %}

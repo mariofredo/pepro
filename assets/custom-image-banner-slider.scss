@@ -1,0 +1,21 @@
+.slider__slide {
+  position: relative;
+  overflow: hidden;
+  &::before {
+    content: "";
+    display: block;
+    position: absolute;
+    top: 0;
+    right: 0;
+    background: rgba($color: #000000, $alpha: 0.4);
+    width: 100%;
+    height: auto;
+    aspect-ratio: 16 / 9;
+  }
+  .image_banner_slider__image {
+    object-fit: cover;
+    width: 100%;
+    height: auto;
+    aspect-ratio: 16 / 9;
+  }
+}

@@ -1,0 +1,22 @@
+.slider__slide {
+  position: relative;
+  overflow: hidden;
+}
+.slider__slide::before {
+  content: "";
+  display: block;
+  position: absolute;
+  top: 0;
+  right: 0;
+  background: rgba(0, 0, 0, 0.4);
+  width: 100%;
+  height: auto;
+  aspect-ratio: 16/9;
+}
+.slider__slide .image_banner_slider__image {
+  -o-object-fit: cover;
+     object-fit: cover;
+  width: 100%;
+  height: auto;
+  aspect-ratio: 16/9;
+}/*# sourceMappingURL=custom-image-banner-slider.css.map */
