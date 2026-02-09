@@ -1,0 +1,9 @@
+#home__banner--custom {
+  &.banner__content--custom {
+    max-width: 100%;
+    margin: 0;
+    .banner__box {
+      text-align: left;
+    }
+  }
+}
