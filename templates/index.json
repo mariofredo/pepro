@@ -33,60 +33,9 @@
           }
         }
       },
-      "block_order": [
-        "slide_1",
-        "slide_2"
-      ],
+      "block_order": ["slide_1", "slide_2"],
       "settings": {
         "autoplay": true
-      }
-    },
-    "image_banner": {
-      "type": "image-banner",
-      "blocks": {
-        "heading": {
-          "type": "heading",
-          "settings": {
-            "heading": "BUILT FOR THE RUN.",
-            "heading_size": "h0"
-          }
-        },
-        "text": {
-          "type": "text",
-          "settings": {
-            "text": "A handpicked selection of the world’s finest running brands - designed for performance, crafted with style.",
-            "text_style": "body"
-          }
-        },
-        "button": {
-          "type": "buttons",
-          "settings": {
-            "button_label_1": "Shop all",
-            "button_link_1": "shopify://collections/all",
-            "button_style_secondary_1": true,
-            "button_label_2": "",
-            "button_link_2": "",
-            "button_style_secondary_2": false
-          }
-        }
-      },
-      "block_order": [
-        "heading",
-        "text",
-        "button"
-      ],
-      "settings": {
-        "image_overlay_opacity": 40,
-        "image_height": "large",
-        "image_behavior": "none",
-        "desktop_content_position": "bottom-left",
-        "desktop_content_alignment": "left",
-        "show_text_box": false,
-        "color_scheme": "scheme-3",
-        "stack_images_on_mobile": false,
-        "mobile_content_alignment": "center",
-        "show_text_below": false,
-        "banner_content_id": "home__banner--custom"
       }
     },
     "featured_collection": {
@@ -118,9 +67,5 @@
       }
     }
   },
-  "order": [
-    "image_banner_slider",
-    "image_banner",
-    "featured_collection"
-  ]
+  "order": ["image_banner_slider", "featured_collection"]
 }
