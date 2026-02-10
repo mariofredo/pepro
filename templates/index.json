@@ -26,13 +26,21 @@
         "slide_1": {
           "type": "slide",
           "settings": {
-            "image": "shopify://shop_images/home_banner.jpg"
+            "image": "shopify://shop_images/home_banner.jpg",
+            "heading": "BUILT FOR THE RUN.",
+            "text": "A handpicked selection of the world’s finest running brands - designed for performance, crafted with style.",
+            "button_text": "See more",
+            "button_link": "https://google.com"
           }
         },
         "slide_2": {
           "type": "slide",
           "settings": {
-            "image": "shopify://shop_images/home_banner.jpg"
+            "image": "shopify://shop_images/home_banner.jpg",
+            "heading": "BUILT FOR THE RUN.",
+            "text": "A handpicked selection of the world’s finest running brands - designed for performance, crafted with style.",
+            "button_text": "See more",
+            "button_link": "https://google.com"
           }
         }
       },
