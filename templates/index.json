@@ -11,22 +11,11 @@
   "sections": {
     "image_banner_slider": {
       "type": "image-banner-slider",
-      "settings": {
-        "autoplay": true,
-        "autoplay_speed": 4000,
-        "show_dots": true,
-        "show_arrows": false,
-        "infinite_loop": true,
-        "image_height": "medium",
-        "color_scheme": "scheme-1",
-        "padding_top": 0,
-        "padding_bottom": 0
-      },
       "blocks": {
         "slide_1": {
           "type": "slide",
           "settings": {
-            "image": "shopify://shop_images/home_banner.jpg",
+            "image": "shopify://shop_images/model-with-leather-jacket-over-shoulders.jpg",
             "heading": "BUILT FOR THE RUN.",
             "text": "A handpicked selection of the world’s finest running brands - designed for performance, crafted with style.",
             "button_text": "See more",
@@ -36,7 +25,7 @@
         "slide_2": {
           "type": "slide",
           "settings": {
-            "image": "shopify://shop_images/home_banner.jpg",
+            "image": "shopify://shop_images/business-man-checks-mobile.jpg",
             "heading": "BUILT FOR THE RUN.",
             "text": "A handpicked selection of the world’s finest running brands - designed for performance, crafted with style.",
             "button_text": "See more",
@@ -44,7 +33,13 @@
           }
         }
       },
-      "block_order": ["slide_1", "slide_2"]
+      "block_order": [
+        "slide_1",
+        "slide_2"
+      ],
+      "settings": {
+        "autoplay": true
+      }
     },
     "image_banner": {
       "type": "image-banner",
@@ -75,9 +70,12 @@
           }
         }
       },
-      "block_order": ["heading", "text", "button"],
+      "block_order": [
+        "heading",
+        "text",
+        "button"
+      ],
       "settings": {
-        "image": "shopify://shop_images/home_banner.jpg",
         "image_overlay_opacity": 40,
         "image_height": "large",
         "image_behavior": "none",
@@ -120,5 +118,9 @@
       }
     }
   },
-  "order": ["image_banner_slider", "image_banner", "featured_collection"]
+  "order": [
+    "image_banner_slider",
+    "image_banner",
+    "featured_collection"
+  ]
 }
