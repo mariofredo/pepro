@@ -33,7 +33,10 @@
           }
         }
       },
-      "block_order": ["slide_1", "slide_2"],
+      "block_order": [
+        "slide_1",
+        "slide_2"
+      ],
       "settings": {
         "autoplay": true
       }
@@ -48,10 +51,20 @@
     "curated_brands": {
       "type": "curated-brands",
       "settings": {
-        "heading": "CURATED BRANDS"
+        "brands": [
+          "deals-steals",
+          "district-vision",
+          "maurten",
+          "loewe",
+          "near-earth",
+          "nike"
+        ]
       }
     }
   },
-
-  "order": ["image_banner_slider", "new_arrival_product", "curated_brands"]
+  "order": [
+    "image_banner_slider",
+    "new_arrival_product",
+    "curated_brands"
+  ]
 }
