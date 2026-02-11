@@ -33,7 +33,10 @@
           }
         }
       },
-      "block_order": ["slide_1", "slide_2"],
+      "block_order": [
+        "slide_1",
+        "slide_2"
+      ],
       "settings": {
         "autoplay": true
       }
@@ -41,9 +44,13 @@
     "new_arrival_product": {
       "type": "new-arrival-product",
       "settings": {
-        "heading": "NEW ARRIVALS"
+        "heading": "NEW ARRIVALS",
+        "collection": "247-represent"
       }
     }
   },
-  "order": ["image_banner_slider", "new_arrival_product"]
+  "order": [
+    "image_banner_slider",
+    "new_arrival_product"
+  ]
 }
