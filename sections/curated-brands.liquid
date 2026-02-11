@@ -1,0 +1,41 @@
+{{ 'curated-brands.css' | asset_url | stylesheet_tag }}
+<section class="curated_products_ctr">
+  <ul class="curated_product_images">
+    {% for brand in section.settings.brands %}
+      <li class="curated_product_item">
+        {{ brand.image | image_url: width: 400 | image_tag }}
+      </li>
+    {% endfor %}
+  </ul>
+  <div class="curated_product_names_box">
+    <span>CURATED BRANDS</span>
+    <ul class="curated_product_names">
+      {% for brand in section.settings.brands %}
+        <li>
+          <p class="curated_product_name">{{ brand.name }}</p>
+        </li>
+      {% endfor %}
+    </ul>
+  </div>
+</section>
+
+{%  schema  %} 
+{
+  "name": "Curated Brands",
+  "settings": [
+    {
+      "type": "collection_list",
+      "id": "brands",
+      "label": "Brands",
+      "info": "Add brand images and names to showcase curated brands.",
+      "limit": 6
+      
+    }
+  ],
+  "presets": [
+    {
+      "name": "Curated Brands"
+    }
+  ]
+}
+{% endschema %} 

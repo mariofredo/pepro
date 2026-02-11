@@ -33,10 +33,7 @@
           }
         }
       },
-      "block_order": [
-        "slide_1",
-        "slide_2"
-      ],
+      "block_order": ["slide_1", "slide_2"],
       "settings": {
         "autoplay": true
       }
@@ -47,10 +44,14 @@
         "heading": "NEW ARRIVALS",
         "collection": "247-represent"
       }
+    },
+    "curated_brands": {
+      "type": "curated-brands",
+      "settings": {
+        "heading": "CURATED BRANDS"
+      }
     }
   },
-  "order": [
-    "image_banner_slider",
-    "new_arrival_product"
-  ]
+
+  "order": ["image_banner_slider", "new_arrival_product", "curated_brands"]
 }
