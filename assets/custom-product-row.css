@@ -1,0 +1,62 @@
+@charset "UTF-8";
+.product-row {
+  padding: 40px 0;
+}
+
+.product-row__header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+.product-row__header h2 {
+  font-size: 24px;
+  font-weight: 700;
+  color: #000;
+}
+.product-row__header .product-row__view-all {
+  font-size: 14px;
+  text-decoration: underline;
+  color: #000;
+  font-weight: 500;
+}
+
+.product-row__scroll {
+  overflow-x: auto;
+  -webkit-overflow-scrolling: touch;
+}
+
+.product-row__list {
+  display: flex;
+  flex-wrap: nowrap; /* ❗ penting */
+  gap: 24px;
+  width: -moz-max-content;
+  width: max-content; /* ❗ biar bisa overflow */
+  padding-bottom: 8px;
+}
+
+.product-row__item {
+  flex: 0 0 auto; /* ❗ jangan shrink */
+  width: 220px; /* card width */
+}
+
+.product-row__item img {
+  width: 100%;
+  height: auto;
+  display: block;
+}
+
+.product-row__scroll::-webkit-scrollbar {
+  display: none;
+}
+
+.product-row__scroll {
+  scrollbar-width: none;
+}
+
+.product-row__list {
+  scroll-snap-type: x mandatory;
+}
+
+.product-row__item {
+  scroll-snap-align: start;
+}/*# sourceMappingURL=custom-product-row.css.map */
