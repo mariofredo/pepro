@@ -41,6 +41,15 @@
 .curated_product_names_box .curated_product_names_wrapper .curated_product_names .curated_product_name.active {
   color: black;
 }
+.curated_product_names_box .curated_product_names_wrapper .curated_product_discover {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  color: #fff;
+  font-weight: 500;
+  font-size: 12px;
+  margin-top: 32px;
+}
 
 .curated_product_images {
   width: 100%;

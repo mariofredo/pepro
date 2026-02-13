@@ -1,5 +1,5 @@
 {{ 'curated-brands.css' | asset_url | stylesheet_tag }}
-<section class="curated_products_ctr">
+<div class="curated_products_ctr">
   <ul class="curated_product_images">
     {% for brand in section.settings.brands %}
       <li class="curated_product_item">
@@ -21,9 +21,10 @@
           </li>
         {% endfor %}
       </ul>
+      <a class="curated_product_discover" href="">DISCOVER <img src="{{ 'icon-white-arrow-right.svg' |  asset_url }}" width="20" height="20" alt=""></a>
     </div>
   </div>
-</section>
+</div>
 
 <script>
   document.addEventListener("DOMContentLoaded", function() {
