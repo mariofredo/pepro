@@ -56,6 +56,32 @@
         color: #000;
         text-decoration: underline;
       }
+      .pepro_more_information {
+        h3 {
+          font-size: 16px;
+          font-weight: 500;
+          margin-bottom: 12px;
+        }
+        ul,
+        ol {
+          list-style: none;
+          margin-bottom: 20px;
+          &:last-child {
+            margin-bottom: 0;
+          }
+          li {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            font-size: 12px;
+            color: #000;
+            margin-bottom: 8px;
+            &:last-child {
+              margin-bottom: 0;
+            }
+          }
+        }
+      }
     }
   }
   .pepro_footer_bottom {
