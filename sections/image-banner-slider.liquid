@@ -1,7 +1,8 @@
 {{ 'component-slider.css' | asset_url | stylesheet_tag }}
 {{ 'custom-image-banner-slider.css' | asset_url | stylesheet_tag }}
 
-<slider-component class="slider-mobile-gutter">
+<slider-component class="slider-mobile-gutter image-banner-slider"
+  {% if section.settings.autoplay %} autoplay {% endif %}>
   <ul class="slider slider--everywhere" role="list">
     {% for block in section.blocks %}
       <li class="slider__slide" {{ block.shopify_attributes }}>
