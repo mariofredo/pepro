@@ -26,9 +26,9 @@
 
 .product-row__list {
   display: flex;
-  flex-wrap: nowrap; /* ❗ penting */
+  flex-wrap: nowrap;
   gap: 24px;
-  width: max-content; /* ❗ biar bisa overflow */
+  width: max-content;
   padding-bottom: 8px;
   list-style-type: none;
   .product-row__item {
