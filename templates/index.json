@@ -52,9 +52,11 @@
       "type": "curated-brands",
       "settings": {
         "brands": [
-          "maurten",
+          "nike",
+          "247-represent",
+          "bandit",
           "loewe",
-          "nike"
+          "editor-picks"
         ]
       }
     }
