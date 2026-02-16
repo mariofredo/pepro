@@ -1,12 +1,13 @@
 {{ 'curated-brands.css' | asset_url | stylesheet_tag }}
+
 <div class="curated_products_ctr">
   <ul class="curated_product_images">
     {% for brand in section.settings.brands %}
       <li class="curated_product_item">
-        <img src="{{ brand.image | image_url: width: 400, height: 400 }}" 
+        <img src="{{ brand.metafields.custom.banner_image | image_url: width: 1920, height: 1080 }}" 
           alt="lalalala"
-          width="400"
-          height="400"
+          width="1920"
+          height="1080"
         />
       </li>
     {% endfor %}
