@@ -4,11 +4,13 @@
   <ul class="curated_product_images">
     {% for brand in section.settings.brands %}
       <li class="curated_product_item">
-        <img src="{{ brand.metafields.custom.banner_image | image_url: width: 1920, height: 1080 }}" 
-          alt="lalalala"
-          width="1920"
-          height="1080"
-        />
+        <div>
+          <img src="{{ brand.metafields.custom.banner_image | image_url: width: 1920, height: 1080 }}" 
+            alt="lalalala"
+            width="1920"
+            height="1080"
+          />
+        </div>
       </li>
     {% endfor %}
   </ul>

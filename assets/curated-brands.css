@@ -1,5 +1,4 @@
 .curated_products_ctr {
-  padding: 40px 0;
   display: grid;
   grid-template-columns: repeat(1, minmax(0, 1fr));
   position: relative;
@@ -17,8 +16,9 @@
   flex-direction: column;
   align-items: center;
   position: sticky;
-  margin-top: 30vh;
-  top: 30vh;
+  margin-top: 25dvh;
+  margin-bottom: 25dvh;
+  top: 25dvh;
   z-index: 10;
 }
 .curated_product_names_box .curated_product_names_wrapper .curated_product_names_text {
@@ -58,11 +58,15 @@
   grid-row-start: 1;
   grid-column-end: 2;
   grid-column-start: 1;
+  overflow: hidden;
+}
+.curated_product_images li {
+  width: 100%;
+  height: 100dvh;
 }
 .curated_product_images li img {
   width: 100%;
-  height: auto;
-  aspect-ratio: 16/9;
+  height: 100%;
   -o-object-fit: cover;
      object-fit: cover;
 }/*# sourceMappingURL=curated-brands.css.map */
