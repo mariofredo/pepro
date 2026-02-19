@@ -47,7 +47,11 @@
   {%- endif -%}
 
   {% if section.settings.image_zoom == 'hover' %}
-    <script id="EnableZoomOnHover-main" src="{{ 'magnify.js' | asset_url }}" defer="defer"></script>
+    <script
+      id="EnableZoomOnHover-main"
+      src="{{ 'magnify.js' | asset_url }}"
+      defer="defer"
+    ></script>
   {% endif %}
   {%- if request.design_mode -%}
     <script src="{{ 'theme-editor.js' | asset_url }}" defer="defer"></script>
@@ -76,7 +80,35 @@
   <div class="custom-main-product">
     <div class="product product--{{ section.settings.media_size }} product--{{ section.settings.media_position }} product--{{ section.settings.gallery_layout }} product--mobile-{{ section.settings.mobile_thumbnails }} grid grid--1-col {% if product.media.size > 0 %}grid--2-col-tablet{% else %}product--no-media{% endif %}">
       <div class="grid__item product__media-wrapper">
-        {% render 'product-media-gallery', variant_images: variant_images %}
+        {% comment %} {% render 'product-media-gallery', variant_images: variant_images %} {% endcomment %}
+        {% comment %} START OF SECTION IMAGE VARIANT PREVIEW {% endcomment %}
+        <div class="tw:grid tw:grid-cols-4 tw:gap-4">
+          <div class="tw:col-span-1 tw:max-h-dvh tw:overflow-y-auto tw:flex tw:flex-col tw:gap-4">
+            {%- for image in product.images -%}
+              <div class="tw:border tw:border-gray-200 tw:opacity-50 product-thumb" data-image-id="{{ image.id }}">
+                <img
+                  src="{{ image.src | image_url: width: 600, height: 600 }}"
+                  alt="{{ image.alt | escape }}"
+                  width="600"
+                  height="600"
+                  class="tw:object-cover tw:h-full tw:w-full tw:aspect-square"
+                >
+              </div>
+            {%- endfor -%}
+          </div>
+          <div class="tw:col-span-3 tw:max-h-dvh">
+            <img
+              id="MainProductImage"
+              data-image-id="{{ product.featured_image.id }}"
+              src="{{ product.featured_image | image_url: width: 1200, height: 1200 }}"
+              alt="{{ product.featured_image.alt | escape }}"
+              width="1200"
+              height="1200"
+              class="tw:object-cover tw:h-auto tw:w-full tw:aspect-square"
+            >
+          </div>
+        </div>
+        {% comment %} END OF SECTION IMAGE VARIANT PREVIEW {% endcomment %}
       </div>
       <div class="product__info-wrapper grid__item{% if settings.page_width > 1400 and section.settings.media_size == "small" %} product__info-wrapper--extra-padding{% endif %}{% if settings.animations_reveal_on_scroll %} scroll-trigger animate--slide-in{% endif %}">
         <section
@@ -106,7 +138,11 @@
                   </a>
                 </div>
               {%- when 'price' -%}
-                <div id="price-{{ section.id }}" role="status" {{ block.shopify_attributes }}>
+                <div
+                  id="price-{{ section.id }}"
+                  role="status"
+                  {{ block.shopify_attributes }}
+                >
                   {%- render 'price',
                     product: product,
                     use_variant: true,
@@ -136,7 +172,11 @@
                 <div {{ block.shopify_attributes }}>
                   {%- assign product_form_installment_id = 'product-form-installment-' | append: section.id -%}
                   {%- form 'product', product, id: product_form_installment_id, class: 'installment caption-large' -%}
-                    <input type="hidden" name="id" value="{{ product.selected_or_first_available_variant.id }}">
+                    <input
+                      type="hidden"
+                      name="id"
+                      value="{{ product.selected_or_first_available_variant.id }}"
+                    >
                     {{ form | payment_terms }}
                   {%- endform -%}
                 </div>
@@ -262,8 +302,16 @@
                     </span>
                   </label>
                   <div class="price-per-item__container">
-                    <quantity-input class="quantity" data-url="{{ product.url }}" data-section="{{ section.id }}">
-                      <button class="quantity__button" name="minus" type="button">
+                    <quantity-input
+                      class="quantity"
+                      data-url="{{ product.url }}"
+                      data-section="{{ section.id }}"
+                    >
+                      <button
+                        class="quantity__button"
+                        name="minus"
+                        type="button"
+                      >
                         <span class="visually-hidden">
                           {{- 'products.product.quantity.decrease' | t: product: product.title | escape -}}
                         </span>
@@ -287,7 +335,11 @@
                         value="{{ product.selected_or_first_available_variant.quantity_rule.min }}"
                         form="{{ product_form_id }}"
                       >
-                      <button class="quantity__button" name="plus" type="button">
+                      <button
+                        class="quantity__button"
+                        name="plus"
+                        type="button"
+                      >
                         <span class="visually-hidden">
                           {{- 'products.product.quantity.increase' | t: product: product.title | escape -}}
                         </span>
@@ -429,8 +481,8 @@
                             <li class="{%- if forloop.index >= 3 -%}show-more-item hidden{%- endif -%}">
                               <span>
                                 {{- price_break.minimum_quantity -}}
-                                <span aria-hidden="true">+</span></span
-                              >
+                                <span aria-hidden="true">+</span>
+                              </span>
                               <span data-text="{{ 'products.product.volume_pricing.price_at_each_html' | t: price: price_break_price }}">
                                 {{- 'sections.quick_order_list.each' | t: money: price_break_price -}}
                               </span>
@@ -444,8 +496,9 @@
                               id="Show-More-{{ section.id }}"
                               type="button"
                             >
-                              <span class="label-show-more label-text"
-                                ><span aria-hidden="true">+ </span>{{ 'products.facets.show_more' | t }}
+                              <span class="label-show-more label-text">
+                                <span aria-hidden="true">+ </span>
+                                {{ 'products.facets.show_more' | t -}}
                               </span>
                             </button>
                           </show-more-button>
@@ -542,19 +595,17 @@
                         {%- if block.settings.make_collapsible_row -%}
                           <details id="Details-{{ block.id }}-{{ section.id }}" open>
                             <summary>
-                        {%- endif %}
-                        <div class="summary__title">
-                          {%- if block.settings.make_collapsible_row -%}
-                            {% render 'icon-accordion', icon: block.settings.icon %}
+                              <div class="summary__title">
+                                {% render 'icon-accordion', icon: block.settings.icon %}
+                                <h2 class="h4 accordion__title">{{ block.settings.block_heading }}</h2>
+                              </div>
+                              {{- 'icon-caret.svg' | inline_asset_content -}}
+                            </summary>
+                        {%- else -%}
+                          <div class="summary__title">
                             <h2 class="h4 accordion__title">{{ block.settings.block_heading }}</h2>
-                          {%- else -%}
-                            <h2 class="h3 accordion__title">{{ block.settings.block_heading }}</h2>
-                          {%- endif -%}
-                        </div>
-                        {%- if block.settings.make_collapsible_row -%}
-                          {{- 'icon-caret.svg' | inline_asset_content -}}
-                          </summary>
-                        {%- endif -%}
+                          </div>
+                        {%- endif %}
                         <slideshow-component class="slider-mobile-gutter">
                           {%- assign number_of_slides = recommendations.products_count
                             | plus: 0.0
@@ -688,7 +739,11 @@
 
     {% assign popups = section.blocks | where: 'type', 'popup' %}
     {%- for block in popups -%}
-      <modal-dialog id="PopupModal-{{ block.id }}" class="product-popup-modal" {{ block.shopify_attributes }}>
+      <modal-dialog
+        id="PopupModal-{{ block.id }}"
+        class="product-popup-modal"
+        {{ block.shopify_attributes }}
+      >
         <div
           role="dialog"
           aria-label="{{ block.settings.text }}"
@@ -737,6 +792,53 @@
     </script>
   </div>
 </product-info>
+
+<script>
+  document.addEventListener('DOMContentLoaded', () => {
+    const mainImage = document.getElementById('MainProductImage');
+    const thumbs = document.querySelectorAll('.product-thumb');
+
+    function setActiveThumb(imageId) {
+      thumbs.forEach((t) => {
+        if (t.dataset.imageId === imageId) {
+          t.classList.remove('tw:opacity-50');
+          t.classList.add('tw:opacity-100');
+        } else {
+          t.classList.remove('tw:opacity-100');
+          t.classList.add('tw:opacity-50');
+        }
+      });
+    }
+
+    // klik thumbnail → update main image
+    thumbs.forEach((t) => {
+      t.addEventListener('click', () => {
+        const img = t.querySelector('img');
+        mainImage.src = img.src;
+        mainImage.dataset.imageId = t.dataset.imageId;
+        setActiveThumb(t.dataset.imageId);
+      });
+    });
+
+    // saat variant berubah (event Dawn)
+    document.addEventListener('variant:change', (e) => {
+      const variant = e.detail.variant;
+      if (!variant || !variant.featured_media) return;
+
+      const imageId = String(variant.featured_media.id);
+      setActiveThumb(imageId);
+
+      // update main image juga
+      mainImage.src = variant.featured_media.preview_image.src;
+      mainImage.dataset.imageId = imageId;
+    });
+
+    // init pertama
+    if (mainImage) {
+      setActiveThumb(mainImage.dataset.imageId);
+    }
+  });
+</script>
 
 {% schema %}
 {
