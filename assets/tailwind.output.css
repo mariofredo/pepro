@@ -224,6 +224,9 @@
   .tw\:mt-20 {
     margin-top: calc(var(--tw-spacing) * 20);
   }
+  .tw\:mb-0\! {
+    margin-bottom: calc(var(--tw-spacing) * 0) !important;
+  }
   .tw\:mb-5 {
     margin-bottom: calc(var(--tw-spacing) * 5);
   }
@@ -268,6 +271,9 @@
   }
   .tw\:w-full {
     width: 100%;
+  }
+  .tw\:w-full\! {
+    width: 100% !important;
   }
   .tw\:max-w-2xl {
     max-width: var(--tw-container-2xl);
@@ -358,6 +364,9 @@
   }
   .tw\:p-8 {
     padding: calc(var(--tw-spacing) * 8);
+  }
+  .tw\:px-5\! {
+    padding-inline: calc(var(--tw-spacing) * 5) !important;
   }
   .tw\:text-center {
     text-align: center;
