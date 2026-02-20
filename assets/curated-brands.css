@@ -21,6 +21,13 @@
   top: 25dvh;
   z-index: 10;
 }
+@media (max-width: 768px) {
+  .curated_product_names_box .curated_product_names_wrapper {
+    margin-top: 35dvh;
+    margin-bottom: 35dvh;
+    top: 35dvh;
+  }
+}
 .curated_product_names_box .curated_product_names_wrapper .curated_product_names_text {
   font-size: 12px;
   font-weight: 500;
@@ -33,6 +40,11 @@
   font-weight: 700;
   text-align: center;
   list-style-type: none;
+}
+@media (max-width: 768px) {
+  .curated_product_names_box .curated_product_names_wrapper .curated_product_names {
+    font-size: 32px;
+  }
 }
 .curated_product_names_box .curated_product_names_wrapper .curated_product_names .curated_product_name {
   transition: color 0.3s ease;
