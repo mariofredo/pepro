@@ -213,6 +213,9 @@
   .tw\:col-span-3 {
     grid-column: span 3 / span 3;
   }
+  .tw\:my-10\! {
+    margin-block: calc(var(--tw-spacing) * 10) !important;
+  }
   .tw\:mt-5 {
     margin-top: calc(var(--tw-spacing) * 5);
   }
