@@ -207,11 +207,17 @@
   .tw\:z-50 {
     z-index: 50;
   }
+  .tw\:order-2 {
+    order: 2;
+  }
   .tw\:col-span-1 {
     grid-column: span 1 / span 1;
   }
   .tw\:col-span-3 {
     grid-column: span 3 / span 3;
+  }
+  .tw\:mx-auto\! {
+    margin-inline: auto !important;
   }
   .tw\:my-10\! {
     margin-block: calc(var(--tw-spacing) * 10) !important;
@@ -294,6 +300,9 @@
   .tw\:max-w-4xl {
     max-width: var(--tw-container-4xl);
   }
+  .tw\:max-w-\[540px\]\! {
+    max-width: 540px !important;
+  }
   .tw\:max-w-full\! {
     max-width: 100% !important;
   }
@@ -319,6 +328,9 @@
   }
   .tw\:grid-flow-col-dense {
     grid-auto-flow: column dense;
+  }
+  .tw\:grid-cols-2 {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
   }
   .tw\:grid-cols-4 {
     grid-template-columns: repeat(4, minmax(0, 1fr));
@@ -360,6 +372,9 @@
   .tw\:bg-\[\#0247B1\]\! {
     background-color: #0247B1 !important;
   }
+  .tw\:bg-\[\#0247b1\] {
+    background-color: #0247b1;
+  }
   .tw\:bg-black {
     background-color: var(--tw-color-black);
   }
@@ -387,6 +402,9 @@
   .tw\:p-8\! {
     padding: calc(var(--tw-spacing) * 8) !important;
   }
+  .tw\:p-10 {
+    padding: calc(var(--tw-spacing) * 10);
+  }
   .tw\:px-4\! {
     padding-inline: calc(var(--tw-spacing) * 4) !important;
   }
@@ -399,8 +417,14 @@
   .tw\:py-2\! {
     padding-block: calc(var(--tw-spacing) * 2) !important;
   }
+  .tw\:pt-5\! {
+    padding-top: calc(var(--tw-spacing) * 5) !important;
+  }
   .tw\:pb-0\! {
     padding-bottom: calc(var(--tw-spacing) * 0) !important;
+  }
+  .tw\:pb-5\! {
+    padding-bottom: calc(var(--tw-spacing) * 5) !important;
   }
   .tw\:text-center {
     text-align: center;
