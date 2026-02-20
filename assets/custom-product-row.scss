@@ -1,5 +1,8 @@
 .product-row {
-  padding: 40px 5rem;
+  padding: 40px 20px;
+  @media (max-width: 768px) {
+    padding: 20px;
+  }
 }
 
 .product-row__header {

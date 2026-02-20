@@ -1,0 +1,143 @@
+{% comment %}
+  Renders a size chart drawer.
+  Accepts:
+  - product: {Object} product object.
+  - collection: {Object} collection object.
+  - size_chart: {Object} size_chart object.
+  Usage:
+  {% render 'size-chart', product: product, collection: product.collections.first, size_chart: product.collections.metafields.custom.size_chart %}
+{% endcomment %}
+
+<size-chart-drawer id="size-chart-drawer" class="tw:fixed tw:inset-0 tw:z-50 tw:pointer-events-none">
+  <!-- overlay -->
+  <div
+    class="tw:absolute tw:inset-0 tw:bg-black/40 tw:backdrop-blur-sm tw:opacity-0 tw:transition-opacity tw:duration-300"
+    data-overlay
+    data-size-chart-drawer-close
+  ></div>
+
+  <!-- panel -->
+  <div
+    class="
+      tw:absolute tw:top-0 tw:right-0 tw:h-full tw:w-full tw:max-w-4xl
+      tw:bg-white tw:shadow-xl tw:overflow-y-auto
+        tw:translate-x-full tw:transition-transform tw:duration-300
+        tw:p-8
+    "
+    data-panel
+  >
+    <div class="tw:flex tw:items-center tw:justify-between tw:mb-5">
+      <h2 class="tw:text-3xl! tw:font-bold!">SIZE CHART</h2>
+      <button class="tw:cursor-pointer tw:w-20 tw:h-20" data-size-chart-drawer-close>✕</button>
+    </div>
+    <h2 class="tw:text-3xl! tw:font-bold! tw:mb-5">
+      {{ collection.title }}
+    </h2>
+
+    <div class="tw:flex tw:flex-col tw:gap-5">
+      {% if size_chart %}
+        {% if size_chart.tshirts %}
+          <div class="tw:flex tw:flex-col tw:gap-5">
+            <h2 class="tw:text-[18px]! tw:font-normal!">T-Shirt</h2>
+            <table class="tw:w-full">
+              <thead>
+                <tr>
+                  <th class="tw:text-left tw:text-white tw:font-bold tw:bg-black tw:p-4">Size</th>
+                  <th class="tw:text-left tw:text-white tw:font-bold tw:bg-black tw:p-4">Chest</th>
+                  <th class="tw:text-left tw:text-white tw:font-bold tw:bg-black tw:p-4">Waist</th>
+                  <th class="tw:text-left tw:text-white tw:font-bold tw:bg-black tw:p-4">Hips</th>
+                </tr>
+              </thead>
+              <tbody>
+                {% for item in size_chart.tshirts %}
+                  <tr>
+                    <td>
+                      <h3 class="tw:font-bold! tw:p-4 tw:text-center tw:text-black!">{{ item.title }}</h3>
+                    </td>
+                    <td>
+                      <p class="tw:p-4">{{ item.chest }}</p>
+                    </td>
+                    <td>
+                      <p class="tw:p-4">{{ item.waist }}</p>
+                    </td>
+                    <td>
+                      <p class="tw:p-4">{{ item.hips }}</p>
+                    </td>
+                  </tr>
+                {% endfor %}
+              </tbody>
+            </table>
+          </div>
+        {% endif %}
+        {% if size_chart.hoodies %}
+          <div class="tw:flex tw:flex-col tw:gap-5">
+            <h2 class="tw:text-[18px]! tw:font-normal!">Hoodies</h2>
+            <table class="tw:w-full">
+              <thead>
+                <tr>
+                  <th class="tw:text-left tw:text-white tw:font-bold tw:bg-black tw:p-4">Size</th>
+                  <th class="tw:text-left tw:text-white tw:font-bold tw:bg-black tw:p-4">Chest</th>
+                  <th class="tw:text-left tw:text-white tw:font-bold tw:bg-black tw:p-4">Waist</th>
+                  <th class="tw:text-left tw:text-white tw:font-bold tw:bg-black tw:p-4">Hips</th>
+                </tr>
+              </thead>
+              <tbody>
+                {% for item in size_chart.hoodies %}
+                  <tr>
+                    <td>
+                      <h3 class="tw:font-bold! tw:p-4 tw:text-center tw:text-black!">{{ item.title }}</h3>
+                    </td>
+                    <td>
+                      <p class="tw:p-4">{{ item.chest }}</p>
+                    </td>
+                    <td>
+                      <p class="tw:p-4">{{ item.waist }}</p>
+                    </td>
+                    <td>
+                      <p class="tw:p-4">{{ item.hips }}</p>
+                    </td>
+                  </tr>
+                {% endfor %}
+              </tbody>
+            </table>
+          </div>
+        {% endif %}
+        {% if size_chart.shorts %}
+          <div class="tw:flex tw:flex-col tw:gap-5">
+            <h2 class="tw:text-[18px]! tw:font-normal!">Shorts</h2>
+            <table class="tw:w-full">
+              <thead>
+                <tr>
+                  <th class="tw:text-left tw:text-white tw:font-bold tw:bg-black tw:p-4">Size</th>
+                  <th class="tw:text-left tw:text-white tw:font-bold tw:bg-black tw:p-4">Chest</th>
+                  <th class="tw:text-left tw:text-white tw:font-bold tw:bg-black tw:p-4">Waist</th>
+                  <th class="tw:text-left tw:text-white tw:font-bold tw:bg-black tw:p-4">Hips</th>
+                </tr>
+              </thead>
+              <tbody>
+                {% for item in size_chart.shorts %}
+                  <tr>
+                    <td>
+                      <h3 class="tw:font-bold! tw:p-4 tw:text-center tw:text-black!">{{ item.title }}</h3>
+                    </td>
+                    <td>
+                      <p class="tw:p-4">{{ item.chest }}</p>
+                    </td>
+                    <td>
+                      <p class="tw:p-4">{{ item.waist }}</p>
+                    </td>
+                    <td>
+                      <p class="tw:p-4">{{ item.hips }}</p>
+                    </td>
+                  </tr>
+                {% endfor %}
+              </tbody>
+            </table>
+          </div>
+        {% endif %}
+      {% else %}
+        <p class="tw-text-gray-500">No size chart available.</p>
+      {% endif %}
+    </div>
+  </div>
+</size-chart-drawer>
