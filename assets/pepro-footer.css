@@ -4,6 +4,12 @@
   gap: 20px;
   padding: 40px 20px;
 }
+@media (max-width: 768px) {
+  .pepro_footer .pepro_footer_top {
+    grid-template-columns: 1fr;
+    padding: 20px;
+  }
+}
 .pepro_footer .pepro_footer_top .pepro_footer_top_item .pepro_join_rewards {
   display: flex;
   align-items: center;
