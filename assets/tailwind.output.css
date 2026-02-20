@@ -411,6 +411,12 @@
   .tw\:text-\[18px\]\! {
     font-size: 18px !important;
   }
+  .tw\:text-\[20px\] {
+    font-size: 20px;
+  }
+  .tw\:text-\[20px\]\! {
+    font-size: 20px !important;
+  }
   .tw\:font-bold {
     --tw-font-weight: var(--tw-font-weight-bold);
     font-weight: var(--tw-font-weight-bold);
