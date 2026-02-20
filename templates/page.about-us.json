@@ -9,29 +9,26 @@
  */
 {
   "sections": {
-    "top-content-about-us": {
-      "type": "custom-top-content-about-us",
-      "settings": {
-        "padding_top": 28,
-        "padding_bottom": 28,
-        "image": ""
-      }
-    },
     "main": {
       "type": "custom-main-page",
       "settings": {
-        "padding_top": 28,
-        "padding_bottom": 28
+        "padding_top": 0,
+        "padding_bottom": 0
       }
     },
-    "bottom-content-about-us": {
-      "type": "custom-bottom-content-about-us",
+    "form": {
+      "type": "custom-contact-form",
       "settings": {
-        "padding_top": 28,
-        "padding_bottom": 28,
-        "image": ""
+        "heading": "",
+        "heading_size": "h1",
+        "color_scheme": "scheme-1",
+        "padding_top": 20,
+        "padding_bottom": 20
       }
     }
   },
-  "order": ["top-content-about-us", "main", "bottom-content-about-us"]
+  "order": [
+    "main",
+    "form"
+  ]
 }
