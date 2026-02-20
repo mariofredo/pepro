@@ -53,9 +53,5 @@
       }
     }
   },
-  "order": [
-    "image_banner_cWtHyy",
-    "main",
-    "image_banner_3V6ELx"
-  ]
+  "order": ["image_banner_cWtHyy", "main", "image_banner_3V6ELx"]
 }
