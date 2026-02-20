@@ -4,12 +4,13 @@
   <ul class="curated_product_images">
     {% for brand in section.settings.brands %}
       <li class="curated_product_item">
-        <div>
+        <div class="tw:w-full tw:h-full">
           <img
             src="{{ brand.metafields.custom.banner_image | image_url: width: 1920, height: 1080 }}"
             alt="lalalala"
             width="1920"
-            height="1080" />
+            height="1080"
+          >
         </div>
       </li>
     {% endfor %}
@@ -24,53 +25,55 @@
           </li>
         {% endfor %}
       </ul>
-      <a class="curated_product_discover" href="">DISCOVER <img
+      <a class="curated_product_discover" href=""
+        >DISCOVER
+        <img
           src="{{ 'icon-white-arrow-right.svg' |  asset_url }}"
           width="20"
           height="20"
-          alt=""></a>
+          alt=""
+      ></a>
     </div>
   </div>
 </div>
 
 <script>
-  document.addEventListener("DOMContentLoaded", function() {
-      const brandSection = document.querySelectorAll('.curated_product_item')
-      const brandNames = document.querySelectorAll('.curated_product_name')
-      brandSection.forEach((section, index) => {
-        ScrollTrigger.create({
-          trigger: section,
-          start: "top center",
-          end: "bottom center",
-          // markers: true,
-          onToggle: (self) => {
-            if (self.isActive) {
-              brandNames.forEach(name => name.classList.remove('active'));
-              brandNames[index].classList.add('active');
-            }
-          },
-        });
+  document.addEventListener('DOMContentLoaded', function () {
+    const brandSection = document.querySelectorAll('.curated_product_item');
+    const brandNames = document.querySelectorAll('.curated_product_name');
+    brandSection.forEach((section, index) => {
+      ScrollTrigger.create({
+        trigger: section,
+        start: 'top center',
+        end: 'bottom center',
+        // markers: true,
+        onToggle: (self) => {
+          if (self.isActive) {
+            brandNames.forEach((name) => name.classList.remove('active'));
+            brandNames[index].classList.add('active');
+          }
+        },
       });
+    });
   });
 </script>
 
 {% schema %}
-  {
-    "name": "Curated Brands",
-    "settings": [
-      {
-        "type": "collection_list",
-        "id": "brands",
-        "label": "Brands",
-        "info": "Add brand images and names to showcase curated brands.",
-        "limit": 6
-
-      }
-    ],
-    "presets": [
-      {
-        "name": "Curated Brands"
-      }
-    ]
-  }
+{
+  "name": "Curated Brands",
+  "settings": [
+    {
+      "type": "collection_list",
+      "id": "brands",
+      "label": "Brands",
+      "info": "Add brand images and names to showcase curated brands.",
+      "limit": 6
+    }
+  ],
+  "presets": [
+    {
+      "name": "Curated Brands"
+    }
+  ]
+}
 {% endschema %}
