@@ -26,6 +26,7 @@
     --tw-font-weight-semibold: 600;
     --tw-font-weight-bold: 700;
     --tw-blur-sm: 8px;
+    --tw-aspect-video: 16 / 9;
     --tw-default-font-family: var(--tw-font-sans);
     --tw-default-mono-font-family: var(--tw-font-mono);
   }
@@ -250,6 +251,9 @@
   }
   .tw\:aspect-square {
     aspect-ratio: 1 / 1;
+  }
+  .tw\:aspect-video {
+    aspect-ratio: var(--tw-aspect-video);
   }
   .tw\:h-10 {
     height: calc(var(--tw-spacing) * 10);

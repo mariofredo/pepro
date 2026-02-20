@@ -9,15 +9,29 @@
  */
 {
   "sections": {
+    "top-content-about-us": {
+      "type": "custom-top-content-about-us",
+      "settings": {
+        "padding_top": 28,
+        "padding_bottom": 28,
+        "image": ""
+      }
+    },
     "main": {
-      "type": "main-page",
+      "type": "custom-main-page",
       "settings": {
         "padding_top": 28,
         "padding_bottom": 28
       }
+    },
+    "bottom-content-about-us": {
+      "type": "custom-bottom-content-about-us",
+      "settings": {
+        "padding_top": 28,
+        "padding_bottom": 28,
+        "image": ""
+      }
     }
   },
-  "order": [
-    "main"
-  ]
+  "order": ["top-content-about-us", "main", "bottom-content-about-us"]
 }
