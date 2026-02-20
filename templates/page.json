@@ -17,7 +17,7 @@
         "image_overlay_opacity": 0,
         "image_height": "medium",
         "image_behavior": "none",
-        "desktop_content_position": "middle-center",
+        "desktop_content_position": "bottom-center",
         "desktop_content_alignment": "center",
         "show_text_box": true,
         "color_scheme": "",
@@ -42,7 +42,7 @@
         "image_overlay_opacity": 0,
         "image_height": "medium",
         "image_behavior": "none",
-        "desktop_content_position": "middle-center",
+        "desktop_content_position": "top-center",
         "desktop_content_alignment": "center",
         "show_text_box": true,
         "color_scheme": "",
@@ -53,5 +53,9 @@
       }
     }
   },
-  "order": ["image_banner_cWtHyy", "main", "image_banner_3V6ELx"]
+  "order": [
+    "image_banner_cWtHyy",
+    "main",
+    "image_banner_3V6ELx"
+  ]
 }
