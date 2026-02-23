@@ -15,7 +15,7 @@
         "slide_1": {
           "type": "slide",
           "settings": {
-            "image": "shopify://shop_images/model-with-leather-jacket-over-shoulders.jpg",
+            "image": "shopify://shop_images/image_banner_home_1.jpg",
             "heading": "BUILT FOR THE RUN.",
             "text": "A handpicked selection of the world’s finest running brands - designed for performance, crafted with style.",
             "button_text": "See more",
@@ -25,7 +25,7 @@
         "slide_2": {
           "type": "slide",
           "settings": {
-            "image": "shopify://shop_images/business-man-checks-mobile.jpg",
+            "image": "shopify://shop_images/bottom-content-about-us-img.jpg",
             "heading": "BUILT FOR THE RUN.",
             "text": "A handpicked selection of the world’s finest running brands - designed for performance, crafted with style.",
             "button_text": "See more",
