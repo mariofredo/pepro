@@ -12,7 +12,7 @@
     "main": {
       "type": "custom-main-blog",
       "settings": {
-        "layout": "collage",
+        "layout": "grid",
         "show_image": true,
         "image_height": "medium",
         "show_date": true,
