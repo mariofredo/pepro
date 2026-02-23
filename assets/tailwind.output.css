@@ -190,6 +190,9 @@
   .tw\:absolute {
     position: absolute;
   }
+  .tw\:absolute\! {
+    position: absolute !important;
+  }
   .tw\:fixed {
     position: fixed;
   }
@@ -202,6 +205,21 @@
   .tw\:right-0 {
     right: calc(var(--tw-spacing) * 0);
   }
+  .tw\:bottom-0 {
+    bottom: calc(var(--tw-spacing) * 0);
+  }
+  .tw\:bottom-0\! {
+    bottom: calc(var(--tw-spacing) * 0) !important;
+  }
+  .tw\:bottom-2\! {
+    bottom: calc(var(--tw-spacing) * 2) !important;
+  }
+  .tw\:left-0\! {
+    left: calc(var(--tw-spacing) * 0) !important;
+  }
+  .tw\:left-2\! {
+    left: calc(var(--tw-spacing) * 2) !important;
+  }
   .tw\:z-50 {
     z-index: 50;
   }
@@ -210,6 +228,12 @@
   }
   .tw\:col-span-3 {
     grid-column: span 3 / span 3;
+  }
+  .tw\:m-0\! {
+    margin: calc(var(--tw-spacing) * 0) !important;
+  }
+  .tw\:my-0\! {
+    margin-block: calc(var(--tw-spacing) * 0) !important;
   }
   .tw\:my-10\! {
     margin-block: calc(var(--tw-spacing) * 10) !important;
@@ -223,11 +247,20 @@
   .tw\:mt-10\! {
     margin-top: calc(var(--tw-spacing) * 10) !important;
   }
+  .tw\:mt-auto {
+    margin-top: auto;
+  }
   .tw\:mb-0\! {
     margin-bottom: calc(var(--tw-spacing) * 0) !important;
   }
   .tw\:mb-5 {
     margin-bottom: calc(var(--tw-spacing) * 5);
+  }
+  .tw\:mb-5\! {
+    margin-bottom: calc(var(--tw-spacing) * 5) !important;
+  }
+  .tw\:mb-\[20px\]\! {
+    margin-bottom: 20px !important;
   }
   .tw\:block\! {
     display: block !important;
@@ -238,6 +271,15 @@
   .tw\:grid {
     display: grid;
   }
+  .tw\:grid\! {
+    display: grid !important;
+  }
+  .tw\:aspect-\[4\/3\] {
+    aspect-ratio: 4/3;
+  }
+  .tw\:aspect-\[6\/3\] {
+    aspect-ratio: 6/3;
+  }
   .tw\:aspect-square {
     aspect-ratio: 1 / 1;
   }
@@ -247,14 +289,38 @@
   .tw\:h-20 {
     height: calc(var(--tw-spacing) * 20);
   }
+  .tw\:h-\[400px\] {
+    height: 400px;
+  }
   .tw\:h-auto {
     height: auto;
+  }
+  .tw\:h-fit {
+    height: fit-content;
+  }
+  .tw\:h-fit\! {
+    height: fit-content !important;
   }
   .tw\:h-full {
     height: 100%;
   }
+  .tw\:h-full\! {
+    height: 100% !important;
+  }
   .tw\:max-h-dvh {
     max-height: 100dvh;
+  }
+  .tw\:min-h-\[300px\] {
+    min-height: 300px;
+  }
+  .tw\:min-h-\[400px\] {
+    min-height: 400px;
+  }
+  .tw\:min-h-\[460px\] {
+    min-height: 460px;
+  }
+  .tw\:min-h-\[600px\] {
+    min-height: 600px;
   }
   .tw\:w-20 {
     width: calc(var(--tw-spacing) * 20);
@@ -300,8 +366,17 @@
   .tw\:grid-cols-2 {
     grid-template-columns: repeat(2, minmax(0, 1fr));
   }
+  .tw\:grid-cols-3\! {
+    grid-template-columns: repeat(3, minmax(0, 1fr)) !important;
+  }
   .tw\:grid-cols-4 {
     grid-template-columns: repeat(4, minmax(0, 1fr));
+  }
+  .tw\:grid-cols-5 {
+    grid-template-columns: repeat(5, minmax(0, 1fr));
+  }
+  .tw\:grid-cols-5\! {
+    grid-template-columns: repeat(5, minmax(0, 1fr)) !important;
   }
   .tw\:flex-col {
     flex-direction: column;
@@ -324,6 +399,9 @@
   .tw\:gap-5 {
     gap: calc(var(--tw-spacing) * 5);
   }
+  .tw\:gap-\[20px\]\! {
+    gap: 20px !important;
+  }
   .tw\:overflow-hidden {
     overflow: hidden;
   }
@@ -343,6 +421,9 @@
   .tw\:bg-\[\#0247b1\] {
     background-color: #0247b1;
   }
+  .tw\:bg-\[\#0247b1\]\! {
+    background-color: #0247b1 !important;
+  }
   .tw\:bg-black {
     background-color: var(--tw-color-black);
   }
@@ -361,6 +442,9 @@
   .tw\:p-4 {
     padding: calc(var(--tw-spacing) * 4);
   }
+  .tw\:p-5\! {
+    padding: calc(var(--tw-spacing) * 5) !important;
+  }
   .tw\:p-8 {
     padding: calc(var(--tw-spacing) * 8);
   }
@@ -369,6 +453,9 @@
   }
   .tw\:p-10 {
     padding: calc(var(--tw-spacing) * 10);
+  }
+  .tw\:p-\[20px\]\! {
+    padding: 20px !important;
   }
   .tw\:px-5\! {
     padding-inline: calc(var(--tw-spacing) * 5) !important;
@@ -480,6 +567,11 @@
       grid-template-columns: repeat(1, minmax(0, 1fr));
     }
   }
+  .tw\:max-md\:grid-cols-2\! {
+    @media (width < 48rem) {
+      grid-template-columns: repeat(2, minmax(0, 1fr)) !important;
+    }
+  }
   .tw\:max-md\:flex-row {
     @media (width < 48rem) {
       flex-direction: row;
@@ -493,6 +585,11 @@
   .tw\:max-md\:px-5\! {
     @media (width < 48rem) {
       padding-inline: calc(var(--tw-spacing) * 5) !important;
+    }
+  }
+  .tw\:max-sm\:grid-cols-1\! {
+    @media (width < 40rem) {
+      grid-template-columns: repeat(1, minmax(0, 1fr)) !important;
     }
   }
   .tw\:\[\&\>ul\]\:list-disc {
