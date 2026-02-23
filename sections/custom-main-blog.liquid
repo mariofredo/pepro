@@ -17,7 +17,14 @@
 {%- endstyle -%}
 
 {%- paginate blog.articles by 6 -%}
-  <div class="main-blog page-width section-{{ section.id }}-padding">
+  <img
+    src="{{ section.settings.image | image_url: width: 1920, height: 1080, crop: 'center' }}"
+    class="tw:w-full tw:h-auto tw:aspect-video"
+    width="1920"
+    height="1080"
+    alt=""
+  >
+  <div class="main-blog tw:px-5! tx:w-full! section-{{ section.id }}-padding">
     <h1 class="title--primary{% if settings.animations_reveal_on_scroll %} scroll-trigger animate--fade-in{% endif %}">
       {{ blog.title | escape }}
     </h1>
@@ -56,6 +63,11 @@
   "tag": "section",
   "class": "section",
   "settings": [
+    {
+      "type": "image_picker",
+      "id": "image",
+      "label": "Banner Image"
+    },
     {
       "type": "select",
       "id": "layout",
