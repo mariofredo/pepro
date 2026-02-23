@@ -10,7 +10,7 @@
 {
   "sections": {
     "main": {
-      "type": "main-blog",
+      "type": "custom-main-blog",
       "settings": {
         "layout": "collage",
         "show_image": true,
@@ -22,7 +22,5 @@
       }
     }
   },
-  "order": [
-    "main"
-  ]
+  "order": ["main"]
 }
