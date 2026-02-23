@@ -12,6 +12,7 @@
     "main": {
       "type": "custom-main-blog",
       "settings": {
+        "image": "shopify://shop_images/top-content-about-us-img.jpg",
         "layout": "grid",
         "show_image": true,
         "image_height": "medium",
@@ -22,5 +23,7 @@
       }
     }
   },
-  "order": ["main"]
+  "order": [
+    "main"
+  ]
 }
