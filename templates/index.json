@@ -45,7 +45,7 @@
       "type": "new-arrival-product",
       "settings": {
         "heading": "NEW ARRIVALS",
-        "collection": "247-represent"
+        "collection": "all-products"
       }
     },
     "curated_brands": {
