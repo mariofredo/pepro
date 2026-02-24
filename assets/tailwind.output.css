@@ -11,8 +11,6 @@
     --tw-color-black: #000;
     --tw-color-white: #fff;
     --tw-spacing: 0.25rem;
-    --tw-container-xl: 36rem;
-    --tw-container-2xl: 42rem;
     --tw-container-4xl: 56rem;
     --tw-container-6xl: 72rem;
     --tw-container-7xl: 80rem;
@@ -20,14 +18,9 @@
     --tw-text-lg--line-height: calc(1.75 / 1.125);
     --tw-text-xl: 1.25rem;
     --tw-text-xl--line-height: calc(1.75 / 1.25);
-    --tw-text-2xl: 1.5rem;
-    --tw-text-2xl--line-height: calc(2 / 1.5);
     --tw-text-3xl: 1.875rem;
     --tw-text-3xl--line-height: calc(2.25 / 1.875);
-    --tw-text-4xl: 2.25rem;
-    --tw-text-4xl--line-height: calc(2.5 / 2.25);
     --tw-font-weight-normal: 400;
-    --tw-font-weight-semibold: 600;
     --tw-font-weight-bold: 700;
     --tw-blur-sm: 8px;
     --tw-aspect-video: 16 / 9;
@@ -211,14 +204,8 @@
   .tw\:bottom-0\! {
     bottom: calc(var(--tw-spacing) * 0) !important;
   }
-  .tw\:bottom-2\! {
-    bottom: calc(var(--tw-spacing) * 2) !important;
-  }
   .tw\:left-0\! {
     left: calc(var(--tw-spacing) * 0) !important;
-  }
-  .tw\:left-2\! {
-    left: calc(var(--tw-spacing) * 2) !important;
   }
   .tw\:z-50 {
     z-index: 50;
@@ -229,9 +216,6 @@
   .tw\:col-span-3 {
     grid-column: span 3 / span 3;
   }
-  .tw\:m-0\! {
-    margin: calc(var(--tw-spacing) * 0) !important;
-  }
   .tw\:my-0\! {
     margin-block: calc(var(--tw-spacing) * 0) !important;
   }
@@ -241,23 +225,14 @@
   .tw\:mt-5\! {
     margin-top: calc(var(--tw-spacing) * 5) !important;
   }
-  .tw\:mt-6 {
-    margin-top: calc(var(--tw-spacing) * 6);
-  }
   .tw\:mt-10\! {
     margin-top: calc(var(--tw-spacing) * 10) !important;
-  }
-  .tw\:mt-auto {
-    margin-top: auto;
   }
   .tw\:mb-0\! {
     margin-bottom: calc(var(--tw-spacing) * 0) !important;
   }
   .tw\:mb-5 {
     margin-bottom: calc(var(--tw-spacing) * 5);
-  }
-  .tw\:mb-5\! {
-    margin-bottom: calc(var(--tw-spacing) * 5) !important;
   }
   .tw\:mb-\[20px\]\! {
     margin-bottom: 20px !important;
@@ -274,12 +249,6 @@
   .tw\:grid\! {
     display: grid !important;
   }
-  .tw\:aspect-\[4\/3\] {
-    aspect-ratio: 4/3;
-  }
-  .tw\:aspect-\[6\/3\] {
-    aspect-ratio: 6/3;
-  }
   .tw\:aspect-square {
     aspect-ratio: 1 / 1;
   }
@@ -289,17 +258,8 @@
   .tw\:h-20 {
     height: calc(var(--tw-spacing) * 20);
   }
-  .tw\:h-\[400px\] {
-    height: 400px;
-  }
   .tw\:h-auto {
     height: auto;
-  }
-  .tw\:h-fit {
-    height: fit-content;
-  }
-  .tw\:h-fit\! {
-    height: fit-content !important;
   }
   .tw\:h-full {
     height: 100%;
@@ -310,17 +270,8 @@
   .tw\:max-h-dvh {
     max-height: 100dvh;
   }
-  .tw\:min-h-\[300px\] {
-    min-height: 300px;
-  }
-  .tw\:min-h-\[400px\] {
-    min-height: 400px;
-  }
   .tw\:min-h-\[460px\] {
     min-height: 460px;
-  }
-  .tw\:min-h-\[600px\] {
-    min-height: 600px;
   }
   .tw\:w-20 {
     width: calc(var(--tw-spacing) * 20);
@@ -331,20 +282,8 @@
   .tw\:w-full\! {
     width: 100% !important;
   }
-  .tw\:max-w-3 {
-    max-width: calc(var(--tw-spacing) * 3);
-  }
   .tw\:max-w-4xl {
     max-width: var(--tw-container-4xl);
-  }
-  .tw\:max-w-6 {
-    max-width: calc(var(--tw-spacing) * 6);
-  }
-  .tw\:max-w-6xl {
-    max-width: var(--tw-container-6xl);
-  }
-  .tw\:max-w-7xl {
-    max-width: var(--tw-container-7xl);
   }
   .tw\:max-w-full\! {
     max-width: 100% !important;
@@ -371,12 +310,6 @@
   }
   .tw\:grid-cols-4 {
     grid-template-columns: repeat(4, minmax(0, 1fr));
-  }
-  .tw\:grid-cols-5 {
-    grid-template-columns: repeat(5, minmax(0, 1fr));
-  }
-  .tw\:grid-cols-5\! {
-    grid-template-columns: repeat(5, minmax(0, 1fr)) !important;
   }
   .tw\:flex-col {
     flex-direction: column;
@@ -442,9 +375,6 @@
   .tw\:p-4 {
     padding: calc(var(--tw-spacing) * 4);
   }
-  .tw\:p-5\! {
-    padding: calc(var(--tw-spacing) * 5) !important;
-  }
   .tw\:p-8 {
     padding: calc(var(--tw-spacing) * 8);
   }
@@ -473,19 +403,12 @@
     font-size: var(--tw-text-3xl) !important;
     line-height: var(--tw-leading, var(--tw-text-3xl--line-height)) !important;
   }
-  .tw\:text-lg {
-    font-size: var(--tw-text-lg);
-    line-height: var(--tw-leading, var(--tw-text-lg--line-height));
-  }
   .tw\:text-xl {
     font-size: var(--tw-text-xl);
     line-height: var(--tw-leading, var(--tw-text-xl--line-height));
   }
   .tw\:text-\[18px\]\! {
     font-size: 18px !important;
-  }
-  .tw\:text-\[20px\] {
-    font-size: 20px;
   }
   .tw\:text-\[20px\]\! {
     font-size: 20px !important;
@@ -501,9 +424,6 @@
   .tw\:font-normal\! {
     --tw-font-weight: var(--tw-font-weight-normal) !important;
     font-weight: var(--tw-font-weight-normal) !important;
-  }
-  .tw\:text-\[\#0247b1\] {
-    color: #0247b1;
   }
   .tw\:text-black {
     color: var(--tw-color-black);
