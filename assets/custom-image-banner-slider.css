@@ -77,6 +77,7 @@
   display: inline-flex;
   align-items: center;
   text-decoration: none;
+  font-weight: 200 !important;
 }
 .slider__slide .slider__content .image_banner_slider__button .image_banner_slider__button-arrow {
   margin-left: 10px;

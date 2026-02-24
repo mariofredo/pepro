@@ -2,9 +2,7 @@
 <section class="product-row">
   <div class="product-row__header">
     <h2>{{ section.settings.heading }}</h2>
-    <a href="{{ section.settings.collection.url }}" class="product-row__view-all">
-      VIEW ALL
-    </a>
+    <a href="{{ section.settings.collection.url }}" class="product-row__view-all"> VIEW ALL </a>
   </div>
   <div class="product-row__scroll">
     <ul class="product-row__list">
@@ -12,6 +10,34 @@
         <li class="product-row__item">
           <a href="{{ product.url }}">
             {{ product.featured_image | image_url: width: 400 | image_tag }}
+            <div class="product-row__size">
+              <div class="product-row__size-list">
+                {% if product.variants %}
+                  {% for variant in product.variants %}
+                    {% if variant.title == 'Default Title' %}
+                      <span>Not Available</span>
+                    {% else %}
+                      <span class="product-row__size-item">{{ variant.title }}</span>
+                    {% endif %}
+                  {% endfor %}
+                {% endif %}
+              </div>
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                width="24"
+                height="24"
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="#000"
+                stroke-width="2"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                class="icon icon-tabler icons-tabler-outline icon-tabler-x"
+              >
+                <path stroke="none" d="M0 0h24v24H0z" fill="none"/><path d="M18 6l-12 12" /><path d="M6 6l12 12" />
+              </svg>
+            </div>
+            <span class="brand">{{ product.vendor }}</span>
             <p class="title">{{ product.title }}</p>
             <p class="price">{{ product.price | money }}</p>
           </a>
