@@ -395,6 +395,9 @@
   .tw\:py-3 {
     padding-block: calc(var(--tw-spacing) * 3);
   }
+  .tw\:py-3\! {
+    padding-block: calc(var(--tw-spacing) * 3) !important;
+  }
   .tw\:pb-0\! {
     padding-bottom: calc(var(--tw-spacing) * 0) !important;
   }
