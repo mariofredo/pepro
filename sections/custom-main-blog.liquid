@@ -16,7 +16,7 @@
   }
 {%- endstyle -%}
 
-{%- paginate blog.articles by 6 -%}
+{%- paginate blog.articles by 8 -%}
   <img
     src="{{ section.settings.image | image_url: width: 1920, height: 1080, crop: 'center' }}"
     class="tw:w-full tw:h-auto tw:aspect-video"
@@ -28,7 +28,7 @@
     <h1 class="title--primary tw:my-0! tw:mb-[20px]! tw:font-bold! tw:text-[20px]! tw:text-black! {% if settings.animations_reveal_on_scroll %} scroll-trigger animate--fade-in{% endif %}">
       {{ blog.title | escape }}
     </h1>
-    <div class="blog-articles tw:grid! tw:grid-cols-3! tw:max-md:grid-cols-2! tw:max-sm:grid-cols-1! tw:gap-[20px]! {% if section.settings.layout == 'collage' %}blog-articles--collage{% endif %}">
+    <div class="blog-articles tw:grid! tw:grid-cols-4! tw:max-md:grid-cols-2! tw:max-sm:grid-cols-1! tw:gap-[20px]! {% if section.settings.layout == 'collage' %}blog-articles--collage{% endif %}">
       {%- for article in blog.articles -%}
         <div
           class="blog-articles__article article{% if settings.animations_reveal_on_scroll %} scroll-trigger animate--slide-in{% endif %}"

@@ -12,10 +12,6 @@
     --tw-color-white: #fff;
     --tw-spacing: 0.25rem;
     --tw-container-4xl: 56rem;
-    --tw-container-6xl: 72rem;
-    --tw-container-7xl: 80rem;
-    --tw-text-lg: 1.125rem;
-    --tw-text-lg--line-height: calc(1.75 / 1.125);
     --tw-text-xl: 1.25rem;
     --tw-text-xl--line-height: calc(1.75 / 1.25);
     --tw-text-3xl: 1.875rem;
@@ -305,11 +301,11 @@
   .tw\:grid-cols-2 {
     grid-template-columns: repeat(2, minmax(0, 1fr));
   }
-  .tw\:grid-cols-3\! {
-    grid-template-columns: repeat(3, minmax(0, 1fr)) !important;
-  }
   .tw\:grid-cols-4 {
     grid-template-columns: repeat(4, minmax(0, 1fr));
+  }
+  .tw\:grid-cols-4\! {
+    grid-template-columns: repeat(4, minmax(0, 1fr)) !important;
   }
   .tw\:flex-col {
     flex-direction: column;
