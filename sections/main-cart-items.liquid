@@ -41,7 +41,9 @@
       </a>
 
       {%- if shop.customer_accounts_enabled and customer == null -%}
-        <h2 class="cart__login-title">{{ 'sections.cart.login.title' | t }}</h2>
+        <h2 class="cart__login-title tw:px-6 tw:py-3 tw:w-full tw:uppercase! tw:font-bold! tw:bg-[#0247b1]!">
+          {{ 'sections.cart.login.title' | t }}
+        </h2>
         <p class="cart__login-paragraph">
           {{ 'sections.cart.login.paragraph_html' | t: link: routes.account_login_url }}
         </p>
