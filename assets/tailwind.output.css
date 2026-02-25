@@ -344,6 +344,9 @@
   .tw\:border-gray-200 {
     border-color: var(--tw-color-gray-200);
   }
+  .tw\:bg-\[\#0247B1\] {
+    background-color: #0247B1;
+  }
   .tw\:bg-\[\#0247B1\]\! {
     background-color: #0247B1 !important;
   }
