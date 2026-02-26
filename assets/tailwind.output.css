@@ -247,6 +247,9 @@
   .tw\:mb-5 {
     margin-bottom: calc(var(--tw-spacing) * 5);
   }
+  .tw\:mb-\[20px\] {
+    margin-bottom: 20px;
+  }
   .tw\:mb-\[20px\]\! {
     margin-bottom: 20px !important;
   }
@@ -255,6 +258,9 @@
   }
   .tw\:flex {
     display: flex;
+  }
+  .tw\:flex\! {
+    display: flex !important;
   }
   .tw\:grid {
     display: grid;
@@ -333,6 +339,9 @@
   .tw\:flex-col {
     flex-direction: column;
   }
+  .tw\:flex-col\! {
+    flex-direction: column !important;
+  }
   .tw\:items-center {
     align-items: center;
   }
@@ -345,8 +354,17 @@
   .tw\:justify-center {
     justify-content: center;
   }
+  .tw\:gap-1\! {
+    gap: calc(var(--tw-spacing) * 1) !important;
+  }
+  .tw\:gap-3\! {
+    gap: calc(var(--tw-spacing) * 3) !important;
+  }
   .tw\:gap-4 {
     gap: calc(var(--tw-spacing) * 4);
+  }
+  .tw\:gap-4\! {
+    gap: calc(var(--tw-spacing) * 4) !important;
   }
   .tw\:gap-5 {
     gap: calc(var(--tw-spacing) * 5);
@@ -424,6 +442,9 @@
   .tw\:py-3\! {
     padding-block: calc(var(--tw-spacing) * 3) !important;
   }
+  .tw\:pr-\[20px\] {
+    padding-right: 20px;
+  }
   .tw\:pb-0\! {
     padding-bottom: calc(var(--tw-spacing) * 0) !important;
   }
@@ -450,6 +471,9 @@
   }
   .tw\:text-\[20px\]\! {
     font-size: 20px !important;
+  }
+  .tw\:text-\[24px\]\! {
+    font-size: 24px !important;
   }
   .tw\:font-bold {
     --tw-font-weight: var(--tw-font-weight-bold);

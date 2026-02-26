@@ -78,8 +78,8 @@
 
   {% assign variant_images = product.images | where: 'attached_to_variant?', true | map: 'src' %}
   <div class="custom-main-product">
-    <div class="product product--{{ section.settings.media_size }} product--{{ section.settings.media_position }} product--{{ section.settings.gallery_layout }} product--mobile-{{ section.settings.mobile_thumbnails }} grid grid--1-col {% if product.media.size > 0 %}grid--2-col-tablet{% else %}product--no-media{% endif %}">
-      <div class="grid__item product__media-wrapper">
+    <div class="product product--{{ section.settings.media_size }} product--{{ section.settings.media_position }} product--{{ section.settings.gallery_layout }} product--mobile-{{ section.settings.mobile_thumbnails }} tw:grid tw:grid-cols-2 tw:max-md:grid-cols-1 tw:pr-[20px]">
+      <div class="tw:col-span-1 ">
         {% comment %} {% render 'product-media-gallery', variant_images: variant_images %} {% endcomment %}
         {% comment %} START OF SECTION IMAGE VARIANT PREVIEW {% endcomment %}
         <div class="tw:grid tw:grid-cols-4 tw:gap-4 tw:max-md:grid-cols-1">
@@ -110,10 +110,10 @@
         </div>
         {% comment %} END OF SECTION IMAGE VARIANT PREVIEW {% endcomment %}
       </div>
-      <div class="product__info-wrapper grid__item{% if settings.page_width > 1400 and section.settings.media_size == "small" %} product__info-wrapper--extra-padding{% endif %}{% if settings.animations_reveal_on_scroll %} scroll-trigger animate--slide-in{% endif %} tw:max-md:px-5!">
+      <div class="tw:max-md:px-5!">
         <section
           id="ProductInfo-{{ section.id }}"
-          class="product__info-container{% if section.settings.enable_sticky_info %} product__column-sticky{% endif %}"
+          class="{% if section.settings.enable_sticky_info %} product__column-sticky{% endif %} tw:flex! tw:flex-col! tw:gap-1!"
         >
           {%- assign product_form_id = 'product-form-' | append: section.id -%}
 
@@ -123,17 +123,16 @@
                 {% render block %}
               {%- when 'text' -%}
                 <p
-                  class="product__text inline-richtext{% if block.settings.text_style == 'uppercase' %} caption-with-letter-spacing{% elsif block.settings.text_style == 'subtitle' %} subtitle{% endif %}"
+                  class="tw:text-[18px]! product__text inline-richtext{% if block.settings.text_style == 'uppercase' %} caption-with-letter-spacing{% elsif block.settings.text_style == 'subtitle' %} subtitle{% endif %}"
                   {{ block.shopify_attributes }}
                 >
                   {{- block.settings.text -}}
                 </p>
               {%- when 'title' -%}
                 <div class="product__title" {{ block.shopify_attributes }}>
-                  <span class="text-sm">{{ product.vendor }}</span>
-                  <h1>{{ product.title | escape }}</h1>
+                  <h1 class="tw:uppercase! tw:font-bold! tw:text-[24px]!">{{ product.title | escape }}</h1>
                   <a href="{{ product.url }}" class="product__title">
-                    <h2 class="h1">
+                    <h2 class="h1 tw:uppercase!">
                       {{ product.title | escape }}
                     </h2>
                   </a>
@@ -156,7 +155,7 @@
                     <span>{{ 'products.product.volume_pricing.note' | t }}</span>
                   </div>
                 {%- endif -%}
-                {%- if cart.taxes_included or cart.duties_included or shop.shipping_policy.body != blank -%}
+                {% comment %} {%- if cart.taxes_included or cart.duties_included or shop.shipping_policy.body != blank -%}
                   <div class="product__tax caption rte">
                     {%- if cart.duties_included and cart.taxes_included -%}
                       {{ 'products.product.duties_and_taxes_included' | t }}
@@ -169,7 +168,7 @@
                       {{ 'products.product.shipping_policy_html' | t: link: shop.shipping_policy.url }}
                     {%- endif -%}
                   </div>
-                {%- endif -%}
+                {%- endif -%} {% endcomment %}
                 <div {{ block.shopify_attributes }}>
                   {%- assign product_form_installment_id = 'product-form-installment-' | append: section.id -%}
                   {%- form 'product', product, id: product_form_installment_id, class: 'installment caption-large' -%}
@@ -825,6 +824,7 @@
     // klik thumbnail → update main image
     thumbs.forEach((t) => {
       t.addEventListener('click', () => {
+        console.log(t.dataset.imageId);
         const img = t.querySelector('img');
         mainImage.src = img.src;
         mainImage.dataset.imageId = t.dataset.imageId;
