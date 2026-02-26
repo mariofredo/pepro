@@ -12,6 +12,8 @@
     --tw-color-white: #fff;
     --tw-spacing: 0.25rem;
     --tw-container-4xl: 56rem;
+    --tw-text-sm: 0.875rem;
+    --tw-text-sm--line-height: calc(1.25 / 0.875);
     --tw-text-xl: 1.25rem;
     --tw-text-xl--line-height: calc(1.75 / 1.25);
     --tw-text-3xl: 1.875rem;
@@ -425,6 +427,10 @@
   .tw\:text-3xl\! {
     font-size: var(--tw-text-3xl) !important;
     line-height: var(--tw-leading, var(--tw-text-3xl--line-height)) !important;
+  }
+  .tw\:text-sm {
+    font-size: var(--tw-text-sm);
+    line-height: var(--tw-leading, var(--tw-text-sm--line-height));
   }
   .tw\:text-xl {
     font-size: var(--tw-text-xl);
