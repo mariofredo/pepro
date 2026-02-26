@@ -194,11 +194,17 @@
   .tw\:right-0 {
     right: calc(var(--tw-spacing) * 0);
   }
+  .tw\:right-4 {
+    right: calc(var(--tw-spacing) * 4);
+  }
   .tw\:bottom-0 {
     bottom: calc(var(--tw-spacing) * 0);
   }
   .tw\:bottom-0\! {
     bottom: calc(var(--tw-spacing) * 0) !important;
+  }
+  .tw\:bottom-4 {
+    bottom: calc(var(--tw-spacing) * 4);
   }
   .tw\:left-0\! {
     left: calc(var(--tw-spacing) * 0) !important;
@@ -283,9 +289,6 @@
   }
   .tw\:max-w-4xl {
     max-width: var(--tw-container-4xl);
-  }
-  .tw\:max-w-\[72\.6rem\] {
-    max-width: 72.6rem;
   }
   .tw\:max-w-\[72\.6rem\]\! {
     max-width: 72.6rem !important;

@@ -59,6 +59,9 @@
     {%- endif -%}
 
     {{ content_for_header }}
+    <a href="https://wa.me/6281280000000" target="_blank"  class="tw:fixed tw:bottom-4 tw:right-4 tw:z-50">
+      <img src="{{ "wa_icon.png" | asset_url }}" alt="wa_icon" width="40" height="40" />
+    </a>
 
     {%- liquid
       assign body_font_bold = settings.type_body_font | font_modify: 'weight', 'bold'
@@ -298,7 +301,7 @@ body {
   font-style: var(--font-body-style);
   font-weight: var(--font-body-weight);
 }
-
+img
 @media screen and (min-width: 750px) {
   body {
     font-size: 1.6rem;
