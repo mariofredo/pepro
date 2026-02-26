@@ -25,7 +25,7 @@
     alt=""
   >
   <div class="main-blog tw:px-5! tx:w-full! section-{{ section.id }}-padding">
-    <h1 class="title--primary tw:my-0! tw:mb-[20px]! tw:font-bold! tw:text-[20px]! tw:text-black! {% if settings.animations_reveal_on_scroll %} scroll-trigger animate--fade-in{% endif %}">
+    <h1 class="title--primary tw:my-0! tw:mb-[20px]! tw:font-bold! tw:text-[20px]! tw:text-black! tw:uppercase! {% if settings.animations_reveal_on_scroll %} scroll-trigger animate--fade-in{% endif %}">
       {{ blog.title | escape }}
     </h1>
     <div class="blog-articles tw:grid! tw:grid-cols-4! tw:max-md:grid-cols-2! tw:max-sm:grid-cols-1! tw:gap-[20px]! {% if section.settings.layout == 'collage' %}blog-articles--collage{% endif %}">
