@@ -36,16 +36,9 @@
           "settings": {}
         }
       },
-      "block_order": [
-        "featured_image",
-        "title",
-        "share",
-        "content"
-      ],
+      "block_order": ["title", "share", "featured_image", "content"],
       "settings": {}
     }
   },
-  "order": [
-    "main"
-  ]
+  "order": ["main"]
 }
