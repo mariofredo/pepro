@@ -16,9 +16,26 @@
         "padding_bottom": 0,
         "image": "shopify://shop_images/top-content-about-us-img.jpg"
       }
+    },
+     "bottom-content-rewards": {
+      "type": "custom-bottom-content-rewards",
+      "settings": {
+        "padding_top": 0,
+        "padding_bottom": 0,
+        "image": "shopify://shop_images/bottom-content-about-us-img.jpg"
+      }
+    },
+    "product-row": {
+      "type": "new-arrival-product",
+       "settings": {
+        "heading": "REDEEMABLE PRODUCTS",
+        "collection": "all-products"
+      }
     }
   },
   "order": [
-    "top-content-about-us"
+    "top-content-about-us",
+    "bottom-content-rewards", 
+    "product-row"
   ]
 }

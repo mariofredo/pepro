@@ -19,6 +19,7 @@
     --tw-text-3xl: 1.875rem;
     --tw-text-3xl--line-height: calc(2.25 / 1.875);
     --tw-font-weight-normal: 400;
+    --tw-font-weight-medium: 500;
     --tw-font-weight-bold: 700;
     --tw-blur-sm: 8px;
     --tw-aspect-video: 16 / 9;
@@ -196,9 +197,6 @@
   .tw\:right-0 {
     right: calc(var(--tw-spacing) * 0);
   }
-  .tw\:right-4 {
-    right: calc(var(--tw-spacing) * 4);
-  }
   .tw\:right-\[20px\] {
     right: 20px;
   }
@@ -208,14 +206,8 @@
   .tw\:bottom-0\! {
     bottom: calc(var(--tw-spacing) * 0) !important;
   }
-  .tw\:bottom-4 {
-    bottom: calc(var(--tw-spacing) * 4);
-  }
   .tw\:bottom-\[80px\] {
     bottom: 80px;
-  }
-  .tw\:bottom-\[100px\] {
-    bottom: 100px;
   }
   .tw\:left-0\! {
     left: calc(var(--tw-spacing) * 0) !important;
@@ -228,6 +220,12 @@
   }
   .tw\:col-span-3 {
     grid-column: span 3 / span 3;
+  }
+  .tw\:mx-\[20px\] {
+    margin-inline: 20px;
+  }
+  .tw\:mx-\[40px\] {
+    margin-inline: 40px;
   }
   .tw\:my-0\! {
     margin-block: calc(var(--tw-spacing) * 0) !important;
@@ -246,6 +244,9 @@
   }
   .tw\:mb-5 {
     margin-bottom: calc(var(--tw-spacing) * 5);
+  }
+  .tw\:mb-\[8px\] {
+    margin-bottom: 8px;
   }
   .tw\:mb-\[20px\] {
     margin-bottom: 20px;
@@ -280,6 +281,9 @@
   .tw\:h-20 {
     height: calc(var(--tw-spacing) * 20);
   }
+  .tw\:h-\[20px\] {
+    height: 20px;
+  }
   .tw\:h-auto {
     height: auto;
   }
@@ -297,6 +301,9 @@
   }
   .tw\:w-20 {
     width: calc(var(--tw-spacing) * 20);
+  }
+  .tw\:w-\[20px\] {
+    width: 20px;
   }
   .tw\:w-full {
     width: 100%;
@@ -326,6 +333,9 @@
   }
   .tw\:list-decimal {
     list-style-type: decimal;
+  }
+  .tw\:list-none {
+    list-style-type: none;
   }
   .tw\:grid-cols-2 {
     grid-template-columns: repeat(2, minmax(0, 1fr));
@@ -357,17 +367,17 @@
   .tw\:gap-1\! {
     gap: calc(var(--tw-spacing) * 1) !important;
   }
-  .tw\:gap-3\! {
-    gap: calc(var(--tw-spacing) * 3) !important;
-  }
   .tw\:gap-4 {
     gap: calc(var(--tw-spacing) * 4);
   }
-  .tw\:gap-4\! {
-    gap: calc(var(--tw-spacing) * 4) !important;
-  }
   .tw\:gap-5 {
     gap: calc(var(--tw-spacing) * 5);
+  }
+  .tw\:gap-\[8px\] {
+    gap: 8px;
+  }
+  .tw\:gap-\[10px\] {
+    gap: 10px;
   }
   .tw\:gap-\[20px\]\! {
     gap: 20px !important;
@@ -384,6 +394,9 @@
   }
   .tw\:border-gray-200 {
     border-color: var(--tw-color-gray-200);
+  }
+  .tw\:bg-\[\#0247B1\] {
+    background-color: #0247B1;
   }
   .tw\:bg-\[\#0247B1\]\! {
     background-color: #0247B1 !important;
@@ -424,6 +437,9 @@
   .tw\:p-10 {
     padding: calc(var(--tw-spacing) * 10);
   }
+  .tw\:p-\[20px\] {
+    padding: 20px;
+  }
   .tw\:p-\[20px\]\! {
     padding: 20px !important;
   }
@@ -436,11 +452,20 @@
   .tw\:px-6\! {
     padding-inline: calc(var(--tw-spacing) * 6) !important;
   }
+  .tw\:px-\[20px\] {
+    padding-inline: 20px;
+  }
+  .tw\:px-\[40px\] {
+    padding-inline: 40px;
+  }
   .tw\:py-3 {
     padding-block: calc(var(--tw-spacing) * 3);
   }
   .tw\:py-3\! {
     padding-block: calc(var(--tw-spacing) * 3) !important;
+  }
+  .tw\:py-\[20px\] {
+    padding-block: 20px;
   }
   .tw\:pr-\[20px\] {
     padding-right: 20px;
@@ -466,6 +491,15 @@
     font-size: var(--tw-text-xl);
     line-height: var(--tw-leading, var(--tw-text-xl--line-height));
   }
+  .tw\:text-\[12px\] {
+    font-size: 12px;
+  }
+  .tw\:text-\[14px\] {
+    font-size: 14px;
+  }
+  .tw\:text-\[16px\] {
+    font-size: 16px;
+  }
   .tw\:text-\[18px\]\! {
     font-size: 18px !important;
   }
@@ -475,6 +509,18 @@
   .tw\:text-\[24px\]\! {
     font-size: 24px !important;
   }
+  .tw\:leading-\[14px\] {
+    --tw-leading: 14px;
+    line-height: 14px;
+  }
+  .tw\:leading-\[16px\] {
+    --tw-leading: 16px;
+    line-height: 16px;
+  }
+  .tw\:leading-\[20px\] {
+    --tw-leading: 20px;
+    line-height: 20px;
+  }
   .tw\:font-bold {
     --tw-font-weight: var(--tw-font-weight-bold);
     font-weight: var(--tw-font-weight-bold);
@@ -482,6 +528,10 @@
   .tw\:font-bold\! {
     --tw-font-weight: var(--tw-font-weight-bold) !important;
     font-weight: var(--tw-font-weight-bold) !important;
+  }
+  .tw\:font-medium {
+    --tw-font-weight: var(--tw-font-weight-medium);
+    font-weight: var(--tw-font-weight-medium);
   }
   .tw\:font-normal\! {
     --tw-font-weight: var(--tw-font-weight-normal) !important;
@@ -603,6 +653,10 @@
   inherits: false;
   initial-value: solid;
 }
+@property --tw-leading {
+  syntax: "*";
+  inherits: false;
+}
 @property --tw-font-weight {
   syntax: "*";
   inherits: false;
@@ -719,6 +773,7 @@
       --tw-translate-y: 0;
       --tw-translate-z: 0;
       --tw-border-style: solid;
+      --tw-leading: initial;
       --tw-font-weight: initial;
       --tw-shadow: 0 0 #0000;
       --tw-shadow-color: initial;

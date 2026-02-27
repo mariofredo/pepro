@@ -1,5 +1,5 @@
 {{ 'custom-product-row.css' | asset_url | stylesheet_tag }}
-<section class="product-row">
+<section class="product-row tw:px-[{{ section.settings.padding_right }}px] tw:px-[{{ section.settings.padding_left }}px] ">
   <div class="product-row__header">
     <h2>{{ section.settings.heading }}</h2>
     <a href="{{ section.settings.collection.url }}" class="product-row__view-all"> VIEW ALL </a>
@@ -61,6 +61,24 @@
       "type": "collection",
       "id": "collection",
       "label": "Collection"
+    },
+    {
+      "type": "range",
+      "id": "padding_right",
+      "label": "Padding right",
+      "default": 0,
+      "min": 0,
+      "max": 100,
+      "step": 10
+    },
+    {
+      "type": "range",
+      "id": "padding_left",
+      "label": "Padding left",
+      "default": 0,
+      "min": 0,
+      "max": 100,
+      "step": 10
     }
   ],
   "presets": [
