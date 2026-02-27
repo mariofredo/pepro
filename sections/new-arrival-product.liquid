@@ -1,5 +1,5 @@
 {{ 'custom-product-row.css' | asset_url | stylesheet_tag }}
-<section class="product-row tw:px-[{{ section.settings.padding_right }}px] tw:px-[{{ section.settings.padding_left }}px] ">
+<section class="tw:py-[40px]" style="padding-right: {{ section.settings.padding_right }}px; padding-left: {{ section.settings.padding_left }}px;">
   <div class="product-row__header">
     <h2>{{ section.settings.heading }}</h2>
     <a href="{{ section.settings.collection.url }}" class="product-row__view-all"> VIEW ALL </a>

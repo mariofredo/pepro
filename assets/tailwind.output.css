@@ -233,6 +233,9 @@
   .tw\:my-10\! {
     margin-block: calc(var(--tw-spacing) * 10) !important;
   }
+  .tw\:my-\[20px\] {
+    margin-block: 20px;
+  }
   .tw\:mt-5\! {
     margin-top: calc(var(--tw-spacing) * 5) !important;
   }
@@ -247,6 +250,9 @@
   }
   .tw\:mb-\[8px\] {
     margin-bottom: 8px;
+  }
+  .tw\:mb-\[10px\] {
+    margin-bottom: 10px;
   }
   .tw\:mb-\[20px\] {
     margin-bottom: 20px;
@@ -467,6 +473,9 @@
   .tw\:py-\[20px\] {
     padding-block: 20px;
   }
+  .tw\:py-\[40px\] {
+    padding-block: 40px;
+  }
   .tw\:pr-\[20px\] {
     padding-right: 20px;
   }
@@ -554,6 +563,9 @@
   }
   .tw\:underline {
     text-decoration-line: underline;
+  }
+  .tw\:underline\! {
+    text-decoration-line: underline !important;
   }
   .tw\:opacity-0 {
     opacity: 0%;

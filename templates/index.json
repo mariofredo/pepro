@@ -45,7 +45,9 @@
       "type": "new-arrival-product",
       "settings": {
         "heading": "NEW ARRIVALS",
-        "collection": "all-products"
+        "collection": "all-products",
+        "padding_right": 20,
+        "padding_left": 20
       }
     },
     "curated_brands": {

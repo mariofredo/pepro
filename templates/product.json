@@ -104,7 +104,9 @@
       "type": "new-arrival-product",
       "settings": {
         "heading": "STYLE WITH",
-        "collection": "247-represent"
+        "collection": "247-represent",
+        "padding_right": 20,
+        "padding_left": 20
       }
     }
   },
