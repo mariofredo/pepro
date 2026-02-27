@@ -17,25 +17,23 @@
         "image": "shopify://shop_images/top-content-about-us-img.jpg"
       }
     },
-     "bottom-content-rewards": {
+    "bottom-content-rewards": {
       "type": "custom-bottom-content-rewards",
-      "settings": {
-        "padding_top": 0,
-        "padding_bottom": 0,
-        "image": "shopify://shop_images/bottom-content-about-us-img.jpg"
-      }
+      "settings": {}
     },
     "product-row": {
       "type": "new-arrival-product",
-       "settings": {
+      "settings": {
         "heading": "REDEEMABLE PRODUCTS",
-        "collection": "all-products"
+        "collection": "all-products",
+        "padding_right": 40,
+        "padding_left": 0
       }
     }
   },
   "order": [
     "top-content-about-us",
-    "bottom-content-rewards", 
+    "bottom-content-rewards",
     "product-row"
   ]
 }
