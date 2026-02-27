@@ -296,6 +296,9 @@
   .tw\:h-auto {
     height: auto;
   }
+  .tw\:h-auto\! {
+    height: auto !important;
+  }
   .tw\:h-full {
     height: 100%;
   }
@@ -313,6 +316,9 @@
   }
   .tw\:w-\[20px\] {
     width: 20px;
+  }
+  .tw\:w-\[200px\]\! {
+    width: 200px !important;
   }
   .tw\:w-full {
     width: 100%;
