@@ -18,25 +18,8 @@
         "image": "shopify://shop_images/top-content-about-us-img.jpg"
       }
     },
-    "main": {
-      "type": "custom-main-page",
-      "settings": {
-        "padding_top": 0,
-        "padding_bottom": 0
-      }
-    },
-    "bottom-content-about-us": {
-      "type": "custom-bottom-content-about-us",
-      "settings": {
-        "padding_top": 0,
-        "padding_bottom": 0,
-        "image": "shopify://shop_images/bottom-content-about-us-img.jpg"
-      }
-    }
   },
   "order": [
-    "top-content-about-us",
-    "main",
-    "bottom-content-about-us"
+    "top-content-about-us"
   ]
 }
