@@ -11,13 +11,12 @@
   "sections": {
     "top-content-about-us": {
       "type": "custom-top-content-about-us",
-      "disabled": true,
       "settings": {
         "padding_top": 0,
         "padding_bottom": 0,
         "image": "shopify://shop_images/top-content-about-us-img.jpg"
       }
-    },
+    }
   },
   "order": [
     "top-content-about-us"
