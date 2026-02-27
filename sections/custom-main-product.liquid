@@ -233,11 +233,27 @@
                 </p>
               {%- when 'description' -%}
                 {%- if product.description != blank -%}
-                  <div
-                    class="product__description rte quick-add-hidden tw:[&>ul]:list-disc tw:[&>ol]: tw:list-decimal"
-                    {{ block.shopify_attributes }}
-                  >
-                    {{ product.description }}
+                  <div class="tw:group">
+                    <div class="tw:flex tw:justify-between tw:items-center tw:gap-[10px] tw:border-b tw:border-gray-400 tw:p-[10px] tw:group-hover:border-gray-600 tw:cursor-pointer ">
+                      <p>DESCRIPTION</p>
+                       <svg
+                        xmlns="http://www.w3.org/2000/svg"
+                        width="24"
+                        height="24"
+                        viewBox="0 0 24 24"
+                        fill="none"
+                        stroke="#000"
+                        stroke-width="2"
+                        stroke-linecap="round"
+                        stroke-linejoin="round"
+                        class="icon icon-tabler icons-tabler-outline icon-tabler-x tw:rotate-45 tw:group-hover:rotate-0 tw:transition-all tw:ease-in-out tw:duration-300"
+                      >
+                        <path stroke="none" d="M0 0h24v24H0z" fill="none"/><path d="M18 6l-12 12" /><path d="M6 6l12 12" />
+                      </svg>
+                    </div>
+                    <div class="tw:py-[10px] tw:h-0 tw:overflow-hidden tw:transition-all tw:ease-in-out tw:duration-600 tw:opacity-0 tw:group-hover:h-auto tw:group-hover:opacity-100 product__description rte quick-add-hidden" {{ block.shopify_attributes }}>
+                      {{ product.description }}
+                    </div>
                   </div>
                 {%- endif -%}
               {%- when 'sku' -%}
