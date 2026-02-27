@@ -13,4 +13,43 @@
   font-size: 16px;
   font-weight: 700;
   color: #000;
+}
+.custom-main-collection-product-grid .card-information__size {
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-top: 10px;
+  overflow: hidden;
+  z-index: 1000;
+}
+.custom-main-collection-product-grid .card-information__size:hover .icon-tabler-x {
+  transform: rotate(0deg);
+}
+.custom-main-collection-product-grid .card-information__size:hover .card-information__size-list {
+  opacity: 1;
+  transform: translateX(0);
+}
+.custom-main-collection-product-grid .card-information__size .icon-tabler-x {
+  transition: transform 0.3s ease;
+  transform: rotate(45deg);
+}
+.custom-main-collection-product-grid .card-information__size .card-information__size-list {
+  display: flex;
+  opacity: 0;
+  gap: 8px;
+  transform: translateX(-100%);
+  transition: opacity 0.3s ease, transform 1s ease;
+}
+.custom-main-collection-product-grid .card-information__size .card-information__size-list .card-information__size-item {
+  font-size: 12px;
+  color: #000;
+  padding: 4px 8px;
+  border: 1px solid #a7a7a7;
+  border-radius: 4px;
+  cursor: pointer;
+}
+.custom-main-collection-product-grid .card-information__size .card-information__size-list .card-information__size-item:hover {
+  background-color: #a7a7a7;
+  color: #fff;
 }/*# sourceMappingURL=custom-main-collection-product-grid.css.map */

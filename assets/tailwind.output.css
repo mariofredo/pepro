@@ -397,9 +397,6 @@
   .tw\:overflow-y-auto {
     overflow-y: auto;
   }
-  .tw\:rounded-none {
-    border-radius: 0;
-  }
   .tw\:rounded-none\! {
     border-radius: 0 !important;
   }
