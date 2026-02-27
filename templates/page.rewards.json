@@ -11,6 +11,7 @@
   "sections": {
     "top-content-about-us": {
       "type": "custom-top-content-about-us",
+      "disabled": true,
       "settings": {
         "padding_top": 0,
         "padding_bottom": 0,
