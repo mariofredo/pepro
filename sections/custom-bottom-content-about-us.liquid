@@ -20,27 +20,56 @@
     class="tw:w-full tw:h-auto tw:aspect-video"
     width="1920"
     height="1080"
-    alt=""
-  >
+    alt="">
   <div class="tw:grid tw:grid-cols-2 tw:max-md:grid-cols-1">
     <div class="tw:flex tw:flex-col tw:p-10 tw:bg-[#0247b1]">
       <img
         src="{{'pepro_about_us_logo.png' |  asset_url}}"
-        class="tw:w-[200px]! tw:h-auto!"
+        class="tw:w-[200px]! tw:max-md:w-[120px]! tw:h-auto! tw:mb-5"
         width="1920"
         height="1080"
-        alt=""
-      >
-      <p class="tw:text-white tw:max-w-4xl">
-        Pepro exists at the intersection of <span class="tw:font-bold">performance,</span> recovery and wellness, where
+        alt="">
+      <p class="tw:text-white tw:max-w-4xl tw:text-[16px] tw:max-md:text-[12px] tw:max-md:leading-[16px] tw:max-sm:text-[10px] tw:max-sm:leading-[12px]">
+        Pepro exists at the intersection of
+        <span class="tw:font-bold">performance,</span>
+        recovery and wellness, where
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
         PEPROs community don’t just shop products, but test ideas, train habits, and move forward together.
       </p>
     </div>
     <div class="tw:flex tw:flex-col tw:p-10 tw:justify-center">
-      <h4 class="tw:font-bold! tw:text-[20px]! tw:text-black!">WHO WE ARE</h4>
-      <p class="tw:text-black tw:max-w-4xl">
-        Pèpro is a modern <span class="tw:font-bold">sports</span> and
-        <span class="tw:font-bold">athleisure</span> brand built for movement and everyday life. We create versatile
+      <h4 class="tw:font-bold! tw:text-[20px]! tw:text-black! tw:mb-5">WHO WE ARE</h4>
+      <p class="tw:text-black tw:max-w-4xl tw:text-[16px] tw:max-md:text-[12px] tw:max-md:leading-[16px] tw:max-sm:text-[10px] tw:max-sm:leading-[12px]">
+        Pèpro is a modern
+        <span class="tw:font-bold">sports</span>
+        and
+        <span class="tw:font-bold">athleisure</span>
+        brand built for movement and everyday life. We create versatile
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
         apparel that blends performance, comfort, and style—designed for those who live actively and dress with
         puIDRose.
       </p>
@@ -49,40 +78,37 @@
 </div>
 
 {% schema %}
-{
-  "name": "t:sections.main-page.name",
-  "tag": "section",
-  "class": "section",
-  "settings": [
-    {
-      "type": "header",
-      "content": "t:sections.all.padding.section_padding_heading"
-    },
-    {
-      "type": "range",
-      "id": "padding_top",
-      "min": 0,
-      "max": 100,
-      "step": 4,
-      "unit": "px",
-      "label": "t:sections.all.padding.padding_top",
-      "default": 36
-    },
-    {
-      "type": "range",
-      "id": "padding_bottom",
-      "min": 0,
-      "max": 100,
-      "step": 4,
-      "unit": "px",
-      "label": "t:sections.all.padding.padding_bottom",
-      "default": 36
-    },
-    {
-      "type": "image_picker",
-      "id": "image",
-      "label": "Image"
-    }
-  ]
-}
+  {
+    "name": "t:sections.main-page.name",
+    "tag": "section",
+    "class": "section",
+    "settings": [
+      {
+        "type": "header",
+        "content": "t:sections.all.padding.section_padding_heading"
+      }, {
+        "type": "range",
+        "id": "padding_top",
+        "min": 0,
+        "max": 100,
+        "step": 4,
+        "unit": "px",
+        "label": "t:sections.all.padding.padding_top",
+        "default": 36
+      }, {
+        "type": "range",
+        "id": "padding_bottom",
+        "min": 0,
+        "max": 100,
+        "step": 4,
+        "unit": "px",
+        "label": "t:sections.all.padding.padding_bottom",
+        "default": 36
+      }, {
+        "type": "image_picker",
+        "id": "image",
+        "label": "Image"
+      }
+    ]
+  }
 {% endschema %}

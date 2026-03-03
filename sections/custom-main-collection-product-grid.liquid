@@ -23,7 +23,6 @@
   <script src="{{ 'quick-order-list.js' | asset_url }}" defer="defer"></script>
 {%- endif -%}
 
-
 {%- style -%}
   .section-{{ section.id }}-padding {
     padding-top: {{ section.settings.padding_top | times: 0.75 | round: 0 }}px;
@@ -127,7 +126,11 @@
         {% endif %}
       >
         {%- if collection.products.size == 0 -%}
-          <div class="collection collection--empty " id="product-grid" data-id="{{ section.id }}">
+          <div
+            class="collection collection--empty "
+            id="product-grid"
+            data-id="{{ section.id }}"
+          >
             <div class="loading-overlay gradient"></div>
             <div class="title-wrapper center">
               <h2 class="title title--primary">
@@ -141,17 +144,13 @@
             </div>
           </div>
         {%- else -%}
-          <div
-            class="collection{% if section.settings.filter_type != 'vertical' %} {% endif %}"
-          >
+          <div class="collection{% if section.settings.filter_type != 'vertical' %} {% endif %}">
             <div class="loading-overlay gradient"></div>
             <ul
               id="product-grid"
               data-id="{{ section.id }}"
               class="
-                grid product-grid grid--{{ section.settings.columns_mobile }}-col-tablet-down
-                grid--{{ section.settings.columns_desktop }}-col-desktop
-                {% if section.settings.quick_add == 'bulk' %} collection-quick-add-bulk{% endif %}
+                tw:grid tw:grid-cols-5 tw:gap-[20px] tw:max-lg:grid-cols-3 tw:max-md:grid-cols-2 tw:max-sm:grid-cols-2 {% if section.settings.quick_add == 'bulk' %} collection-quick-add-bulk{% endif %}
               "
             >
               {% assign skip_card_product_styles = false %}
@@ -161,13 +160,13 @@
                   {%- assign lazy_load = true -%}
                 {%- endif -%}
                 <li
-                  class="grid__item{% if settings.animations_reveal_on_scroll %} scroll-trigger animate--slide-in{% endif %}"
+                  class="{% if settings.animations_reveal_on_scroll %} scroll-trigger animate--slide-in{% endif %}"
                   {% if settings.animations_reveal_on_scroll %}
                     data-cascade
                     style="--animation-order: {{ forloop.index }};"
                   {% endif %}
                 >
-                  {% render 'card-product',
+                  {% render 'custom-card-product',
                     card_product: product,
                     media_aspect_ratio: section.settings.image_ratio,
                     image_shape: section.settings.image_shape,
@@ -235,7 +234,7 @@
           "label": "t:sections.main-collection-product-grid.settings.columns_mobile.options__2.label"
         }
       ]
-    },    
+    },
     {
       "type": "color_scheme",
       "id": "color_scheme",

@@ -33,6 +33,13 @@
 .custom-main-collection-product-grid .card-information__size .icon-tabler-x {
   transition: transform 0.3s ease;
   transform: rotate(45deg);
+  cursor: pointer;
+}
+@media (max-width: 768px) {
+  .custom-main-collection-product-grid .card-information__size .icon-tabler-x {
+    width: 20px;
+    height: 20px;
+  }
 }
 .custom-main-collection-product-grid .card-information__size .card-information__size-list {
   display: flex;
