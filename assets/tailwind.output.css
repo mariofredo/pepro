@@ -692,6 +692,9 @@
     transition-timing-function: var(--tw-ease, var(--default-transition-timing-function));
     transition-duration: var(--tw-duration, var(--default-transition-duration));
   }
+  .tw\:delay-300 {
+    transition-delay: 300ms;
+  }
   .tw\:delay-500 {
     transition-delay: 500ms;
   }
@@ -748,6 +751,36 @@
       }
     }
   }
+  .tw\:group-hover\:scale-105 {
+    &:is(:where(.tw\:group):hover *) {
+      @media (hover: hover) {
+        --tw-scale-x: 105%;
+        --tw-scale-y: 105%;
+        --tw-scale-z: 105%;
+        scale: var(--tw-scale-x) var(--tw-scale-y);
+      }
+    }
+  }
+  .tw\:group-hover\:scale-115 {
+    &:is(:where(.tw\:group):hover *) {
+      @media (hover: hover) {
+        --tw-scale-x: 115%;
+        --tw-scale-y: 115%;
+        --tw-scale-z: 115%;
+        scale: var(--tw-scale-x) var(--tw-scale-y);
+      }
+    }
+  }
+  .tw\:group-hover\:scale-1905 {
+    &:is(:where(.tw\:group):hover *) {
+      @media (hover: hover) {
+        --tw-scale-x: 1905%;
+        --tw-scale-y: 1905%;
+        --tw-scale-z: 1905%;
+        scale: var(--tw-scale-x) var(--tw-scale-y);
+      }
+    }
+  }
   .tw\:group-hover\:rotate-0 {
     &:is(:where(.tw\:group):hover *) {
       @media (hover: hover) {
@@ -773,6 +806,27 @@
     &:is(:where(.tw\:group):hover *) {
       @media (hover: hover) {
         opacity: 100%;
+      }
+    }
+  }
+  .tw\:group-hover\:delay-100 {
+    &:is(:where(.tw\:group):hover *) {
+      @media (hover: hover) {
+        transition-delay: 100ms;
+      }
+    }
+  }
+  .tw\:group-hover\:delay-300 {
+    &:is(:where(.tw\:group):hover *) {
+      @media (hover: hover) {
+        transition-delay: 300ms;
+      }
+    }
+  }
+  .tw\:group-hover\:delay-1000 {
+    &:is(:where(.tw\:group):hover *) {
+      @media (hover: hover) {
+        transition-delay: 1000ms;
       }
     }
   }
@@ -1051,6 +1105,21 @@
   syntax: "*";
   inherits: false;
 }
+@property --tw-scale-x {
+  syntax: "*";
+  inherits: false;
+  initial-value: 1;
+}
+@property --tw-scale-y {
+  syntax: "*";
+  inherits: false;
+  initial-value: 1;
+}
+@property --tw-scale-z {
+  syntax: "*";
+  inherits: false;
+  initial-value: 1;
+}
 @layer properties {
   @supports ((-webkit-hyphens: none) and (not (margin-trim: inline))) or ((-moz-orient: inline) and (not (color:rgb(from red r g b)))) {
     *, ::before, ::after, ::backdrop {
@@ -1085,6 +1154,9 @@
       --tw-backdrop-sepia: initial;
       --tw-duration: initial;
       --tw-ease: initial;
+      --tw-scale-x: 1;
+      --tw-scale-y: 1;
+      --tw-scale-z: 1;
     }
   }
 }
