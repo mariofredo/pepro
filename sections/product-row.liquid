@@ -11,7 +11,22 @@
       {% for product in section.settings.collection.products %}
         <li class="product-row__item">
           <a href="{{ product.url }}">
-            {{ product.featured_image | image_url: width: 400 | image_tag }}
+            <div class="tw:aspect-square tw:relative tw:group">
+              <img
+                src="{{ product.featured_image | image_url: width: 400 }}"
+                alt="{{ product.title }}"
+                width="400"
+                height="400"
+                loading="lazy"
+                class="tw:absolute tw:inset-0 tw:z-10 tw:group-hover:opacity-0 tw:group-hover:z-0 tw:transition-opacity tw:duration-100">
+              <img
+                src="{{ product.images[1] | image_url: width: 400 }}"
+                width="400"
+                height="400"
+                loading="lazy"
+                alt="{{ product.title }}"
+                class="tw:absolute tw:inset-0 tw:z-0 tw:opacity-0 tw:group-hover:opacity-100 tw:group-hover:z-10 tw:transition-opacity tw:duration-100">
+            </div>
             <div class="product-row__size">
               <div class="product-row__size-list">
                 {% if product.variants %}
@@ -50,6 +65,10 @@
     </ul>
   </div>
 </section>
+<script>
+  document.addEventListener('DOMContentLoaded', function() {
+  });
+</script>
 
 {% schema %}
   {

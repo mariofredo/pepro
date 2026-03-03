@@ -76,7 +76,7 @@
       }
     },
     "product_row": {
-      "type": "product_row",
+      "type": "product-row",
       "settings": {
         "heading": "STYLE WITH",
         "collection": "247-represent",
