@@ -40,6 +40,7 @@
   font-weight: 700;
   text-align: center;
   list-style-type: none;
+  text-transform: uppercase;
 }
 @media (max-width: 768px) {
   .curated_product_names_box .curated_product_names_wrapper .curated_product_names {
