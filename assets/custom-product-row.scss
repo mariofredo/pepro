@@ -60,6 +60,10 @@
       .icon-tabler-x {
         transition: transform 0.3s ease;
         transform: rotate(45deg);
+        @media (max-width: 768px) {
+          width: 20px;
+          height: 20px;
+        }
       }
       .product-row__size-list {
         display: flex;
@@ -88,6 +92,12 @@
       font-weight: 500;
       color: #7a7a7a;
       text-transform: uppercase !important;
+      @media (max-width: 768px) {
+        font-size: 10px;
+      }
+      @media (max-width: 425px) {
+        font-size: 8px;
+      }
     }
     .title {
       display: -webkit-box;
@@ -100,10 +110,22 @@
       color: #000;
       margin: 0px 0px 8px;
       text-transform: uppercase;
+      line-height: 20px;
+      @media (max-width: 768px) {
+        font-size: 14px;
+        line-height: 16px;
+      }
+      @media (max-width: 425px) {
+        font-size: 11px;
+        line-height: 14px;
+      }
     }
     .price {
       font-size: 14px;
       font-weight: 500;
+      @media (max-width: 768px) {
+        font-size: 12px;
+      }
     }
   }
 }
@@ -111,6 +133,12 @@
 .product-row__item {
   flex: 0 0 auto; /* ❗ jangan shrink */
   width: 220px; /* card width */
+  @media (max-width: 768px) {
+    width: 180px;
+  }
+  @media (max-width: 425px) {
+    width: 160px;
+  }
 }
 
 .product-row__item img {
