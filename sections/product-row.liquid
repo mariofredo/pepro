@@ -2,7 +2,9 @@
 <section class="tw:py-[40px]" style="padding-right: {{ section.settings.padding_right }}px; padding-left: {{ section.settings.padding_left }}px;">
   <div class="product-row__header">
     <h2>{{ section.settings.heading }}</h2>
-    <a href="{{ section.settings.collection.url }}" class="product-row__view-all"> VIEW ALL </a>
+    <a href="{{ section.settings.collection.url }}" class="product-row__view-all">
+      VIEW ALL
+    </a>
   </div>
   <div class="product-row__scroll">
     <ul class="product-row__list">
@@ -32,9 +34,11 @@
                 stroke-width="2"
                 stroke-linecap="round"
                 stroke-linejoin="round"
-                class="icon icon-tabler icons-tabler-outline icon-tabler-x"
-              >
-                <path stroke="none" d="M0 0h24v24H0z" fill="none"/><path d="M18 6l-12 12" /><path d="M6 6l12 12" />
+                class="icon icon-tabler icons-tabler-outline icon-tabler-x">
+                <path
+                  stroke="none"
+                  d="M0 0h24v24H0z"
+                  fill="none" /><path d="M18 6l-12 12" /><path d="M6 6l12 12" />
               </svg>
             </div>
             <span class="brand">{{ product.vendor }}</span>
@@ -48,43 +52,40 @@
 </section>
 
 {% schema %}
-{
-  "name": "New Arrival Product",
-  "settings": [
-    {
-      "type": "text",
-      "id": "heading",
-      "label": "Heading",
-      "default": "New Arrival"
-    },
-    {
-      "type": "collection",
-      "id": "collection",
-      "label": "Collection"
-    },
-    {
-      "type": "range",
-      "id": "padding_right",
-      "label": "Padding right",
-      "default": 0,
-      "min": 0,
-      "max": 100,
-      "step": 10
-    },
-    {
-      "type": "range",
-      "id": "padding_left",
-      "label": "Padding left",
-      "default": 0,
-      "min": 0,
-      "max": 100,
-      "step": 10
-    }
-  ],
-  "presets": [
-    {
-      "name": "New Arrival Product"
-    }
-  ]
-}
+  {
+    "name": "New Arrival Product",
+    "settings": [
+      {
+        "type": "text",
+        "id": "heading",
+        "label": "Heading",
+        "default": "New Arrival"
+      }, {
+        "type": "collection",
+        "id": "collection",
+        "label": "Collection"
+      }, {
+        "type": "range",
+        "id": "padding_right",
+        "label": "Padding right",
+        "default": 0,
+        "min": 0,
+        "max": 100,
+        "step": 10
+      }, {
+        "type": "range",
+        "id": "padding_left",
+        "label": "Padding left",
+        "default": 0,
+        "min": 0,
+        "max": 100,
+        "step": 10
+      }
+    ],
+    "presets": [
+      {
+        "name": "New Arrival Product"
+      }
+    ]
+  }
 {% endschema %}

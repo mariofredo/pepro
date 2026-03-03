@@ -41,8 +41,8 @@
         "autoplay": true
       }
     },
-    "new_arrival_product": {
-      "type": "new-arrival-product",
+    "product_row": {
+      "type": "product-row",
       "settings": {
         "heading": "NEW ARRIVALS",
         "collection": "all-products",
@@ -65,7 +65,7 @@
   },
   "order": [
     "image_banner_slider",
-    "new_arrival_product",
+    "product_row",
     "curated_brands"
   ]
 }

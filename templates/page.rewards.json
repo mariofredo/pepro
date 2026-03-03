@@ -21,8 +21,8 @@
       "type": "custom-bottom-content-rewards",
       "settings": {}
     },
-    "product-row": {
-      "type": "new-arrival-product",
+    "product_row": {
+      "type": "product-row",
       "settings": {
         "heading": "REDEEMABLE PRODUCTS",
         "collection": "all-products",
@@ -34,6 +34,6 @@
   "order": [
     "top-content-about-us",
     "bottom-content-rewards",
-    "product-row"
+    "product_row"
   ]
 }

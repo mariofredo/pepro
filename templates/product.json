@@ -75,8 +75,8 @@
         "padding_bottom": 12
       }
     },
-    "new_arrival_product": {
-      "type": "new-arrival-product",
+    "product_row": {
+      "type": "product_row",
       "settings": {
         "heading": "STYLE WITH",
         "collection": "247-represent",
@@ -87,6 +87,6 @@
   },
   "order": [
     "main",
-    "new_arrival_product"
+    "product_row"
   ]
 }
