@@ -54,11 +54,12 @@
       "type": "curated-brands",
       "settings": {
         "brands": [
-          "nike",
+          "editor-picks",
           "247-represent",
           "bandit",
-          "loewe",
-          "editor-picks"
+          "oakley",
+          "mental-athletic",
+          "western-hydrodynamic-research"
         ]
       }
     }
