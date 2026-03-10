@@ -5,7 +5,7 @@
   {% if section.settings.autoplay %} autoplay {% endif %}>
   <ul class="slider slider--everywhere" role="list">
     {% for block in section.blocks %}
-      <li class="slider__slide" {{ block.shopify_attributes }}>
+      <li class="slider__slide custom-slider__slide" {{ block.shopify_attributes }}>
         {% if block.settings.image %}
           <img
             src="{{ block.settings.image | image_url: width: 1920 }}"

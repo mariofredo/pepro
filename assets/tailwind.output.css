@@ -16,12 +16,8 @@
     --tw-container-4xl: 56rem;
     --tw-text-sm: 0.875rem;
     --tw-text-sm--line-height: calc(1.25 / 0.875);
-    --tw-text-lg: 1.125rem;
-    --tw-text-lg--line-height: calc(1.75 / 1.125);
     --tw-text-xl: 1.25rem;
     --tw-text-xl--line-height: calc(1.75 / 1.25);
-    --tw-text-2xl: 1.5rem;
-    --tw-text-2xl--line-height: calc(2 / 1.5);
     --tw-text-3xl: 1.875rem;
     --tw-text-3xl--line-height: calc(2.25 / 1.875);
     --tw-font-weight-normal: 400;
@@ -239,9 +235,6 @@
   .tw\:col-span-3 {
     grid-column: span 3 / span 3;
   }
-  .tw\:mx-\[30px\] {
-    margin-inline: 30px;
-  }
   .tw\:mx-\[40px\] {
     margin-inline: 40px;
   }
@@ -266,18 +259,6 @@
   .tw\:mb-5 {
     margin-bottom: calc(var(--tw-spacing) * 5);
   }
-  .tw\:mb-\[0px\] {
-    margin-bottom: 0px;
-  }
-  .tw\:mb-\[3\] {
-    margin-bottom: 3;
-  }
-  .tw\:mb-\[6px\] {
-    margin-bottom: 6px;
-  }
-  .tw\:mb-\[6spx\] {
-    margin-bottom: 6spx;
-  }
   .tw\:mb-\[8px\] {
     margin-bottom: 8px;
   }
@@ -286,9 +267,6 @@
   }
   .tw\:mb-\[12px\] {
     margin-bottom: 12px;
-  }
-  .tw\:mb-\[16px\] {
-    margin-bottom: 16px;
   }
   .tw\:mb-\[20px\] {
     margin-bottom: 20px;
@@ -299,12 +277,6 @@
   .tw\:mb-\[22px\]\! {
     margin-bottom: 22px !important;
   }
-  .tw\:mb-\[30px\] {
-    margin-bottom: 30px;
-  }
-  .tw\:mb-\[30px\]\! {
-    margin-bottom: 30px !important;
-  }
   .tw\:mb-\[40px\] {
     margin-bottom: 40px;
   }
@@ -313,9 +285,6 @@
     display: -webkit-box;
     -webkit-box-orient: vertical;
     -webkit-line-clamp: 2;
-  }
-  .tw\:block {
-    display: block;
   }
   .tw\:block\! {
     display: block !important;
@@ -332,9 +301,6 @@
   .tw\:grid\! {
     display: grid !important;
   }
-  .tw\:hidden {
-    display: none;
-  }
   .tw\:aspect-square {
     aspect-ratio: 1 / 1;
   }
@@ -347,17 +313,8 @@
   .tw\:h-0 {
     height: calc(var(--tw-spacing) * 0);
   }
-  .tw\:h-2 {
-    height: calc(var(--tw-spacing) * 2);
-  }
-  .tw\:h-4 {
-    height: calc(var(--tw-spacing) * 4);
-  }
   .tw\:h-20 {
     height: calc(var(--tw-spacing) * 20);
-  }
-  .tw\:h-\[4px\] {
-    height: 4px;
   }
   .tw\:h-\[4px\]\! {
     height: 4px !important;
@@ -472,9 +429,6 @@
   .tw\:gap-\[10px\] {
     gap: 10px;
   }
-  .tw\:gap-\[20p\] {
-    gap: 20p;
-  }
   .tw\:gap-\[20px\] {
     gap: 20px;
   }
@@ -494,23 +448,9 @@
     border-style: var(--tw-border-style);
     border-width: 1px;
   }
-  .tw\:border-4 {
-    border-style: var(--tw-border-style);
-    border-width: 4px;
-  }
   .tw\:border-b {
     border-bottom-style: var(--tw-border-style);
     border-bottom-width: 1px;
-  }
-  .tw\:border-b-4 {
-    border-bottom-style: var(--tw-border-style);
-    border-bottom-width: 4px;
-  }
-  .tw\:border-\[\#0247B1\] {
-    border-color: #0247B1;
-  }
-  .tw\:border-\[\#0247B1\]\! {
-    border-color: #0247B1 !important;
   }
   .tw\:border-gray-200 {
     border-color: var(--tw-color-gray-200);
@@ -581,9 +521,6 @@
   .tw\:px-\[30px\] {
     padding-inline: 30px;
   }
-  .tw\:px-\[30px\]\! {
-    padding-inline: 30px !important;
-  }
   .tw\:px-\[40px\] {
     padding-inline: 40px;
   }
@@ -595,9 +532,6 @@
   }
   .tw\:py-\[10px\] {
     padding-block: 10px;
-  }
-  .tw\:py-\[11px\] {
-    padding-block: 11px;
   }
   .tw\:py-\[20px\] {
     padding-block: 20px;
@@ -632,14 +566,8 @@
     font-size: var(--tw-text-xl);
     line-height: var(--tw-leading, var(--tw-text-xl--line-height));
   }
-  .tw\:text-\[8px\] {
-    font-size: 8px;
-  }
   .tw\:text-\[9px\] {
     font-size: 9px;
-  }
-  .tw\:text-\[10px\] {
-    font-size: 10px;
   }
   .tw\:text-\[12px\] {
     font-size: 12px;
@@ -704,23 +632,11 @@
     --tw-font-weight: var(--tw-font-weight-semibold) !important;
     font-weight: var(--tw-font-weight-semibold) !important;
   }
-  .tw\:text-\[\#000\] {
-    color: #000;
-  }
   .tw\:text-\[\#7a7a7a\] {
     color: #7a7a7a;
   }
-  .tw\:text-\[\#0247B1\] {
-    color: #0247B1;
-  }
   .tw\:text-\[\#0247B1\]\! {
     color: #0247B1 !important;
-  }
-  .tw\:text-\[\#\] {
-    color: #;
-  }
-  .tw\:text-\[px\] {
-    color: px;
   }
   .tw\:text-black {
     color: var(--tw-color-black);
@@ -813,13 +729,6 @@
     &:is(:where(.tw\:group):hover *) {
       @media (hover: hover) {
         z-index: 2;
-      }
-    }
-  }
-  .tw\:group-hover\:block {
-    &:is(:where(.tw\:group):hover *) {
-      @media (hover: hover) {
-        display: block;
       }
     }
   }
