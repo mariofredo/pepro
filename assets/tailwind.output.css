@@ -7,6 +7,7 @@
       "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
     --tw-font-mono: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono",
       "Courier New", monospace;
+    --tw-color-red-500: oklch(63.7% 0.237 25.331);
     --tw-color-gray-200: oklch(92.8% 0.006 264.531);
     --tw-color-gray-400: oklch(70.7% 0.022 261.325);
     --tw-color-gray-600: oklch(44.6% 0.03 256.802);
@@ -301,6 +302,9 @@
   .tw\:grid\! {
     display: grid !important;
   }
+  .tw\:inline-flex {
+    display: inline-flex;
+  }
   .tw\:aspect-square {
     aspect-ratio: 1 / 1;
   }
@@ -342,6 +346,9 @@
   }
   .tw\:min-h-\[460px\] {
     min-height: 460px;
+  }
+  .tw\:w-2 {
+    width: calc(var(--tw-spacing) * 2);
   }
   .tw\:w-20 {
     width: calc(var(--tw-spacing) * 20);
@@ -417,6 +424,9 @@
   .tw\:gap-1\! {
     gap: calc(var(--tw-spacing) * 1) !important;
   }
+  .tw\:gap-2 {
+    gap: calc(var(--tw-spacing) * 2);
+  }
   .tw\:gap-4 {
     gap: calc(var(--tw-spacing) * 4);
   }
@@ -479,6 +489,9 @@
       background-color: color-mix(in oklab, var(--tw-color-black) 40%, transparent);
     }
   }
+  .tw\:bg-red-500 {
+    background-color: var(--tw-color-red-500);
+  }
   .tw\:bg-white {
     background-color: var(--tw-color-white);
   }
@@ -517,6 +530,9 @@
   }
   .tw\:px-6\! {
     padding-inline: calc(var(--tw-spacing) * 6) !important;
+  }
+  .tw\:px-\[20px\] {
+    padding-inline: 20px;
   }
   .tw\:px-\[30px\] {
     padding-inline: 30px;
@@ -631,6 +647,9 @@
   .tw\:font-semibold\! {
     --tw-font-weight: var(--tw-font-weight-semibold) !important;
     font-weight: var(--tw-font-weight-semibold) !important;
+  }
+  .tw\:whitespace-nowrap {
+    white-space: nowrap;
   }
   .tw\:text-\[\#7a7a7a\] {
     color: #7a7a7a;
