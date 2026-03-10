@@ -9,15 +9,14 @@
             src="{{ brand.metafields.custom.banner_image | image_url: width: 1920, height: 1080 }}"
             alt="lalalala"
             width="1920"
-            height="1080"
-          >
+            height="1080">
         </div>
       </li>
     {% endfor %}
   </ul>
   <div class="curated_product_names_box">
     <div class="curated_product_names_wrapper">
-      <span class="curated_product_names_text">CURATED BRANDS</span>
+      <span class="curated_product_names_text">FEATURED BRANDS</span>
       <ul class="curated_product_names">
         {% for brand in section.settings.brands %}
           <li>
@@ -25,14 +24,12 @@
           </li>
         {% endfor %}
       </ul>
-      <a class="curated_product_discover" href=""
-        >DISCOVER
+      <a class="curated_product_discover" href="">DISCOVER
         <img
           src="{{ 'icon-white-arrow-right.svg' |  asset_url }}"
           width="20"
           height="20"
-          alt=""
-      ></a>
+          alt=""></a>
     </div>
   </div>
 </div>
@@ -59,21 +56,21 @@
 </script>
 
 {% schema %}
-{
-  "name": "Curated Brands",
-  "settings": [
-    {
-      "type": "collection_list",
-      "id": "brands",
-      "label": "Brands",
-      "info": "Add brand images and names to showcase curated brands.",
-      "limit": 6
-    }
-  ],
-  "presets": [
-    {
-      "name": "Curated Brands"
-    }
-  ]
-}
+  {
+    "name": "Curated Brands",
+    "settings": [
+      {
+        "type": "collection_list",
+        "id": "brands",
+        "label": "Brands",
+        "info": "Add brand images and names to showcase curated brands.",
+        "limit": 6
+      }
+    ],
+    "presets": [
+      {
+        "name": "Curated Brands"
+      }
+    ]
+  }
 {% endschema %}
