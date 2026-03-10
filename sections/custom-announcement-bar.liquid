@@ -14,6 +14,34 @@
   endif
 -%}
 
+<style>
+  .marquee {
+    width: 100%;
+    overflow: hidden;
+  }
+
+  .marquee-track {
+    display: flex;
+    gap: 60px;
+    white-space: nowrap;
+    width: max-content;
+  }
+
+  .item {
+    font-weight: 600;
+    font-size: 16px;
+  }
+
+  @keyframes marquee {
+    from {
+      transform: translateX(0);
+    }
+    to {
+      transform: translateX(-50%);
+    }
+  }
+</style>
+
 {% if social_icons %}
   {{ 'component-list-social.css' | asset_url | stylesheet_tag }}
 {% endif %}
@@ -45,27 +73,15 @@
         {%- endif -%}
       </div>
     {%- elsif section.blocks.size > 1 -%}
-      <marquee class="tw:flex tw:overflow-hidden tw:w-full tw:gap-2 tw:items-center">
-        {%- for block in section.blocks -%}
-          {%- if block.settings.text != blank -%}
-            {%- if block.settings.link != blank -%}
-              <a href="{{ block.settings.link }}" class="">
+      <div class="marquee">
+        <div class="marquee-track" id="track">
+          {% for block in section.blocks %}
+            {%- if block.settings.text != blank -%}
+              <span class="item">{{ block.settings.text | escape }}</span>
             {%- endif -%}
-            <p class="tw:inline-flex tw:px-[20px] tw:uppercase tw:whitespace-nowrap">
-              <span>{{ block.settings.text | escape }}</span>
-              {%- if block.settings.link != blank -%}
-                {{- 'icon-arrow.svg' | inline_asset_content -}}
-              {%- endif -%}
-            </p>
-            {%- if block.settings.link != blank -%}
-              </a>
-            {%- endif -%}
-            {%- if forloop.last == false -%}
-              <span>-</span>
-            {%- endif -%}
-          {%- endif -%}
-        {%- endfor -%}
-      </marquee>
+          {%- endfor -%}
+        </div>
+      </div>
       {%- if request.design_mode -%}
         <script src="{{ 'theme-editor.js' | asset_url }}" defer="defer"></script>
         <style>
@@ -108,6 +124,46 @@
   </div>
 </div>
 
+<script>
+  document.addEventListener('DOMContentLoaded', function () {
+    console.log('DOMContentLoaded');
+    const swiper = new Swiper('.swiper', {
+      loop: true,
+      speed: 5000, // Adjust for speed
+      autoplay: {
+        delay: 0, // No delay between slides
+        disableOnInteraction: false, // Continue autoplay
+      },
+      slidesPerView: 'auto', // Adjust based on layout
+      allowTouchMove: false, // Disable manual swipe
+    });
+  const track = document.getElementById("track");
+  const container = document.querySelector(".marquee");
+  let items = [...track.children];
+  
+  // duplicate until width is enough
+  function fillContent() {
+  while (track.scrollWidth < container.offsetWidth * 2) {
+    items.forEach(item => {
+      track.appendChild(item.cloneNode(true));
+    });
+  }
+  }
+  fillContent();
+  let position = 0;
+  let speed = 0.8;
+  
+  function animate() {
+  position -= speed;
+  if (Math.abs(position) >= track.scrollWidth / 2) {
+    position = 0;
+  }
+  track.style.transform = `translateX(${position}px)`;
+  requestAnimationFrame(animate);
+  }
+  animate();
+  });
+</script>
 {% schema %}
   {
     "name": "t:sections.announcement-bar.name",
@@ -118,56 +174,16 @@
     },
     "settings": [
       {
-        "type": "checkbox",
-        "id": "auto_rotate",
-        "label": "t:sections.announcement-bar.settings.auto_rotate.label",
-        "default": false
-      },
-      {
-        "type": "range",
-        "id": "change_slides_speed",
-        "min": 3,
-        "max": 10,
-        "step": 1,
-        "unit": "s",
-        "label": "t:sections.announcement-bar.settings.change_slides_speed.label",
-        "default": 5
-      },
-      {
         "type": "color_scheme",
         "id": "color_scheme",
         "label": "t:sections.all.colors.label",
         "default": "scheme-4"
-      },
-      {
-        "type": "checkbox",
-        "id": "show_line_separator",
-        "default": true,
-        "label": "t:sections.header.settings.show_line_separator.label"
       }, {
         "type": "header",
         "content": "t:sections.announcement-bar.settings.heading_utilities.content"
       }, {
         "type": "paragraph",
         "content": "t:sections.announcement-bar.settings.paragraph.content"
-      }, {
-        "type": "checkbox",
-        "id": "show_social",
-        "default": false,
-        "label": "t:sections.announcement-bar.settings.show_social.label",
-        "info": "t:sections.announcement-bar.settings.show_social.info"
-      }, {
-        "type": "checkbox",
-        "id": "enable_country_selector",
-        "default": false,
-        "label": "t:sections.announcement-bar.settings.enable_country_selector.label",
-        "info": "t:sections.announcement-bar.settings.enable_country_selector.info"
-      }, {
-        "type": "checkbox",
-        "id": "enable_language_selector",
-        "default": false,
-        "label": "t:sections.announcement-bar.settings.enable_language_selector.label",
-        "info": "t:sections.announcement-bar.settings.enable_language_selector.info"
       }
     ],
     "blocks": [

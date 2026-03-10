@@ -359,6 +359,12 @@
   .tw\:w-\[200px\]\! {
     width: 200px !important;
   }
+  .tw\:w-fit {
+    width: fit-content;
+  }
+  .tw\:w-fit\! {
+    width: fit-content !important;
+  }
   .tw\:w-full {
     width: 100%;
   }
