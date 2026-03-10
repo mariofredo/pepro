@@ -85,7 +85,6 @@
               {%- if block.settings.link != blank -%}
                 </a>
               {%- endif -%}
-
             {%- endif -%}
           {%- endfor -%}
         </div>
@@ -134,17 +133,6 @@
 
 <script>
   document.addEventListener('DOMContentLoaded', function () {
-    console.log('DOMContentLoaded');
-    const swiper = new Swiper('.swiper', {
-      loop: true,
-      speed: 5000, // Adjust for speed
-      autoplay: {
-        delay: 0, // No delay between slides
-        disableOnInteraction: false, // Continue autoplay
-      },
-      slidesPerView: 'auto', // Adjust based on layout
-      allowTouchMove: false, // Disable manual swipe
-    });
   const track = document.getElementById("track");
   const container = document.querySelector(".marquee");
   let items = [...track.children];
