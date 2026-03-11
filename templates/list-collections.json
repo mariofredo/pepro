@@ -10,13 +10,17 @@
 {
   "sections": {
     "main": {
-      "type": "main-list-collections",
+      "type": "custom-main-list-collection",
       "settings": {
-        "title": "Collections",
-        "sort": "alphabetical",
-        "image_ratio": "square",
-        "columns_desktop": 3,
-        "columns_mobile": "2"
+        "title": "ALL BRANDS",
+        "brands": [
+          "editor-picks",
+          "247-represent",
+          "bandit",
+          "oakley",
+          "mental-athletic",
+          "western-hydrodynamic-research"
+        ]
       }
     }
   },

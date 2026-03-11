@@ -1,0 +1,46 @@
+{{ 'component-card.css' | asset_url | stylesheet_tag }}
+{{ 'section-collection-list.css' | asset_url | stylesheet_tag }}
+
+<div class="page-width">
+  <h1 class="title title--primary inline-richtext{% if settings.animations_reveal_on_scroll %} scroll-trigger animate--fade-in{% endif %}">
+    {{ section.settings.title }}
+  </h1>
+  <ul class="tw:grid tw:grid-cols-2 tw:max-md:grid-cols-1">
+    {% for brand in section.settings.brands %}
+      <li class="">
+        <a href="{{brand.url}}" class="tw:w-full tw:h-full tw:relative">
+          <img
+            src="{{ brand.metafields.custom.banner_image | image_url: width: 1920, height: 1080 }}"
+            alt="lalalala"
+            width="1920"
+            height="1080"
+          >
+          <p class="tw:absolute tw:top-1/2 tw:left-1/2 tw:-translate-x-1/2 tw:-translate-y-1/2 tw:text-white tw:text-5xl tw:uppercase tw:font-bold">
+            {{ brand.title }}
+          </p>
+        </a>
+      </li>
+    {% endfor %}
+  </ul>
+</div>
+{% schema %}
+{
+  "name": "t:sections.main-list-collections.name",
+  "class": "section",
+  "settings": [
+    {
+      "type": "inline_richtext",
+      "id": "title",
+      "label": "t:sections.main-list-collections.settings.title.label",
+      "default": "t:sections.main-list-collections.settings.title.default"
+    },
+    {
+      "type": "collection_list",
+      "id": "brands",
+      "label": "Brands",
+      "info": "Add brand images and names to showcase curated brands.",
+      "limit": 6
+    }
+  ]
+}
+{% endschema %}

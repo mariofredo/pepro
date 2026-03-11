@@ -21,6 +21,8 @@
     --tw-text-xl--line-height: calc(1.75 / 1.25);
     --tw-text-3xl: 1.875rem;
     --tw-text-3xl--line-height: calc(2.25 / 1.875);
+    --tw-text-5xl: 3rem;
+    --tw-text-5xl--line-height: 1;
     --tw-font-weight-normal: 400;
     --tw-font-weight-medium: 500;
     --tw-font-weight-semibold: 600;
@@ -203,6 +205,9 @@
   .tw\:top-0 {
     top: calc(var(--tw-spacing) * 0);
   }
+  .tw\:top-1\/2 {
+    top: calc(1 / 2 * 100%);
+  }
   .tw\:right-0 {
     right: calc(var(--tw-spacing) * 0);
   }
@@ -220,6 +225,9 @@
   }
   .tw\:left-0\! {
     left: calc(var(--tw-spacing) * 0) !important;
+  }
+  .tw\:left-1\/2 {
+    left: calc(1 / 2 * 100%);
   }
   .tw\:z-0 {
     z-index: 0;
@@ -413,12 +421,30 @@
   .tw\:max-w-full\! {
     max-width: 100% !important;
   }
+  .tw\:-translate-1\/2 {
+    --tw-translate-x: calc(calc(1 / 2 * 100%) * -1);
+    --tw-translate-y: calc(calc(1 / 2 * 100%) * -1);
+    translate: var(--tw-translate-x) var(--tw-translate-y);
+  }
+  .tw\:translate-1\/2 {
+    --tw-translate-x: calc(1 / 2 * 100%);
+    --tw-translate-y: calc(1 / 2 * 100%);
+    translate: var(--tw-translate-x) var(--tw-translate-y);
+  }
+  .tw\:-translate-x-1\/2 {
+    --tw-translate-x: calc(calc(1 / 2 * 100%) * -1);
+    translate: var(--tw-translate-x) var(--tw-translate-y);
+  }
   .tw\:translate-x-0 {
     --tw-translate-x: calc(var(--tw-spacing) * 0);
     translate: var(--tw-translate-x) var(--tw-translate-y);
   }
   .tw\:translate-x-full {
     --tw-translate-x: 100%;
+    translate: var(--tw-translate-x) var(--tw-translate-y);
+  }
+  .tw\:-translate-y-1\/2 {
+    --tw-translate-y: calc(calc(1 / 2 * 100%) * -1);
     translate: var(--tw-translate-x) var(--tw-translate-y);
   }
   .tw\:rotate-45 {
@@ -603,6 +629,10 @@
   .tw\:text-3xl\! {
     font-size: var(--tw-text-3xl) !important;
     line-height: var(--tw-leading, var(--tw-text-3xl--line-height)) !important;
+  }
+  .tw\:text-5xl {
+    font-size: var(--tw-text-5xl);
+    line-height: var(--tw-leading, var(--tw-text-5xl--line-height));
   }
   .tw\:text-sm {
     font-size: var(--tw-text-sm);
