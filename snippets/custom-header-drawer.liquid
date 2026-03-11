@@ -62,7 +62,7 @@
                               <a
                                 id="HeaderDrawer-{{ link.handle }}-{{ childlink.handle }}"
                                 href="{{ childlink.url }}"
-                                class="tw:block! tw:w-full! tw:px-[30px] tw:text-[18px] tw:text-[#7a7a7a]! tw:mb-[20px] tw:hover:text-black! tw:hover:font-semibold {% if childlink.url == curr_url %} tw:text-black! tw:font-semibold {% endif %}"
+                                class="tw:block! tw:w-full! tw:px-[30px] tw:text-[18px] tw:text-[#7a7a7a]! tw:mb-[20px] tw:hover:text-black! tw:hover:font-semibold tw:uppercase {% if childlink.url == curr_url %} tw:text-black! tw:font-semibold {% endif %}"
                                 {% if childlink.current %}
                                   aria-current="page"
                                 {% endif %}

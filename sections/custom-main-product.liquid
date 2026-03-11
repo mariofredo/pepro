@@ -155,20 +155,22 @@
                     <span>{{ 'products.product.volume_pricing.note' | t }}</span>
                   </div>
                 {%- endif -%}
-                {% comment %} {%- if cart.taxes_included or cart.duties_included or shop.shipping_policy.body != blank -%}
-                  <div class="product__tax caption rte">
-                    {%- if cart.duties_included and cart.taxes_included -%}
-                      {{ 'products.product.duties_and_taxes_included' | t }}
-                    {%- elsif cart.taxes_included -%}
-                      {{ 'products.product.taxes_included' | t }}
-                    {%- elsif cart.duties_included -%}
-                      {{ 'products.product.duties_included' | t }}
-                    {%- endif -%}
-                    {%- if shop.shipping_policy.body != blank -%}
-                      {{ 'products.product.shipping_policy_html' | t: link: shop.shipping_policy.url }}
-                    {%- endif -%}
-                  </div>
-                {%- endif -%} {% endcomment %}
+                {% comment %}
+                  {%- if cart.taxes_included or cart.duties_included or shop.shipping_policy.body != blank -%}
+                    <div class="product__tax caption rte">
+                      {%- if cart.duties_included and cart.taxes_included -%}
+                        {{ 'products.product.duties_and_taxes_included' | t }}
+                      {%- elsif cart.taxes_included -%}
+                        {{ 'products.product.taxes_included' | t }}
+                      {%- elsif cart.duties_included -%}
+                        {{ 'products.product.duties_included' | t }}
+                      {%- endif -%}
+                      {%- if shop.shipping_policy.body != blank -%}
+                        {{ 'products.product.shipping_policy_html' | t: link: shop.shipping_policy.url }}
+                      {%- endif -%}
+                    </div>
+                  {%- endif -%}
+                {% endcomment %}
                 <div {{ block.shopify_attributes }}>
                   {%- assign product_form_installment_id = 'product-form-installment-' | append: section.id -%}
                   {%- form 'product', product, id: product_form_installment_id, class: 'installment caption-large' -%}
@@ -236,7 +238,7 @@
                   <div class="tw:group">
                     <div class="tw:flex tw:justify-between tw:items-center tw:gap-[10px] tw:border-b tw:border-gray-400 tw:p-[10px] tw:group-hover:border-gray-600 tw:cursor-pointer ">
                       <p>DESCRIPTION</p>
-                       <svg
+                      <svg
                         xmlns="http://www.w3.org/2000/svg"
                         width="24"
                         height="24"
@@ -251,7 +253,10 @@
                         <path stroke="none" d="M0 0h24v24H0z" fill="none"/><path d="M18 6l-12 12" /><path d="M6 6l12 12" />
                       </svg>
                     </div>
-                    <div class="tw:py-[10px] tw:h-0 tw:overflow-hidden tw:transition-all tw:ease-in-out tw:duration-600 tw:opacity-0 tw:group-hover:h-auto tw:group-hover:opacity-100 product__description rte quick-add-hidden" {{ block.shopify_attributes }}>
+                    <div
+                      class="tw:py-[10px] tw:h-0 tw:overflow-hidden tw:transition-all tw:ease-in-out tw:duration-600 tw:opacity-0 tw:group-hover:h-auto tw:group-hover:opacity-100 product__description rte quick-add-hidden"
+                      {{ block.shopify_attributes }}
+                    >
                       {{ product.description }}
                     </div>
                   </div>
