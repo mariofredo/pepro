@@ -1,12 +1,15 @@
-{% comment %} 
-          Renders a header drawer menu for mobile and desktop. 
-          Usage: 
-          {% render 'header-drawer' %}
+{% comment %}
+  Renders a header drawer menu for mobile and desktop.
+  Usage:
+  {% render 'header-drawer' %}
 {% endcomment %}
-
+{% assign curr_url = request.path %}
 <header-drawer data-breakpoint="{% if section.settings.menu_type_desktop == 'drawer' %}desktop{% else %}tablet{% endif %}">
   <details id="Details-menu-drawer-container" class="menu-drawer-container">
-    <summary class="header__icon header__icon--menu header__icon--summary link focus-inset" aria-label="{{ 'sections.header.menu' | t }}">
+    <summary
+      class="header__icon header__icon--menu header__icon--summary link focus-inset"
+      aria-label="{{ 'sections.header.menu' | t }}"
+    >
       <span>
         {{- 'icon-hamburger.svg' | inline_asset_content -}}
         {{- 'icon-close.svg' | inline_asset_content -}}
@@ -20,14 +23,16 @@
         </div>
         <div class="menu-drawer__navigation-container tw:h-fit!">
           <nav class="menu-drawer__navigation">
-            <ul class="tw:w-full tw:flex tw:flex-col" role="list">
+            <ul class="tw:w-full tw:h-[calc(100vh-240px)] tw:flex tw:flex-col" role="list">
               {%- for link in section.settings.menu.links -%}
-                <li>
+                <li class="{% if link.title == 'REWARDS' %} tw:mt-auto! {% endif %}">
                   {%- if link.links != blank -%}
-                    <div class="tw:group tw:mb-[20px]">
-                      <a href="{{link.url}}" class="brand-btn tw:w-full tw:text-left! tw:flex tw:justify-between tw:items-center tw:px-[30px] tw:text-[18px] tw:text-black! tw:font-semibold!">
+                    <div class="brand-btn-ctr">
+                      <button
+                        class="brand-btn {% if curr_url contains link.url  %} tw:text-black! tw:font-semibold {% endif %}"
+                      >
                         {{ link.title | escape }}
-                        <span class="tw:group-hover:rotate-180 tw:transition-all tw:ease-in tw:duration-300">
+                        <span class="icon-chevron-down">
                           <svg
                             xmlns="http://www.w3.org/2000/svg"
                             width="24"
@@ -38,33 +43,38 @@
                             stroke-width="2"
                             stroke-linecap="round"
                             stroke-linejoin="round"
-                            class="icon icon-tabler icons-tabler-outline icon-tabler-chevron-down">
+                            class="icon icon-tabler icons-tabler-outline icon-tabler-chevron-down"
+                          >
                             <path
                               stroke="none"
                               d="M0 0h24v24H0z"
                               fill="none" /><path d="M6 9l6 6l6 -6" />
                           </svg>
                         </span>
-                      </a>
+                      </button>
                       <ul
-                        class="tw:px-[30px] tw:h-0 tw:overflow-hidden tw:opacity-0 tw:transition-all tw:ease-in tw:duration-300 tw:group-hover:h-auto tw:group-hover:opacity-100"
+                        class="brand-list"
                         role="list"
-                        tabindex="-1">
+                      >
                         {%- for childlink in link.links -%}
                           <li>
                             {%- if childlink.links == blank -%}
                               <a
                                 id="HeaderDrawer-{{ link.handle }}-{{ childlink.handle }}"
                                 href="{{ childlink.url }}"
-                                class="menu-drawer__menu-item link link--text list-menu__item focus-inset{% if childlink.current %} menu-drawer__menu-item--active{% endif %}"
+                                class="tw:block! tw:w-full! tw:px-[30px] tw:text-[18px] tw:text-[#7a7a7a]! tw:mb-[20px] tw:hover:text-black! tw:hover:font-semibold {% if childlink.url == curr_url %} tw:text-black! tw:font-semibold {% endif %}"
                                 {% if childlink.current %}
-                                aria-current="page"
-                                {% endif %}>
+                                  aria-current="page"
+                                {% endif %}
+                              >
                                 {{ childlink.title | escape }}
                               </a>
                             {%- else -%}
                               <details id="Details-menu-drawer-{{ link.handle }}-{{ childlink.handle }}">
-                                <summary id="HeaderDrawer-{{ link.handle }}-{{ childlink.handle }}" class="menu-drawer__menu-item link link--text list-menu__item focus-inset">
+                                <summary
+                                  id="HeaderDrawer-{{ link.handle }}-{{ childlink.handle }}"
+                                  class="menu-drawer__menu-item link link--text list-menu__item focus-inset"
+                                >
                                   {{ childlink.title | escape }}
                                   <span class="svg-wrapper">
                                     {{- 'icon-arrow.svg' | inline_asset_content -}}
@@ -73,8 +83,14 @@
                                     {{- 'icon-caret.svg' | inline_asset_content -}}
                                   </span>
                                 </summary>
-                                <div id="childlink-{{ childlink.handle | escape }}" class="menu-drawer__submenu has-submenu gradient motion-reduce">
-                                  <button class="menu-drawer__close-button link link--text focus-inset" aria-expanded="true">
+                                <div
+                                  id="childlink-{{ childlink.handle | escape }}"
+                                  class="menu-drawer__submenu has-submenu gradient motion-reduce"
+                                >
+                                  <button
+                                    class="menu-drawer__close-button link link--text focus-inset"
+                                    aria-expanded="true"
+                                  >
                                     <span class="svg-wrapper">
                                       {{- 'icon-arrow.svg' | inline_asset_content -}}
                                     </span>
@@ -83,7 +99,8 @@
                                   <ul
                                     class="menu-drawer__menu list-menu"
                                     role="list"
-                                    tabindex="-1">
+                                    tabindex="-1"
+                                  >
                                     {%- for grandchildlink in childlink.links -%}
                                       <li>
                                         <a
@@ -91,8 +108,9 @@
                                           href="{{ grandchildlink.url }}"
                                           class="menu-drawer__menu-item link link--text list-menu__item focus-inset{% if grandchildlink.current %} menu-drawer__menu-item--active{% endif %}"
                                           {% if grandchildlink.current %}
-                                          aria-current="page"
-                                          {% endif %}>
+                                            aria-current="page"
+                                          {% endif %}
+                                        >
                                           {{ grandchildlink.title | escape }}
                                         </a>
                                       </li>
@@ -108,33 +126,41 @@
                   {% elsif link.title == 'DEALS' %}
                     <a
                       href="{{ link.url }}"
-                      class="tw:block! tw:w-full! tw:px-[30px] tw:text-[18px] tw:text-[#0247B1]! tw:font-semibold tw:mb-[40px]"
+                      class="tw:block! tw:w-full! tw:px-[30px] tw:mb-[40px]"
                       {% if link.current %}
-                      aria-current="page"
-                      {% endif %}>
-                      {{ link.title | escape -}}
-                      <sup class="tw:text-[9px]">%</sup>
+                        aria-current="page"
+                      {% endif %}
+                    >
+                      {% comment %}
+                        {{ link.title | escape -}}
+                        <sup class="tw:text-[9px]">%</sup>
+                      {% endcomment %}
+                      <img
+                        src="{{ 'deals-btn.svg' |  asset_url }}"
+                        width="100"
+                        height="32"
+                        class="tw:w-auto! tw:h-[18px]!"
+                        alt="deals-btn"
+                      >
                     </a>
-                  {% elsif link.title == 'REWARDS'
- or link.title == 'ABOUT US'
- or link.title == 'CONTACT US'
- or link.title == 'MAGAZINES'
-                  %}
+                  {% elsif link.title == 'REWARDS' or link.title == 'ABOUT US' or link.title == 'CONTACT US' %}
                     <a
                       href="{{ link.url }}"
-                      class="tw:block! tw:w-full! tw:px-[30px] tw:text-[18px] tw:mb-[12px] tw:text-black! tw:font-semibold"
+                      class="tw:block! tw:w-full! tw:px-[30px] tw:text-[16px] tw:mb-[12px] tw:text-[#7a7a7a]! tw:hover:text-black! tw:hover:font-semibold {% if link.url == curr_url %} tw:text-black! tw:font-semibold {% endif %}"
                       {% if link.current %}
-                      aria-current="page"
-                      {% endif %}>
+                        aria-current="page"
+                      {% endif %}
+                    >
                       {{ link.title | escape }}
                     </a>
                   {%- else -%}
                     <a
                       href="{{ link.url }}"
-                      class="tw:block! tw:w-full! tw:px-[30px] tw:text-[18px] tw:text-black! tw:font-semibold tw:mb-[20px]"
+                      class="tw:block! tw:w-full! tw:px-[30px] tw:text-[18px] tw:text-[#7a7a7a]! tw:mb-[20px] tw:hover:text-black! tw:hover:font-semibold  {% if link.url == curr_url %} tw:text-black! tw:font-semibold {% endif %}"
                       {% if link.current %}
-                      aria-current="page"
-                      {% endif %}>
+                        aria-current="page"
+                      {% endif %}
+                    >
                       {{ link.title | escape }}
                     </a>
                   {%- endif -%}
@@ -147,7 +173,8 @@
               <a
                 href="{%- if customer -%}{{ routes.account_url }}{%- else -%}{{ routes.account_login_url }}{%- endif -%}"
                 class="menu-drawer__account link focus-inset h5 medium-hide large-up-hide"
-                rel="nofollow">
+                rel="nofollow"
+              >
                 {%- if section.settings.enable_customer_avatar -%}
                   <account-icon>
                     {%- if customer and customer.has_avatar? -%}
@@ -176,15 +203,12 @@
               <div class="menu-drawer__localization header-localization">
                 {%- if localization.available_countries and localization.available_countries.size > 1 -%}
                   <localization-form>
-                    {%- form 'localization'
-                      , id: 'HeaderCountryMobileForm'
-                      , class: 'localization-form' -%}
+                    {%- form 'localization', id: 'HeaderCountryMobileForm', class: 'localization-form' -%}
                       <div>
                         <h2 class="visually-hidden" id="HeaderCountryMobileLabel">
                           {{ 'localization.country_label' | t }}
                         </h2>
-                        {%- render 'country-localization'
-                          , localPosition: 'HeaderCountryMobile' -%}
+                        {%- render 'country-localization', localPosition: 'HeaderCountryMobile' -%}
                       </div>
                     {%- endform -%}
                   </localization-form>
@@ -192,15 +216,12 @@
 
                 {%- if localization.available_languages and localization.available_languages.size > 1 -%}
                   <localization-form>
-                    {%- form 'localization'
-                      , id: 'HeaderLanguageMobileForm'
-                      , class: 'localization-form' -%}
+                    {%- form 'localization', id: 'HeaderLanguageMobileForm', class: 'localization-form' -%}
                       <div>
                         <h2 class="visually-hidden" id="HeaderLanguageMobileLabel">
                           {{ 'localization.language_label' | t }}
                         </h2>
-                        {%- render 'language-localization'
-                          , localPosition: 'HeaderLanguageMobile' -%}
+                        {%- render 'language-localization', localPosition: 'HeaderLanguageMobile' -%}
                       </div>
                     {%- endform -%}
                   </localization-form>
@@ -304,4 +325,16 @@
       </div>
     </div>
   </details>
+  <script>
+    document.addEventListener('DOMContentLoaded', function () {
+      const brandCtrs = document.querySelectorAll('.brand-btn-ctr');
+      brandCtrs.forEach((ctr) => {
+        const btn = ctr.querySelector('.brand-btn');
+        const list = ctr.querySelector('.brand-list');
+        btn.addEventListener('click', function () {
+          ctr.classList.toggle('active');
+        });
+      });
+    });
+  </script>
 </header-drawer>

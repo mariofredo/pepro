@@ -1,0 +1,40 @@
+.brand-btn-ctr {
+  margin-bottom: 20px;
+  .brand-btn {
+    width: 100%;
+    text-align: left;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0 30px;
+    font-size: 18px;
+    color: #7a7a7a;
+    cursor: pointer;
+    &:hover {
+      color: black;
+      font-weight: 600;
+    }
+  }
+  .brand-list {
+    padding: 0px 30px;
+    max-height: 0;
+    overflow: hidden;
+    transition: all 0.3s ease-in-out;
+  }
+  &.active {
+    margin-bottom: 0px;
+    .brand-btn {
+      color: black;
+      font-weight: 600;
+    }
+    .icon-chevron-down {
+      transform: rotate(180deg);
+      transition: all 0.3s ease-in-out;
+    }
+    .brand-list {
+      padding: 20px 30px 0;
+      max-height: initial;
+      transition: all 0.3s ease-in-out;
+    }
+  }
+}

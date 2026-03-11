@@ -254,6 +254,9 @@
   .tw\:mt-10\! {
     margin-top: calc(var(--tw-spacing) * 10) !important;
   }
+  .tw\:mt-auto\! {
+    margin-top: auto !important;
+  }
   .tw\:mb-0\! {
     margin-bottom: calc(var(--tw-spacing) * 0) !important;
   }
@@ -302,9 +305,6 @@
   .tw\:grid\! {
     display: grid !important;
   }
-  .tw\:inline-flex {
-    display: inline-flex;
-  }
   .tw\:aspect-square {
     aspect-ratio: 1 / 1;
   }
@@ -323,8 +323,47 @@
   .tw\:h-\[4px\]\! {
     height: 4px !important;
   }
+  .tw\:h-\[10px\]\! {
+    height: 10px !important;
+  }
+  .tw\:h-\[18px\]\! {
+    height: 18px !important;
+  }
   .tw\:h-\[20px\] {
     height: 20px;
+  }
+  .tw\:h-\[20px\]\! {
+    height: 20px !important;
+  }
+  .tw\:h-\[32px\]\! {
+    height: 32px !important;
+  }
+  .tw\:h-\[calc\(\)\] {
+    height: calc();
+  }
+  .tw\:h-\[calc\(100vh\)\] {
+    height: calc(100vh);
+  }
+  .tw\:h-\[calc\(100vh-\)\] {
+    height: calc(100vh - );
+  }
+  .tw\:h-\[calc\(100vh-0px\)\] {
+    height: calc(100vh - 0px);
+  }
+  .tw\:h-\[calc\(100vh-40px\)\] {
+    height: calc(100vh - 40px);
+  }
+  .tw\:h-\[calc\(100vh-120px\)\] {
+    height: calc(100vh - 120px);
+  }
+  .tw\:h-\[calc\(100vh-180px\)\] {
+    height: calc(100vh - 180px);
+  }
+  .tw\:h-\[calc\(100vh-240px\)\] {
+    height: calc(100vh - 240px);
+  }
+  .tw\:h-\[calc\(100vh_\)\] {
+    height: calc(100vh );
   }
   .tw\:h-auto {
     height: auto;
@@ -347,9 +386,6 @@
   .tw\:min-h-\[460px\] {
     min-height: 460px;
   }
-  .tw\:w-2 {
-    width: calc(var(--tw-spacing) * 2);
-  }
   .tw\:w-20 {
     width: calc(var(--tw-spacing) * 20);
   }
@@ -359,11 +395,8 @@
   .tw\:w-\[200px\]\! {
     width: 200px !important;
   }
-  .tw\:w-fit {
-    width: fit-content;
-  }
-  .tw\:w-fit\! {
-    width: fit-content !important;
+  .tw\:w-auto\! {
+    width: auto !important;
   }
   .tw\:w-full {
     width: 100%;
@@ -430,9 +463,6 @@
   .tw\:gap-1\! {
     gap: calc(var(--tw-spacing) * 1) !important;
   }
-  .tw\:gap-2 {
-    gap: calc(var(--tw-spacing) * 2);
-  }
   .tw\:gap-4 {
     gap: calc(var(--tw-spacing) * 4);
   }
@@ -495,9 +525,6 @@
       background-color: color-mix(in oklab, var(--tw-color-black) 40%, transparent);
     }
   }
-  .tw\:bg-red-500 {
-    background-color: var(--tw-color-red-500);
-  }
   .tw\:bg-white {
     background-color: var(--tw-color-white);
   }
@@ -536,9 +563,6 @@
   }
   .tw\:px-6\! {
     padding-inline: calc(var(--tw-spacing) * 6) !important;
-  }
-  .tw\:px-\[20px\] {
-    padding-inline: 20px;
   }
   .tw\:px-\[30px\] {
     padding-inline: 30px;
@@ -587,6 +611,9 @@
   .tw\:text-xl {
     font-size: var(--tw-text-xl);
     line-height: var(--tw-leading, var(--tw-text-xl--line-height));
+  }
+  .tw\:text-\[1px\] {
+    font-size: 1px;
   }
   .tw\:text-\[9px\] {
     font-size: 9px;
@@ -654,14 +681,17 @@
     --tw-font-weight: var(--tw-font-weight-semibold) !important;
     font-weight: var(--tw-font-weight-semibold) !important;
   }
-  .tw\:whitespace-nowrap {
-    white-space: nowrap;
-  }
   .tw\:text-\[\#7a7a7a\] {
     color: #7a7a7a;
   }
+  .tw\:text-\[\#7a7a7a\]\! {
+    color: #7a7a7a !important;
+  }
   .tw\:text-\[\#0247B1\]\! {
     color: #0247B1 !important;
+  }
+  .tw\:text-\[tw\:text-\[\#7a7a7a\]\!\]\! {
+    color: text-[#7a7a7a]! !important;
   }
   .tw\:text-black {
     color: var(--tw-color-black);
@@ -743,6 +773,16 @@
     --tw-ease: var(--tw-ease-in-out);
     transition-timing-function: var(--tw-ease-in-out);
   }
+  .tw\:group-open\:h-auto {
+    &:is(:where(.tw\:group):is([open], :popover-open, :open) *) {
+      height: auto;
+    }
+  }
+  .tw\:group-open\:opacity-100 {
+    &:is(:where(.tw\:group):is([open], :popover-open, :open) *) {
+      opacity: 100%;
+    }
+  }
   .tw\:group-hover\:z-0 {
     &:is(:where(.tw\:group):hover *) {
       @media (hover: hover) {
@@ -806,6 +846,31 @@
     &:is(:where(.tw\:group):hover *) {
       @media (hover: hover) {
         opacity: 100%;
+      }
+    }
+  }
+  .tw\:group-active\:h-auto {
+    &:is(:where(.tw\:group):active *) {
+      height: auto;
+    }
+  }
+  .tw\:group-active\:opacity-100 {
+    &:is(:where(.tw\:group):active *) {
+      opacity: 100%;
+    }
+  }
+  .tw\:hover\:font-semibold {
+    &:hover {
+      @media (hover: hover) {
+        --tw-font-weight: var(--tw-font-weight-semibold);
+        font-weight: var(--tw-font-weight-semibold);
+      }
+    }
+  }
+  .tw\:hover\:text-black\! {
+    &:hover {
+      @media (hover: hover) {
+        color: var(--tw-color-black) !important;
       }
     }
   }
