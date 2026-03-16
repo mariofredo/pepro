@@ -11,27 +11,37 @@
 
   /* The track holds the sets side by side */
   .marquee-track {
-    width: max-content !important; /* Forces the track to grow endlessly */
+    width: max-content !important;
+    min-width: max-content !important;
     display: flex;
+    flex-wrap: nowrap !important; /* STRICTLY forces a single line to prevent overlap */
     gap: 20px;
   }
 
   .marquee-content {
     display: flex;
+    flex-wrap: nowrap !important; /* Prevents internal cards from stacking */
     gap: 20px;
     flex-shrink: 0 !important;
-    min-width: max-content !important; /* Prevents the theme from squishing */
+    min-width: max-content !important;
   }
 
-  /* Keep your animation classes exactly the same here... */
+  /* --- ONE-TIME ENTRANCE ANIMATIONS (Starts Blank) --- */
+  .right-to-left-track {
+    animation: slideInFromRight 2.5s ease-out forwards;
+  }
 
-  /* --- APPLY ANIMATIONS --- */
+  .left-to-right-track {
+    animation: slideInFromLeft 2.5s ease-out forwards;
+  }
+
+  /* --- APPLY INFINITE ANIMATIONS --- */
   .right-to-left-track .marquee-content {
-    animation: scrollLeft 20s linear infinite;
+    animation: scrollLeft 45s linear infinite;
   }
 
   .left-to-right-track .marquee-content {
-    animation: scrollRight 20s linear infinite;
+    animation: scrollRight 45s linear infinite;
   }
 
   /* Hover to pause */
@@ -40,6 +50,24 @@
   }
 
   /* --- THE KEYFRAMES --- */
+  @keyframes slideInFromRight {
+    0% {
+      transform: translateX(100vw);
+    }
+    100% {
+      transform: translateX(0);
+    }
+  }
+
+  @keyframes slideInFromLeft {
+    0% {
+      transform: translateX(-100vw);
+    }
+    100% {
+      transform: translateX(0);
+    }
+  }
+
   @keyframes scrollLeft {
     from {
       transform: translateX(0);
@@ -60,9 +88,9 @@
 
   /* Card Styling */
   .product-card {
-    width: 250px !important; /* !important stops theme overrides */
-    flex-shrink: 0 !important; /* Forbids squishing */
-    box-sizing: border-box; /* Keeps padding inside the 250px limit */
+    width: 250px !important;
+    flex-shrink: 0 !important;
+    box-sizing: border-box;
     background: white;
     padding: 20px;
     text-align: center;
@@ -73,10 +101,31 @@
     height: 200px;
     background-color: #e0e0e0;
     margin: 15px 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    overflow: hidden;
+  }
+  .image-placeholder img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+  .product-vendor {
+    font-size: 12px;
+    color: #000;
+    line-height: 1.5;
   }
   .marquee-content h4 {
     margin: 0;
-    font-size: 14px;
+    font-size: 18px;
+    font-weight: 600;
+    display: -webkit-box;
+    -webkit-line-clamp: 1;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
   }
   .marquee-content p {
     margin: 0;
@@ -86,55 +135,68 @@
   }
 </style>
 
-<div class="marquee-wrapper">
-  <div class="marquee-track right-to-left-track">
-    <div class="marquee-content">
-      <div class="product-card">
-        <h4>CLASSIC T-SHIRT</h4>
-        <div class="image-placeholder"></div>
-        <p>
-          SATISFY<br>
-          Rp 1.050.000
-        </p>
+<section>
+  <h2 class="tw:text-[24px]! tw:text-black! tw:font-bold! tw:px-[20px]! tw:py-[20px]!">
+    {{ section.settings.heading }}
+  </h2>
+  <div class="marquee-wrapper">
+    <div class="marquee-track right-to-left-track">
+      <div class="marquee-content">
+        {% for product in section.settings.collection_right.products %}
+          <div class="product-card">
+            <h4>{{ product.title }}</h4>
+            <div class="image-placeholder">
+              {% if product.featured_image %}
+                <img
+                  src="{{ product.featured_image | image_url: width: 250 }}"
+                  alt="{{ product.title }}"
+                  width="250"
+                  height="200"
+                  loading="lazy"
+                >
+              {% endif %}
+            </div>
+            <span class="product-vendor">{{ product.vendor }}</span>
+            <p>{{ product.price | money }}</p>
+          </div>
+        {% endfor %}
       </div>
-      <div class="product-card">
-        <h4>NYCM '25 "RUN CITY"</h4>
-        <div class="image-placeholder"></div>
-        <p>
-          BANDIT<br>
-          Rp 928.000
-        </p>
+    </div>
+    <div class="marquee-track left-to-right-track">
+      <div class="marquee-content">
+        {% for product in section.settings.collection_left.products %}
+          <div class="product-card">
+            <h4>{{ product.title }}</h4>
+            <div class="image-placeholder">
+              {% if product.featured_image %}
+                <img
+                  src="{{ product.featured_image | image_url: width: 250 }}"
+                  alt="{{ product.title }}"
+                  width="250"
+                  height="200"
+                  loading="lazy"
+                >
+              {% endif %}
+            </div>
+            <span class="product-vendor">{{ product.vendor }}</span>
+            <p>{{ product.price | money }}</p>
+          </div>
+        {% endfor %}
       </div>
     </div>
   </div>
-
-  <div class="marquee-track left-to-right-track">
-    <div class="marquee-content">
-      <div class="product-card">
-        <h4>247 LOS ANGELES</h4>
-        <div class="image-placeholder"></div>
-        <p>
-          247 REPRESENT<br>
-          Rp 2.110.000
-        </p>
-      </div>
-      <div class="product-card">
-        <h4>OAKLEY PLANTARIS</h4>
-        <div class="image-placeholder"></div>
-        <p>
-          OAKLEY<br>
-          Rp 4.290.000
-        </p>
-      </div>
-    </div>
-  </div>
-</div>
+</section>
 
 <script>
   function initMarquee() {
-    const tracks = document.querySelectorAll('.marquee-track');
+    // THE FIX: Select only tracks that haven't been initialized yet
+    // This stops the Shopify editor from multiplying the cards infinitely on save
+    const tracks = document.querySelectorAll('.marquee-track:not(.is-initialized)');
 
     tracks.forEach((track) => {
+      // Mark this track so the script ignores it if it runs again
+      track.classList.add('is-initialized');
+
       const content = track.querySelector('.marquee-content');
       if (!content) return;
 
@@ -153,8 +215,7 @@
       const requiredWidth = screenWidth * 1.5;
       const targetCardCount = Math.ceil(requiredWidth / totalItemWidth);
 
-      // 3. THE FIX: Ensure the final count is a perfect multiple of your original cards!
-      // This stops two identical cards from sitting next to each other.
+      // 3. Ensure the final count is a perfect multiple to prevent seams
       let finalCardCount = targetCardCount;
       const remainder = targetCardCount % originalCards.length;
       if (remainder !== 0) {
@@ -186,12 +247,21 @@
   } else {
     initMarquee();
   }
+
+  // Also hook into Shopify's editor event so it recalculates if you change settings!
+  document.addEventListener('shopify:section:load', initMarquee);
 </script>
 
 {% schema %}
 {
   "name": "Home Featured Product",
   "settings": [
+    {
+      "type": "text",
+      "id": "heading",
+      "label": "Heading",
+      "default": "FEATURED"
+    },
     {
       "type": "collection",
       "id": "collection_right",
