@@ -41,6 +41,10 @@
         "autoplay": true
       }
     },
+    "home_featured_product": {
+      "type": "home-featured-product",
+      "settings": {}
+    },
     "product_row": {
       "type": "product-row",
       "settings": {
@@ -66,6 +70,7 @@
   },
   "order": [
     "image_banner_slider",
+    "home_featured_product",
     "product_row",
     "curated_brands"
   ]

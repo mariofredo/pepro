@@ -1,0 +1,207 @@
+<style>
+  /* Container to hide overflowing cards */
+  .marquee-wrapper {
+    overflow: hidden;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    padding: 20px 0;
+  }
+
+  /* The track holds the sets side by side */
+  .marquee-track {
+    width: max-content !important; /* Forces the track to grow endlessly */
+    display: flex;
+    gap: 20px;
+  }
+
+  .marquee-content {
+    display: flex;
+    gap: 20px;
+    flex-shrink: 0 !important;
+    min-width: max-content !important; /* Prevents the theme from squishing */
+  }
+
+  /* Keep your animation classes exactly the same here... */
+
+  /* --- APPLY ANIMATIONS --- */
+  .right-to-left-track .marquee-content {
+    animation: scrollLeft 20s linear infinite;
+  }
+
+  .left-to-right-track .marquee-content {
+    animation: scrollRight 20s linear infinite;
+  }
+
+  /* Hover to pause */
+  .marquee-track:hover .marquee-content {
+    animation-play-state: paused;
+  }
+
+  /* --- THE KEYFRAMES --- */
+  @keyframes scrollLeft {
+    from {
+      transform: translateX(0);
+    }
+    to {
+      transform: translateX(calc(-100% - 20px));
+    }
+  }
+
+  @keyframes scrollRight {
+    from {
+      transform: translateX(calc(-100% - 20px));
+    }
+    to {
+      transform: translateX(0);
+    }
+  }
+
+  /* Card Styling */
+  .product-card {
+    width: 250px !important; /* !important stops theme overrides */
+    flex-shrink: 0 !important; /* Forbids squishing */
+    box-sizing: border-box; /* Keeps padding inside the 250px limit */
+    background: white;
+    padding: 20px;
+    text-align: center;
+    font-family: sans-serif;
+  }
+  .image-placeholder {
+    width: 100%;
+    height: 200px;
+    background-color: #e0e0e0;
+    margin: 15px 0;
+  }
+  .marquee-content h4 {
+    margin: 0;
+    font-size: 14px;
+  }
+  .marquee-content p {
+    margin: 0;
+    font-size: 12px;
+    color: #555;
+    line-height: 1.5;
+  }
+</style>
+
+<div class="marquee-wrapper">
+  <div class="marquee-track right-to-left-track">
+    <div class="marquee-content">
+      <div class="product-card">
+        <h4>CLASSIC T-SHIRT</h4>
+        <div class="image-placeholder"></div>
+        <p>
+          SATISFY<br>
+          Rp 1.050.000
+        </p>
+      </div>
+      <div class="product-card">
+        <h4>NYCM '25 "RUN CITY"</h4>
+        <div class="image-placeholder"></div>
+        <p>
+          BANDIT<br>
+          Rp 928.000
+        </p>
+      </div>
+    </div>
+  </div>
+
+  <div class="marquee-track left-to-right-track">
+    <div class="marquee-content">
+      <div class="product-card">
+        <h4>247 LOS ANGELES</h4>
+        <div class="image-placeholder"></div>
+        <p>
+          247 REPRESENT<br>
+          Rp 2.110.000
+        </p>
+      </div>
+      <div class="product-card">
+        <h4>OAKLEY PLANTARIS</h4>
+        <div class="image-placeholder"></div>
+        <p>
+          OAKLEY<br>
+          Rp 4.290.000
+        </p>
+      </div>
+    </div>
+  </div>
+</div>
+
+<script>
+  function initMarquee() {
+    const tracks = document.querySelectorAll('.marquee-track');
+
+    tracks.forEach((track) => {
+      const content = track.querySelector('.marquee-content');
+      if (!content) return;
+
+      const originalCards = Array.from(content.children);
+      if (originalCards.length === 0) return;
+
+      // 1. Calculate widths
+      const cardWidth = originalCards[0].offsetWidth;
+      const gap = parseFloat(window.getComputedStyle(content).gap) || 0;
+      const totalItemWidth = cardWidth + gap;
+
+      if (totalItemWidth === 0) return;
+
+      // 2. Figure out base screen fill
+      const screenWidth = window.innerWidth;
+      const requiredWidth = screenWidth * 1.5;
+      const targetCardCount = Math.ceil(requiredWidth / totalItemWidth);
+
+      // 3. THE FIX: Ensure the final count is a perfect multiple of your original cards!
+      // This stops two identical cards from sitting next to each other.
+      let finalCardCount = targetCardCount;
+      const remainder = targetCardCount % originalCards.length;
+      if (remainder !== 0) {
+        finalCardCount += originalCards.length - remainder;
+      }
+
+      // 4. Clone to the corrected multiple
+      let currentCount = originalCards.length;
+      let indexToClone = 0;
+
+      while (currentCount < finalCardCount) {
+        const cardToClone = originalCards[indexToClone % originalCards.length];
+        content.appendChild(cardToClone.cloneNode(true));
+
+        currentCount++;
+        indexToClone++;
+      }
+
+      // 5. Duplicate for the CSS loop
+      const contentClone = content.cloneNode(true);
+      contentClone.setAttribute('aria-hidden', 'true');
+      track.appendChild(contentClone);
+    });
+  }
+
+  // Run the script safely
+  if (document.readyState === 'loading') {
+    document.addEventListener('DOMContentLoaded', initMarquee);
+  } else {
+    initMarquee();
+  }
+</script>
+
+{% schema %}
+{
+  "name": "Home Featured Product",
+  "settings": [
+    {
+      "type": "collection",
+      "id": "collection_right",
+      "label": "Collection Right"
+    },
+    {
+      "type": "collection",
+      "id": "collection_left",
+      "label": "Collection Left"
+    }
+  ]
+}
+{% endschema %}
