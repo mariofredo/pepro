@@ -43,7 +43,10 @@
     },
     "home_featured_product": {
       "type": "home-featured-product",
-      "settings": {}
+      "settings": {
+        "collection_right": "all-products",
+        "collection_left": "247-represent"
+      }
     },
     "product_row": {
       "type": "product-row",
