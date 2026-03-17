@@ -1,6 +1,8 @@
 .image-banner-slider {
   z-index: 2;
 }
+.custom-slider__slide {
+}
 .slider__slide {
   width: 100%;
   height: auto;
@@ -12,7 +14,7 @@
   align-items: flex-end;
   padding: 5rem !important;
   &::before {
-    content: '';
+    content: "";
     display: block;
     position: absolute;
     top: 0;
@@ -25,6 +27,10 @@
   }
   @media (max-width: 768px) {
     padding: 1rem !important;
+    aspect-ratio: 1/1 !important;
+    &::before {
+      aspect-ratio: 1/1 !important;
+    }
   }
   .image_banner_slider__image {
     object-fit: cover;
@@ -35,6 +41,9 @@
     top: 0;
     left: 0;
     z-index: 10;
+    @media (max-width: 768px) {
+      aspect-ratio: 1/1 !important;
+    }
   }
   .slider__content {
     position: relative;

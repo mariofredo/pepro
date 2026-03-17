@@ -28,6 +28,10 @@
 @media (max-width: 768px) {
   .slider__slide {
     padding: 1rem !important;
+    aspect-ratio: 1/1 !important;
+  }
+  .slider__slide::before {
+    aspect-ratio: 1/1 !important;
   }
 }
 .slider__slide .image_banner_slider__image {
@@ -40,6 +44,11 @@
   top: 0;
   left: 0;
   z-index: 10;
+}
+@media (max-width: 768px) {
+  .slider__slide .image_banner_slider__image {
+    aspect-ratio: 1/1 !important;
+  }
 }
 .slider__slide .slider__content {
   position: relative;
