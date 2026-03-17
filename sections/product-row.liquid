@@ -1,10 +1,11 @@
 {{ 'custom-product-row.css' | asset_url | stylesheet_tag }}
-<section class="tw:py-[40px]" style="padding-right: {{ section.settings.padding_right }}px; padding-left: {{ section.settings.padding_left }}px;">
+<section
+  class="tw:py-[40px]"
+  style="padding-right: {{ section.settings.padding_right }}px; padding-left: {{ section.settings.padding_left }}px;"
+>
   <div class="product-row__header">
     <h2>{{ section.settings.heading }}</h2>
-    <a href="{{ section.settings.collection.url }}" class="product-row__view-all">
-      VIEW ALL
-    </a>
+    <a href="{{ section.settings.collection.url }}" class="product-row__view-all"> VIEW ALL </a>
   </div>
   <div class="product-row__scroll">
     <ul class="product-row__list">
@@ -18,44 +19,56 @@
                 width="400"
                 height="400"
                 loading="lazy"
-                class="tw:absolute tw:inset-0 tw:z-1 tw:group-hover:opacity-0 tw:group-hover:z-0 tw:transition-opacity tw:ease-in-out tw:duration-300">
+                class="tw:absolute tw:inset-0 tw:z-1 tw:group-hover:opacity-0 tw:group-hover:z-0 tw:transition-opacity tw:ease-in-out tw:duration-300"
+              >
               <img
                 src="{{ product.images[1] | image_url: width: 400 }}"
                 width="400"
                 height="400"
                 loading="lazy"
                 alt="{{ product.title }}"
-                class="tw:absolute tw:inset-0 tw:z-0 tw:opacity-0 tw:group-hover:opacity-100 tw:group-hover:z-2  tw:group-hover:scale-105 tw:transition-all tw:duration-700 tw:ease-in-out">
+                class="tw:absolute tw:inset-0 tw:z-0 tw:opacity-0 tw:group-hover:opacity-100 tw:group-hover:z-2  tw:group-hover:scale-105 tw:transition-all tw:duration-700 tw:ease-in-out"
+              >
             </div>
-            <div class="product-row__size">
-              <div class="product-row__size-list">
-                {% if product.variants %}
-                  {% for variant in product.variants %}
-                    {% if variant.title == 'Default Title' %}
-                      <span>Not Available</span>
-                    {% else %}
-                      <span class="product-row__size-item">{{ variant.title }}</span>
-                    {% endif %}
-                  {% endfor %}
-                {% endif %}
-              </div>
-              <svg
-                xmlns="http://www.w3.org/2000/svg"
-                width="24"
-                height="24"
-                viewBox="0 0 24 24"
-                fill="none"
-                stroke="#000"
-                stroke-width="2"
-                stroke-linecap="round"
-                stroke-linejoin="round"
-                class="icon icon-tabler icons-tabler-outline icon-tabler-x">
-                <path
-                  stroke="none"
-                  d="M0 0h24v24H0z"
-                  fill="none" /><path d="M18 6l-12 12" /><path d="M6 6l12 12" />
-              </svg>
+          </a>
+          <div class="product-row__size">
+            <div class="product-row__size-list">
+              {% if product.variants %}
+                {% for variant in product.variants %}
+                  {% if variant.title == 'Default Title' %}
+                    <span>Not Available</span>
+                  {% else %}
+                    <span
+                      class="product-row__size-item {% unless variant.available %}product-row__size-item--sold-out{% endunless %}"
+                      data-variant-id="{{ variant.id }}"
+                      data-available="{{ variant.available }}"
+                      title="{% if variant.available %}Add to cart{% else %}Sold out{% endif %}"
+                    >
+                      {{- variant.title -}}
+                    </span>
+                  {% endif %}
+                {% endfor %}
+              {% endif %}
             </div>
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              width="24"
+              height="24"
+              viewBox="0 0 24 24"
+              fill="none"
+              stroke="#000"
+              stroke-width="2"
+              stroke-linecap="round"
+              stroke-linejoin="round"
+              class="icon icon-tabler icons-tabler-outline icon-tabler-x"
+            >
+              <path
+                stroke="none"
+                d="M0 0h24v24H0z"
+                fill="none" /><path d="M18 6l-12 12" /><path d="M6 6l12 12" />
+            </svg>
+          </div>
+          <a href="{{ product.url }}">
             <span class="brand">{{ product.vendor }}</span>
             <p class="title">{{ product.title }}</p>
             <p class="price">{{ product.price | money }}</p>
@@ -66,45 +79,101 @@
   </div>
 </section>
 <script>
-  document.addEventListener('DOMContentLoaded', function() {
+  document.addEventListener('DOMContentLoaded', function () {
+    const sizeItems = document.querySelectorAll('.product-row__size-item');
+
+    sizeItems.forEach(function (item) {
+      item.addEventListener('click', function (e) {
+        e.preventDefault();
+        e.stopPropagation();
+
+        const variantId = this.getAttribute('data-variant-id');
+        const isAvailable = this.getAttribute('data-available') === 'true';
+
+        if (!isAvailable) {
+          return;
+        }
+
+        const button = this;
+        const originalText = button.textContent;
+        button.textContent = 'Adding...';
+        button.style.pointerEvents = 'none';
+
+        fetch('/cart/add.js', {
+          method: 'POST',
+          headers: {
+            'Content-Type': 'application/json',
+          },
+          body: JSON.stringify({
+            id: variantId,
+            quantity: 1,
+          }),
+        })
+          .then(function (response) {
+            if (!response.ok) {
+              throw new Error('Failed to add to cart');
+            }
+            return response.json();
+          })
+          .then(function () {
+            button.textContent = 'Added ✓';
+            button.classList.add('product-row__size-item--added');
+            setTimeout(function () {
+              button.textContent = originalText;
+              button.classList.remove('product-row__size-item--added');
+              button.style.pointerEvents = '';
+            }, 1500);
+          })
+          .catch(function () {
+            button.textContent = 'Error!';
+            setTimeout(function () {
+              button.textContent = originalText;
+              button.style.pointerEvents = '';
+            }, 1500);
+          });
+      });
+    });
   });
 </script>
 
 {% schema %}
-  {
-    "name": "New Arrival Product",
-    "settings": [
-      {
-        "type": "text",
-        "id": "heading",
-        "label": "Heading",
-        "default": "New Arrival"
-      }, {
-        "type": "collection",
-        "id": "collection",
-        "label": "Collection"
-      }, {
-        "type": "range",
-        "id": "padding_right",
-        "label": "Padding right",
-        "default": 0,
-        "min": 0,
-        "max": 100,
-        "step": 10
-      }, {
-        "type": "range",
-        "id": "padding_left",
-        "label": "Padding left",
-        "default": 0,
-        "min": 0,
-        "max": 100,
-        "step": 10
-      }
-    ],
-    "presets": [
-      {
-        "name": "New Arrival Product"
-      }
-    ]
-  }
+{
+  "name": "New Arrival Product",
+  "settings": [
+    {
+      "type": "text",
+      "id": "heading",
+      "label": "Heading",
+      "default": "New Arrival"
+    },
+    {
+      "type": "collection",
+      "id": "collection",
+      "label": "Collection"
+    },
+    {
+      "type": "range",
+      "id": "padding_right",
+      "label": "Padding right",
+      "default": 0,
+      "min": 0,
+      "max": 100,
+      "step": 10
+    },
+    {
+      "type": "range",
+      "id": "padding_left",
+      "label": "Padding left",
+      "default": 0,
+      "min": 0,
+      "max": 100,
+      "step": 10
+    }
+  ],
+  "presets": [
+    {
+      "name": "New Arrival Product"
+    }
+  ]
+}
 {% endschema %}
