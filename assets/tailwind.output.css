@@ -948,6 +948,31 @@
       }
     }
   }
+  .tw\:max-\[425px\]\:text-\[8px\] {
+    @media (width < 425px) {
+      font-size: 8px;
+    }
+  }
+  .tw\:max-\[425px\]\:text-\[10px\] {
+    @media (width < 425px) {
+      font-size: 10px;
+    }
+  }
+  .tw\:max-\[425px\]\:text-\[11px\] {
+    @media (width < 425px) {
+      font-size: 11px;
+    }
+  }
+  .tw\:max-\[425px\]\:text-\[11px\]\! {
+    @media (width < 425px) {
+      font-size: 11px !important;
+    }
+  }
+  .tw\:max-\[425px\]\:text-\[12px\]\! {
+    @media (width < 425px) {
+      font-size: 12px !important;
+    }
+  }
   .tw\:max-lg\:grid-cols-3 {
     @media (width < 64rem) {
       grid-template-columns: repeat(3, minmax(0, 1fr));
