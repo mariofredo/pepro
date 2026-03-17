@@ -2,7 +2,8 @@
   display: grid;
   grid-template-columns: repeat(2, auto);
   grid-template-rows: repeat(2, auto);
-  padding-top: 1rem;
+  padding: 1rem 0;
+
 }
 
 .active-facets-mobile {
@@ -1103,7 +1104,8 @@ input.mobile-facets__checkbox {
 }
 
 .product-count__text {
-  font-size: 1.4rem;
+  font-size: 1.5rem;
+  text-transform: uppercase;
   line-height: calc(1 + 0.5 / var(--font-body-scale));
   margin: 0;
 }

@@ -4,7 +4,7 @@
 .custom-main-collection-product-grid .grid__item .card__inner {
   aspect-ratio: 1/1;
 }
-.custom-main-collection-product-grid .grid__item .card__content .card__heading {
+.custom-main-collection-product-grid .grid__item .card__heading {
   display: -webkit-box;
   -webkit-line-clamp: 2;
   -webkit-box-orient: vertical;
@@ -42,6 +42,8 @@
   }
 }
 .custom-main-collection-product-grid .card-information__size .card-information__size-list {
+  width: calc(100% - 30px);
+  overflow-x: auto;
   display: flex;
   opacity: 0;
   gap: 8px;

@@ -18,12 +18,8 @@
     --tw-text-sm--line-height: calc(1.25 / 0.875);
     --tw-text-xl: 1.25rem;
     --tw-text-xl--line-height: calc(1.75 / 1.25);
-    --tw-text-2xl: 1.5rem;
-    --tw-text-2xl--line-height: calc(2 / 1.5);
     --tw-text-3xl: 1.875rem;
     --tw-text-3xl--line-height: calc(2.25 / 1.875);
-    --tw-text-4xl: 2.25rem;
-    --tw-text-4xl--line-height: calc(2.5 / 2.25);
     --tw-text-5xl: 3rem;
     --tw-text-5xl--line-height: 1;
     --tw-font-weight-normal: 400;
@@ -237,13 +233,22 @@
   .tw\:z-1 {
     z-index: 1;
   }
+  .tw\:z-10 {
+    z-index: 10;
+  }
+  .tw\:z-40 {
+    z-index: 40;
+  }
   .tw\:z-50 {
     z-index: 50;
   }
-  .tw\:z-1000000001 {
-    z-index: 1000000001;
+  .tw\:z-101 {
+    z-index: 101;
   }
-  .tw\:z-\[1000000001\] {
+  .tw\:z-100000001 {
+    z-index: 100000001;
+  }
+  .tw\:z-1000000001 {
     z-index: 1000000001;
   }
   .tw\:col-span-1 {
@@ -453,6 +458,9 @@
   }
   .tw\:gap-1\! {
     gap: calc(var(--tw-spacing) * 1) !important;
+  }
+  .tw\:gap-2 {
+    gap: calc(var(--tw-spacing) * 2);
   }
   .tw\:gap-4 {
     gap: calc(var(--tw-spacing) * 4);

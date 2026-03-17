@@ -106,7 +106,7 @@
             </div>
           </div>
         {%- endif -%}
-        <div class="card__content">
+        <div class="tw:flex tw:flex-col tw:gap-2">
           <div class="card__information">
             <span class="tw:text-sm ">{{ card_product.vendor }}</span>
             <h3
@@ -144,7 +144,7 @@
           </div>
         </div>
       </div>
-      <div class="card__content">
+      <div class="tw:flex tw:flex-col tw:gap-2">
         <div class="card__information">
           <div class="card-information__size">
             <div class="card-information__size-list">
@@ -173,7 +173,9 @@
               <path stroke="none" d="M0 0h24v24H0z" fill="none"/><path d="M18 6l-12 12" /><path d="M6 6l12 12" />
             </svg>
           </div>
-          <span class="tw:text-[12px] tw:max-md:text-[10px] tw:max-sm:text-[8px] tw:text-[#7a7a7a] tw:font-semibold tw:uppercase ">{{ card_product.vendor }}</span>
+          <span class="tw:text-[12px] tw:max-md:text-[10px] tw:max-sm:text-[8px] tw:text-[#7a7a7a] tw:font-semibold tw:uppercase ">
+            {{- card_product.vendor -}}
+          </span>
           <h3
             class="tw:text-[16px]! tw:max-md:text-[14px]! tw:max-sm:text-[12px]! tw:line-clamp-2"
             {% if card_product.featured_media or settings.card_style == 'card' %}
@@ -632,7 +634,7 @@
           </div>
         </div>
       </div>
-      <div class="card__content">
+      <div class="tw:flex tw:flex-col tw:gap-2">
         <div class="card__information">
           <h3 class="card__heading card__heading--placeholder{% if settings.card_style == 'standard' %} h5{% endif %}">
             <a role="link" aria-disabled="true" class="full-unstyled-link">
