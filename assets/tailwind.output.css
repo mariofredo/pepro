@@ -388,6 +388,9 @@
   .tw\:h-\[20px\]\! {
     height: 20px !important;
   }
+  .tw\:h-\[31\] {
+    height: 31;
+  }
   .tw\:h-\[31px\] {
     height: 31px;
   }
