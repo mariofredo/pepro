@@ -83,29 +83,55 @@
         {% comment %} {% render 'product-media-gallery', variant_images: variant_images %} {% endcomment %}
         {% comment %} START OF SECTION IMAGE VARIANT PREVIEW {% endcomment %}
         <div class="tw:grid tw:grid-cols-4 tw:gap-4 tw:max-md:grid-cols-1 tw:max-md:gap-0!">
-          <div class="tw:col-span-1 tw:max-h-dvh tw:overflow-y-auto tw:flex tw:flex-col tw:gap-4 tw:max-md:flex-row tw:max-md:overflow-x-auto tw:max-md:order-2">
-            {%- for image in product.images -%}
-              <div class="tw:border tw:border-gray-200 tw:opacity-50 product-thumb" data-image-id="{{ image.id }}">
-                <img
-                  src="{{ image.src | image_url: width: 600, height: 600 }}"
-                  alt="{{ image.alt | escape }}"
-                  width="600"
-                  height="600"
-                  class="tw:object-cover tw:h-full tw:w-full tw:aspect-square"
-                >
+          {% comment %}
+            <div class="tw:col-span-1 tw:max-h-dvh tw:overflow-y-auto tw:flex tw:flex-col tw:gap-4 tw:max-md:flex-row tw:max-md:overflow-x-auto tw:max-md:order-2">
+              {%- for image in product.images -%}
+                <div class="tw:border tw:border-gray-200 tw:opacity-50 product-thumb" data-image-id="{{ image.id }}">
+                  <img
+                    src="{{ image.src | image_url: width: 600, height: 600 }}"
+                    alt="{{ image.alt | escape }}"
+                    width="600"
+                    height="600"
+                    class="tw:object-cover tw:h-full tw:w-full tw:aspect-square"
+                  >
+                </div>
+              {%- endfor -%}
+            </div>
+            <div class="tw:col-span-3 tw:max-h-dvh tw:max-md:order-1">
+              <img
+                id="MainProductImage"
+                data-image-id="{{ product.featured_image.id }}"
+                src="{{ product.featured_image | image_url: width: 1920, height: 1080 }}"
+                alt="{{ product.featured_image.alt | escape }}"
+                width="1920"
+                height="1080"
+                class="tw:object-cover tw:h-auto tw:w-full tw:aspect-square"
+              >
+            </div>
+          {% endcomment %}
+          <div class="tw:col-span-4 tw:px-[20px]">
+            <div class="swiper">
+              <div class="swiper-wrapper">
+                {%- for image in product.images -%}
+                  <div class="swiper-slide">
+                    <img
+                      src="{{ image.src | image_url: width: 600, height: 600 }}"
+                      alt="{{ image.alt | escape }}"
+                      width="600"
+                      height="600"
+                      class="tw:object-cover tw:h-full tw:w-full tw:aspect-square"
+                    >
+                  </div>
+                {%- endfor -%}
               </div>
-            {%- endfor -%}
-          </div>
-          <div class="tw:col-span-3 tw:max-h-dvh tw:max-md:order-1">
-            <img
-              id="MainProductImage"
-              data-image-id="{{ product.featured_image.id }}"
-              src="{{ product.featured_image | image_url: width: 1920, height: 1080 }}"
-              alt="{{ product.featured_image.alt | escape }}"
-              width="1920"
-              height="1080"
-              class="tw:object-cover tw:h-auto tw:w-full tw:aspect-square"
-            >
+              <div class="swiper-pagination"></div>
+              <div
+                class="swiper-button-next tw:text-[#0247b1]! tw:w-[20px]! tw:h-[20px]! tw:bottom-[10px]! tw:top-auto!"
+              ></div>
+              <div
+                class="swiper-button-prev tw:text-[#0247b1]! tw:w-[20px]! tw:h-[20px]! tw:bottom-[10px]! tw:top-auto!"
+              ></div>
+            </div>
           </div>
         </div>
         {% comment %} END OF SECTION IMAGE VARIANT PREVIEW {% endcomment %}
@@ -870,6 +896,26 @@
     if (mainImage) {
       setActiveThumb(mainImage.dataset.imageId);
     }
+
+    const swiper = new Swiper('.swiper', {
+      // Optional parameters
+      loop: true,
+      // // If we need pagination
+      pagination: {
+        el: '.swiper-pagination',
+      },
+
+      // // Navigation arrows
+      navigation: {
+        nextEl: '.swiper-button-next',
+        prevEl: '.swiper-button-prev',
+      },
+
+      // // And if we need scrollbar
+      // scrollbar: {
+      //   el: '.swiper-scrollbar',
+      // },
+    });
   });
 </script>
 
