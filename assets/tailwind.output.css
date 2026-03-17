@@ -311,6 +311,9 @@
     -webkit-box-orient: vertical;
     -webkit-line-clamp: 2;
   }
+  .tw\:block {
+    display: block;
+  }
   .tw\:block\! {
     display: block !important;
   }
