@@ -80,22 +80,25 @@
 </section>
 <script>
   document.addEventListener('DOMContentLoaded', function () {
-    const sizeItems = document.querySelectorAll('.product-row__size-item');
+    var cartDrawer = document.querySelector('cart-drawer');
+    var sectionsToRender = cartDrawer ? cartDrawer.getSectionsToRender().map(function (s) { return s.id; }) : ['cart-icon-bubble'];
+
+    var sizeItems = document.querySelectorAll('.product-row__size-item');
 
     sizeItems.forEach(function (item) {
       item.addEventListener('click', function (e) {
         e.preventDefault();
         e.stopPropagation();
 
-        const variantId = this.getAttribute('data-variant-id');
-        const isAvailable = this.getAttribute('data-available') === 'true';
+        var variantId = this.getAttribute('data-variant-id');
+        var isAvailable = this.getAttribute('data-available') === 'true';
 
         if (!isAvailable) {
           return;
         }
 
-        const button = this;
-        const originalText = button.textContent;
+        var button = this;
+        var originalText = button.textContent;
         button.textContent = 'Adding...';
         button.style.pointerEvents = 'none';
 
@@ -103,28 +106,42 @@
           method: 'POST',
           headers: {
             'Content-Type': 'application/json',
+            'X-Requested-With': 'XMLHttpRequest',
           },
           body: JSON.stringify({
-            id: variantId,
+            id: parseInt(variantId),
             quantity: 1,
+            sections: sectionsToRender.join(','),
+            sections_url: window.location.pathname,
           }),
         })
           .then(function (response) {
-            if (!response.ok) {
-              throw new Error('Failed to add to cart');
-            }
             return response.json();
           })
-          .then(function () {
+          .then(function (response) {
+            if (response.status) {
+              throw new Error(response.description || 'Failed to add to cart');
+            }
+
             button.textContent = 'Added ✓';
             button.classList.add('product-row__size-item--added');
+
+            // Use cart drawer's renderContents to sync both drawer and icon bubble
+            if (cartDrawer) {
+              if (cartDrawer.classList.contains('is-empty')) {
+                cartDrawer.classList.remove('is-empty');
+              }
+              cartDrawer.renderContents(response);
+            }
+
             setTimeout(function () {
               button.textContent = originalText;
               button.classList.remove('product-row__size-item--added');
               button.style.pointerEvents = '';
             }, 1500);
           })
-          .catch(function () {
+          .catch(function (err) {
+            console.error(err);
             button.textContent = 'Error!';
             setTimeout(function () {
               button.textContent = originalText;
