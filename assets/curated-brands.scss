@@ -22,9 +22,9 @@
     top: 25dvh;
     z-index: 1;
     @media (max-width: 768px) {
-      margin-top: 35dvh;
-      margin-bottom: 35dvh;
-      top: 35dvh;
+      margin-top: 20dvh;
+      margin-bottom: 20dvh;
+      top: 20dvh;
     }
     .curated_product_names_text {
       font-size: 12px;
@@ -40,7 +40,7 @@
       list-style-type: none;
       text-transform: uppercase;
       @media (max-width: 768px) {
-        font-size: 32px;
+        font-size: 28px;
       }
       .curated_product_name {
         transition: color 0.3s ease;

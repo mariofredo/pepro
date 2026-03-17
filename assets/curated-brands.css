@@ -23,9 +23,9 @@
 }
 @media (max-width: 768px) {
   .curated_product_names_box .curated_product_names_wrapper {
-    margin-top: 35dvh;
-    margin-bottom: 35dvh;
-    top: 35dvh;
+    margin-top: 20dvh;
+    margin-bottom: 20dvh;
+    top: 20dvh;
   }
 }
 .curated_product_names_box .curated_product_names_wrapper .curated_product_names_text {
@@ -44,7 +44,7 @@
 }
 @media (max-width: 768px) {
   .curated_product_names_box .curated_product_names_wrapper .curated_product_names {
-    font-size: 32px;
+    font-size: 28px;
   }
 }
 .curated_product_names_box .curated_product_names_wrapper .curated_product_names .curated_product_name {
