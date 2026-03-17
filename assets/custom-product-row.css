@@ -74,6 +74,8 @@
   }
 }
 .product-row__list .product-row__item .product-row__size .product-row__size-list {
+  width: calc(100% - 30px);
+  overflow-x: auto;
   display: flex;
   opacity: 0;
   gap: 8px;
@@ -96,6 +98,17 @@
 .product-row__list .product-row__item .product-row__size .product-row__size-list .product-row__size-item:hover {
   background-color: #a7a7a7;
   color: #fff;
+}
+.product-row__list .product-row__item .product-row__size .product-row__size-list .product-row__size-item--sold-out {
+  opacity: 0.4;
+  text-decoration: line-through;
+  cursor: not-allowed;
+  pointer-events: none;
+}
+.product-row__list .product-row__item .product-row__size .product-row__size-list .product-row__size-item--added {
+  background-color: #2e7d32;
+  color: #fff;
+  border-color: #2e7d32;
 }
 .product-row__list .product-row__item .brand {
   font-size: 12px;

@@ -67,6 +67,8 @@
         }
       }
       .product-row__size-list {
+        width: calc(100% - 30px);
+        overflow-x: auto;
         display: flex;
         opacity: 0;
         gap: 8px;
