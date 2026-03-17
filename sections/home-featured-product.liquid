@@ -119,14 +119,10 @@
   }
   .marquee-content h4 {
     margin: 0;
-    font-size: 18px;
+    font-size: 14px;
+    height: 82px;
     font-weight: 600;
-    display: -webkit-box;
-    -webkit-line-clamp: 1;
-    -webkit-box-orient: vertical;
-    overflow: hidden;
-    text-overflow: ellipsis;
-    white-space: nowrap;
+    white-space: wrap;
     text-transform: uppercase;
   }
   .marquee-content p {
@@ -165,28 +161,30 @@
         {% endfor %}
       </div>
     </div>
-    <div class="marquee-track left-to-right-track">
-      <div class="marquee-content">
-        {% for product in section.settings.collection_left.products %}
-          <div class="product-card">
-            <h4>{{ product.title }}</h4>
-            <div class="image-placeholder">
-              {% if product.featured_image %}
-                <img
-                  src="{{ product.featured_image | image_url: width: 250 }}"
-                  alt="{{ product.title }}"
-                  width="250"
-                  height="200"
-                  loading="lazy"
-                >
-              {% endif %}
+    {% comment %}
+      <div class="marquee-track left-to-right-track">
+        <div class="marquee-content">
+          {% for product in section.settings.collection_left.products %}
+            <div class="product-card">
+              <h4>{{ product.title }}</h4>
+              <div class="image-placeholder">
+                {% if product.featured_image %}
+                  <img
+                    src="{{ product.featured_image | image_url: width: 250 }}"
+                    alt="{{ product.title }}"
+                    width="250"
+                    height="200"
+                    loading="lazy"
+                  >
+                {% endif %}
+              </div>
+              <span class="product-vendor">{{ product.vendor }}</span>
+              <p>{{ product.price | money }}</p>
             </div>
-            <span class="product-vendor">{{ product.vendor }}</span>
-            <p>{{ product.price | money }}</p>
-          </div>
-        {% endfor %}
+          {% endfor %}
+        </div>
       </div>
-    </div>
+    {% endcomment %}
   </div>
 </section>
 
@@ -269,12 +267,12 @@
       "type": "collection",
       "id": "collection_right",
       "label": "Collection Right"
-    },
-    {
-      "type": "collection",
-      "id": "collection_left",
-      "label": "Collection Left"
     }
+    // {
+    //   "type": "collection",
+    //   "id": "collection_left",
+    //   "label": "Collection Left"
+    // }
   ]
 }
 {% endschema %}
