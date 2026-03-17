@@ -12,7 +12,7 @@
   "type": "header",
   "sections": {
     "announcement-bar": {
-      "type": "custom-announcement-bar",
+      "type": "announcement-bar",
       "blocks": {
         "announcement_nt8EWy": {
           "type": "announcement",
