@@ -78,11 +78,11 @@
 
   {% assign variant_images = product.images | where: 'attached_to_variant?', true | map: 'src' %}
   <div class="custom-main-product">
-    <div class="product product--{{ section.settings.media_size }} product--{{ section.settings.media_position }} product--{{ section.settings.gallery_layout }} product--mobile-{{ section.settings.mobile_thumbnails }} tw:grid tw:grid-cols-2 tw:max-md:grid-cols-1 tw:gap-[20px]! tw:pr-[20px]">
+    <div class="product product--{{ section.settings.media_size }} product--{{ section.settings.media_position }} product--{{ section.settings.gallery_layout }} product--mobile-{{ section.settings.mobile_thumbnails }} tw:grid tw:grid-cols-2 tw:max-md:grid-cols-1 tw:gap-[20px]! tw:pr-[20px] tw:max-md:pr-0!">
       <div class="tw:col-span-1 ">
         {% comment %} {% render 'product-media-gallery', variant_images: variant_images %} {% endcomment %}
         {% comment %} START OF SECTION IMAGE VARIANT PREVIEW {% endcomment %}
-        <div class="tw:grid tw:grid-cols-4 tw:gap-4 tw:max-md:grid-cols-1">
+        <div class="tw:grid tw:grid-cols-4 tw:gap-4 tw:max-md:grid-cols-1 tw:max-md:gap-0!">
           <div class="tw:col-span-1 tw:max-h-dvh tw:overflow-y-auto tw:flex tw:flex-col tw:gap-4 tw:max-md:flex-row tw:max-md:overflow-x-auto tw:max-md:order-2">
             {%- for image in product.images -%}
               <div class="tw:border tw:border-gray-200 tw:opacity-50 product-thumb" data-image-id="{{ image.id }}">

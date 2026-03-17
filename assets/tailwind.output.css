@@ -208,6 +208,9 @@
   .tw\:top-1\/2 {
     top: calc(1 / 2 * 100%);
   }
+  .tw\:top-2 {
+    top: calc(var(--tw-spacing) * 2);
+  }
   .tw\:right-0 {
     right: calc(var(--tw-spacing) * 0);
   }
@@ -231,6 +234,9 @@
   }
   .tw\:left-1\/2 {
     left: calc(1 / 2 * 100%);
+  }
+  .tw\:left-2 {
+    left: calc(var(--tw-spacing) * 2);
   }
   .tw\:z-0 {
     z-index: 0;
@@ -922,6 +928,11 @@
       flex-direction: row;
     }
   }
+  .tw\:max-md\:gap-0\! {
+    @media (width < 48rem) {
+      gap: calc(var(--tw-spacing) * 0) !important;
+    }
+  }
   .tw\:max-md\:overflow-x-auto {
     @media (width < 48rem) {
       overflow-x: auto;
@@ -930,6 +941,11 @@
   .tw\:max-md\:px-5\! {
     @media (width < 48rem) {
       padding-inline: calc(var(--tw-spacing) * 5) !important;
+    }
+  }
+  .tw\:max-md\:pr-0\! {
+    @media (width < 48rem) {
+      padding-right: calc(var(--tw-spacing) * 0) !important;
     }
   }
   .tw\:max-md\:text-\[10px\] {
