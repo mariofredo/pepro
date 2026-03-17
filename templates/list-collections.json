@@ -12,7 +12,7 @@
     "main": {
       "type": "custom-main-list-collection",
       "settings": {
-        "title": "ALL BRANDS",
+        "title": "FEATURED BRANDS",
         "brands": [
           "editor-picks",
           "247-represent",

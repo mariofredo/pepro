@@ -401,6 +401,26 @@
   .tw\:max-w-full\! {
     max-width: 100% !important;
   }
+  .tw\:translate-\[-50\%\] {
+    --tw-translate-x: -50%;
+    --tw-translate-y: -50%;
+    translate: var(--tw-translate-x) var(--tw-translate-y);
+  }
+  .tw\:translate-\[-50\%_-50\%\] {
+    --tw-translate-x: -50% -50%;
+    --tw-translate-y: -50% -50%;
+    translate: var(--tw-translate-x) var(--tw-translate-y);
+  }
+  .tw\:translate-\[-50\%_50\%\] {
+    --tw-translate-x: -50% 50%;
+    --tw-translate-y: -50% 50%;
+    translate: var(--tw-translate-x) var(--tw-translate-y);
+  }
+  .tw\:translate-\[-\] {
+    --tw-translate-x: -;
+    --tw-translate-y: -;
+    translate: var(--tw-translate-x) var(--tw-translate-y);
+  }
   .tw\:-translate-x-1\/2 {
     --tw-translate-x: calc(calc(1 / 2 * 100%) * -1);
     translate: var(--tw-translate-x) var(--tw-translate-y);
