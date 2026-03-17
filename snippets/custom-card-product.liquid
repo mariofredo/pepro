@@ -146,9 +146,9 @@
       </div>
       <div class="tw:flex tw:flex-col tw:gap-2">
         <div class="card__information">
-          <div class="card-information__size">
-            <div class="card-information__size-list">
-              {% if card_product.variants %}
+          {% if card_product.variants and card_product.variants.size > 1 %}
+            <div class="card-information__size">
+              <div class="card-information__size-list">
                 {% for variant in card_product.variants %}
                   {% if variant.title == 'Default Title' %}
                     <span class="tw:w-full">Not Available</span>
@@ -156,24 +156,27 @@
                     <span class="card-information__size-item">{{ variant.title }}</span>
                   {% endif %}
                 {% endfor %}
-              {% endif %}
+              </div>
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                width="24"
+                height="24"
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="#000"
+                stroke-width="2"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                class="icon icon-tabler icons-tabler-outline icon-tabler-x"
+              >
+                <path stroke="none" d="M0 0h24v24H0z" fill="none"/><path d="M18 6l-12 12" /><path d="M6 6l12 12" />
+              </svg>
             </div>
-            <svg
-              xmlns="http://www.w3.org/2000/svg"
-              width="24"
-              height="24"
-              viewBox="0 0 24 24"
-              fill="none"
-              stroke="#000"
-              stroke-width="2"
-              stroke-linecap="round"
-              stroke-linejoin="round"
-              class="icon icon-tabler icons-tabler-outline icon-tabler-x"
-            >
-              <path stroke="none" d="M0 0h24v24H0z" fill="none"/><path d="M18 6l-12 12" /><path d="M6 6l12 12" />
-            </svg>
-          </div>
-          <span class="tw:text-[12px] tw:max-md:text-[10px] tw:max-sm:text-[8px] tw:text-[#7a7a7a] tw:font-semibold tw:uppercase ">
+          {% else %}
+            <span class="tw:block! tw:w-full tw:h-[31px] tw:mt-[10px]"></span>
+          {% endif %}
+
+          <span class="tw:text-[12px] tw:max-md:text-[10px] tw:max-sm:text-[10px] tw:text-[#7a7a7a] tw:font-semibold tw:uppercase ">
             {{- card_product.vendor -}}
           </span>
           <h3
@@ -185,7 +188,7 @@
             <a
               href="{{ card_product.url }}"
               id="CardLink-{{ section_id }}-{{ card_product.id }}"
-              class="full-unstyled-link tw:uppercase! tw:text-inherit tw:text-[14px]!"
+              class="full-unstyled-link tw:uppercase! tw:text-inherit tw:text-[14px]! tw:max-sm:text-[11px] tw:font-bold!"
               aria-labelledby="CardLink-{{ section_id }}-{{ card_product.id }} Badge-{{ section_id }}-{{ card_product.id }}"
             >
               {{ card_product.title | escape }}
