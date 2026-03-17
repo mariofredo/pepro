@@ -23,7 +23,7 @@
         </div>
         <div class="menu-drawer__navigation-container tw:h-fit!">
           <nav class="menu-drawer__navigation">
-            <ul class="tw:w-full tw:h-[calc(100vh-240px)] tw:flex tw:flex-col" role="list">
+            <ul class="tw:w-full tw:h-[calc(100vh-240px)] tw:flex tw:flex-col tw:overflow-y-auto" role="list">
               {%- for link in section.settings.menu.links -%}
                 <li class="{% if link.title == 'REWARDS' %} tw:mt-auto! {% endif %}">
                   {%- if link.links != blank -%}

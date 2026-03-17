@@ -258,9 +258,6 @@
   .tw\:my-\[20px\] {
     margin-block: 20px;
   }
-  .tw\:my-\[20px\]\! {
-    margin-block: 20px !important;
-  }
   .tw\:mt-5\! {
     margin-top: calc(var(--tw-spacing) * 5) !important;
   }
@@ -591,17 +588,9 @@
   .tw\:text-left {
     text-align: left;
   }
-  .tw\:text-2xl {
-    font-size: var(--tw-text-2xl);
-    line-height: var(--tw-leading, var(--tw-text-2xl--line-height));
-  }
   .tw\:text-3xl\! {
     font-size: var(--tw-text-3xl) !important;
     line-height: var(--tw-leading, var(--tw-text-3xl--line-height)) !important;
-  }
-  .tw\:text-4xl {
-    font-size: var(--tw-text-4xl);
-    line-height: var(--tw-leading, var(--tw-text-4xl--line-height));
   }
   .tw\:text-5xl {
     font-size: var(--tw-text-5xl);
@@ -641,9 +630,6 @@
   }
   .tw\:text-\[20px\]\! {
     font-size: 20px !important;
-  }
-  .tw\:text-\[24px\] {
-    font-size: 24px;
   }
   .tw\:text-\[24px\]\! {
     font-size: 24px !important;
