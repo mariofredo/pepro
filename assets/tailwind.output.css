@@ -26,6 +26,8 @@
     --tw-font-weight-medium: 500;
     --tw-font-weight-semibold: 600;
     --tw-font-weight-bold: 700;
+    --tw-radius-sm: 0.25rem;
+    --tw-radius-xl: 0.75rem;
     --tw-ease-in-out: cubic-bezier(0.4, 0, 0.2, 1);
     --tw-blur-sm: 8px;
     --tw-aspect-video: 16 / 9;
@@ -220,6 +222,9 @@
   }
   .tw\:bottom-\[80px\] {
     bottom: 80px;
+  }
+  .tw\:left-0 {
+    left: calc(var(--tw-spacing) * 0);
   }
   .tw\:left-0\! {
     left: calc(var(--tw-spacing) * 0) !important;
@@ -509,8 +514,17 @@
   .tw\:overflow-y-auto {
     overflow-y: auto;
   }
+  .tw\:rounded-full {
+    border-radius: calc(infinity * 1px);
+  }
   .tw\:rounded-none\! {
     border-radius: 0 !important;
+  }
+  .tw\:rounded-sm {
+    border-radius: var(--tw-radius-sm);
+  }
+  .tw\:rounded-xl {
+    border-radius: var(--tw-radius-xl);
   }
   .tw\:border {
     border-style: var(--tw-border-style);
@@ -577,6 +591,9 @@
   .tw\:p-\[20px\]\! {
     padding: 20px !important;
   }
+  .tw\:px-2 {
+    padding-inline: calc(var(--tw-spacing) * 2);
+  }
   .tw\:px-5\! {
     padding-inline: calc(var(--tw-spacing) * 5) !important;
   }
@@ -594,6 +611,9 @@
   }
   .tw\:px-\[40px\] {
     padding-inline: 40px;
+  }
+  .tw\:py-1 {
+    padding-block: calc(var(--tw-spacing) * 1);
   }
   .tw\:py-3 {
     padding-block: calc(var(--tw-spacing) * 3);
@@ -702,6 +722,9 @@
   .tw\:font-semibold {
     --tw-font-weight: var(--tw-font-weight-semibold);
     font-weight: var(--tw-font-weight-semibold);
+  }
+  .tw\:whitespace-nowrap {
+    white-space: nowrap;
   }
   .tw\:text-\[\#7a7a7a\] {
     color: #7a7a7a;
