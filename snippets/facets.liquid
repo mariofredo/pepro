@@ -509,7 +509,7 @@
                         data-index="mobile-{{ forloop.index }}">
                         <summary class="mobile-facets__summary focus-inset ">
                           <div>
-                            <span class="tw:uppercase!">{{ filter.label | escape }}</span>
+                            <span class="tw:uppercase! tw:text-[14px]! tw:max-md:text-[12px]!">{{ filter.label | escape }}</span>
                             <span class="mobile-facets__arrow">
                               {{- 'icon-arrow.svg' | inline_asset_content -}}
                             </span>
@@ -691,11 +691,11 @@
                   data-index="mobile-{{ forloop.index }}">
                   <div class="mobile-facets__summary">
                     <div class="mobile-facets__sort">
-                      <label for="SortBy-mobile" class="tw:uppercase!">{{ 'products.facets.sort_by_label' | t }}</label>
+                      <label for="SortBy-mobile" class="tw:uppercase! tw:text-[14px]! tw:max-md:text-[12px]!">{{ 'products.facets.sort_by_label' | t }}</label>
                       <div class="select">
                         <select
                           name="sort_by"
-                          class="select__select tw:uppercase!"
+                          class="select__select tw:uppercase! tw:text-[14px]! tw:max-md:text-[12px]!"
                           id="SortBy-mobile"
                           aria-describedby="a11y-refresh-page-message">
                           {%- for option in results.sort_options -%}
