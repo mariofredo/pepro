@@ -376,6 +376,9 @@
   .tw\:h-\[calc\(100vh-240px\)\] {
     height: calc(100vh - 240px);
   }
+  .tw\:h-\[calc\(100vh-260px\)\] {
+    height: calc(100vh - 260px);
+  }
   .tw\:h-auto {
     height: auto;
   }
@@ -627,6 +630,9 @@
   }
   .tw\:py-\[40px\] {
     padding-block: 40px;
+  }
+  .tw\:pt-\[20px\] {
+    padding-top: 20px;
   }
   .tw\:pr-\[20px\] {
     padding-right: 20px;

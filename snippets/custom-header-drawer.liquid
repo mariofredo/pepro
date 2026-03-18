@@ -17,13 +17,13 @@
     </summary>
     <div id="menu-drawer" class="gradient menu-drawer motion-reduce color-{{ section.settings.menu_color_scheme }}">
       <div class="menu-drawer__inner-container">
-        <div class="tw:px-[30px]">
+        <div class="tw:px-[30px] tw:pt-[20px]">
           <h3 class="tw:text-black! tw:font-bold! tw:mb-[22px]!">MENU</h3>
           <div class="tw:block! tw:w-full! tw:h-[4px]! tw:bg-[#0247B1]!"></div>
         </div>
         <div class="menu-drawer__navigation-container tw:h-fit!">
           <nav class="menu-drawer__navigation">
-            <ul class="tw:w-full tw:h-[calc(100vh-240px)] tw:flex tw:flex-col tw:overflow-y-auto" role="list">
+            <ul class="tw:w-full tw:h-[calc(100vh-260px)] tw:flex tw:flex-col tw:overflow-y-auto" role="list">
               {%- for link in section.settings.menu.links -%}
                 <li class="{% if link.title == 'REWARDS' %} tw:mt-auto! {% endif %}">
                   {%- if link.links != blank -%}
