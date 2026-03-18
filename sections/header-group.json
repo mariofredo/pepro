@@ -14,32 +14,32 @@
     "announcement-bar": {
       "type": "announcement-bar",
       "blocks": {
-        "announcement_nt8EWy": {
-          "type": "announcement",
-          "settings": {
-            "text": "New Products is Arrive",
-            "link": "shopify://collections/247-represent"
-          }
-        },
         "announcement_ydKwky": {
           "type": "announcement",
           "settings": {
-            "text": "Welcome to our store",
+            "text": "NEW IN SATISFY SS26",
             "link": ""
           }
         },
         "announcement-bar-0": {
           "type": "announcement",
           "settings": {
-            "text": "Welcome to our store",
+            "text": "Customer Service 0819-0819-1770",
+            "link": ""
+          }
+        },
+        "announcement_E36KKB": {
+          "type": "announcement",
+          "settings": {
+            "text": "⁠WE REMAIN OPEN DURING EID BREAK",
             "link": ""
           }
         }
       },
       "block_order": [
-        "announcement_nt8EWy",
         "announcement_ydKwky",
-        "announcement-bar-0"
+        "announcement-bar-0",
+        "announcement_E36KKB"
       ],
       "settings": {
         "auto_rotate": true,
