@@ -2,12 +2,12 @@
 {{ 'component-card.css' | asset_url | stylesheet_tag }}
 {{ 'component-price.css' | asset_url | stylesheet_tag }}
 {{ 'component-search.css' | asset_url | stylesheet_tag }}
+{{ 'custom-main-search.css' | asset_url | stylesheet_tag }}
 
 {%- if section.settings.enable_filtering or section.settings.enable_sorting -%}
   {{ 'component-facets.css' | asset_url | stylesheet_tag }}
   <script src="{{ 'facets.js' | asset_url }}" defer="defer"></script>
 {%- endif -%}
-
 {% if section.settings.image_shape == 'blob' %}
   {{ 'mask-blobs.css' | asset_url | stylesheet_tag }}
 {%- endif -%}
@@ -332,6 +332,80 @@
 {% if section.settings.image_shape == 'arch' %}
   {{ 'mask-arch.svg' | inline_asset_content }}
 {%- endif -%}
+
+<script>
+  document.addEventListener('DOMContentLoaded', function () {
+    var cartDrawer = document.querySelector('cart-drawer');
+    var sectionsToRender = cartDrawer ? cartDrawer.getSectionsToRender().map(function (s) { return s.id; }) : ['cart-icon-bubble'];
+
+    var sizeItems = document.querySelectorAll('.card-information__size-item');
+
+    sizeItems.forEach(function (item) {
+      item.addEventListener('click', function (e) {
+        e.preventDefault();
+        e.stopPropagation();
+
+        var variantId = this.getAttribute('data-variant-id');
+        var isAvailable = this.getAttribute('data-available') === 'true';
+
+        if (!isAvailable) {
+          return;
+        }
+
+        var button = this;
+        var originalText = button.textContent;
+        button.textContent = 'Adding...';
+        button.style.pointerEvents = 'none';
+
+        fetch('/cart/add.js', {
+          method: 'POST',
+          headers: {
+            'Content-Type': 'application/json',
+            'X-Requested-With': 'XMLHttpRequest',
+          },
+          body: JSON.stringify({
+            id: parseInt(variantId),
+            quantity: 1,
+            sections: sectionsToRender.join(','),
+            sections_url: window.location.pathname,
+          }),
+        })
+          .then(function (response) {
+            return response.json();
+          })
+          .then(function (response) {
+            if (response.status) {
+              throw new Error(response.description || 'Failed to add to cart');
+            }
+
+            button.textContent = 'Added ✓';
+            button.classList.add('card-information__size-item--added');
+
+            if (cartDrawer) {
+              if (cartDrawer.classList.contains('is-empty')) {
+                cartDrawer.classList.remove('is-empty');
+              }
+              cartDrawer.renderContents(response);
+            }
+
+            setTimeout(function () {
+              button.textContent = originalText;
+              button.classList.remove('card-information__size-item--added');
+              button.style.pointerEvents = '';
+            }, 1500);
+          })
+          .catch(function (err) {
+            console.error(err);
+            button.textContent = 'Error!';
+            setTimeout(function () {
+              button.textContent = originalText;
+              button.style.pointerEvents = '';
+            }, 1500);
+          });
+      });
+    });
+  });
+</script>
 
 {% schema %}
   {
