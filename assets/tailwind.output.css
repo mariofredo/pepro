@@ -449,6 +449,9 @@
   .tw\:rotate-45 {
     rotate: 45deg;
   }
+  .tw\:cursor-default\! {
+    cursor: default !important;
+  }
   .tw\:cursor-pointer {
     cursor: pointer;
   }
@@ -780,6 +783,9 @@
   }
   .tw\:opacity-0 {
     opacity: 0%;
+  }
+  .tw\:opacity-0\! {
+    opacity: 0% !important;
   }
   .tw\:opacity-50 {
     opacity: 50%;
