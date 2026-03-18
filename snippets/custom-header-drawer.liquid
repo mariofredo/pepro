@@ -1,7 +1,7 @@
 {% comment %} 
-          Renders a header drawer menu for mobile and desktop. 
-          Usage: 
-          {% render 'header-drawer' %}
+                                Renders a header drawer menu for mobile and desktop. 
+                                Usage: 
+                                {% render 'header-drawer' %}
 {% endcomment %}
 {% assign curr_url = request.path %}
 <header-drawer data-breakpoint="{% if section.settings.menu_type_desktop == 'drawer' %}desktop{% else %}tablet{% endif %}">
@@ -47,9 +47,10 @@
                         </span>
                       </button>
                       <ul class="brand-list" role="list">
-                        {%- for childlink in link.links -%}
-                          <li>
-                            {%- if childlink.links == blank -%}
+                        {%- assign sorted_childlinks = link.links | sort: "title" -%}
+                        {%- for childlink in sorted_childlinks -%}
+                          {%- if childlink.title != 'Deals & Steals' -%}
+                            <li>
                               <a
                                 id="HeaderDrawer-{{ link.handle }}-{{ childlink.handle }}"
                                 href="{{ childlink.url }}"
@@ -59,46 +60,8 @@
                                 {% endif %}>
                                 {{ childlink.title | escape }}
                               </a>
-                            {%- else -%}
-                              <details id="Details-menu-drawer-{{ link.handle }}-{{ childlink.handle }}">
-                                <summary id="HeaderDrawer-{{ link.handle }}-{{ childlink.handle }}" class="menu-drawer__menu-item link link--text list-menu__item focus-inset">
-                                  {{ childlink.title | escape }}
-                                  <span class="svg-wrapper">
-                                    {{- 'icon-arrow.svg' | inline_asset_content -}}
-                                  </span>
-                                  <span class="svg-wrapper">
-                                    {{- 'icon-caret.svg' | inline_asset_content -}}
-                                  </span>
-                                </summary>
-                                <div id="childlink-{{ childlink.handle | escape }}" class="menu-drawer__submenu has-submenu gradient motion-reduce">
-                                  <button class="menu-drawer__close-button link link--text focus-inset" aria-expanded="true">
-                                    <span class="svg-wrapper">
-                                      {{- 'icon-arrow.svg' | inline_asset_content -}}
-                                    </span>
-                                    {{ childlink.title | escape }}
-                                  </button>
-                                  <ul
-                                    class="menu-drawer__menu list-menu"
-                                    role="list"
-                                    tabindex="-1">
-                                    {%- for grandchildlink in childlink.links -%}
-                                      <li>
-                                        <a
-                                          id="HeaderDrawer-{{ link.handle }}-{{ childlink.handle }}-{{ grandchildlink.handle }}"
-                                          href="{{ grandchildlink.url }}"
-                                          class="menu-drawer__menu-item link link--text list-menu__item focus-inset{% if grandchildlink.current %} menu-drawer__menu-item--active{% endif %}"
-                                          {% if grandchildlink.current %}
-                                          aria-current="page"
-                                          {% endif %}>
-                                          {{ grandchildlink.title | escape }}
-                                        </a>
-                                      </li>
-                                    {%- endfor -%}
-                                  </ul>
-                                </div>
-                              </details>
-                            {%- endif -%}
-                          </li>
+                            </li>
+                          {%- endif -%}
                         {%- endfor -%}
                       </ul>
                     </div>
@@ -111,12 +74,12 @@
                       {% endif %}>
                       {{ link.title | escape -}}
                     {% comment %} <img
-                                                                                                                                      src="{{ 'deals-btn.svg' |  asset_url }}"
-                                                                                                                                      width="100"
-                                                                                                                                      height="32"
-                                                                                                                                      class="tw:w-auto! tw:h-[18px]! tw:max-md:h-[14px]!"
-                                                                                                                                      alt="deals-btn"
-                                                                                                                          > {% endcomment %}
+                                                                                                                                                                                                                                                                                                                                                                                        src="{{ 'deals-btn.svg' |  asset_url }}"
+                                                                                                                                                                                                                                                                                                                                                                                        width="100"
+                                                                                                                                                                                                                                                                                                                                                                                        height="32"
+                                                                                                                                                                                                                                                                                                                                                                                        class="tw:w-auto! tw:h-[18px]! tw:max-md:h-[14px]!"
+                                                                                                                                                                                                                                                                                                                                                                                        alt="deals-btn"
+                                                                                                                                                                                                                                                                                                                                                      > {% endcomment %}
                     </a>
                   {% elsif link.title == 'REWARDS' or link.title == 'ABOUT US' or link.title == 'CONTACT US' %}
                     <a
