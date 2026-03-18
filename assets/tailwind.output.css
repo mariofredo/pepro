@@ -874,6 +874,16 @@
       }
     }
   }
+  .tw\:placeholder\:text-\[12px\]\! {
+    &::placeholder {
+      font-size: 12px !important;
+    }
+  }
+  .tw\:placeholder\:text-\[14px\]\! {
+    &::placeholder {
+      font-size: 14px !important;
+    }
+  }
   .tw\:hover\:font-semibold {
     &:hover {
       @media (hover: hover) {
@@ -1013,6 +1023,13 @@
     @media (width < 48rem) {
       --tw-leading: 16px;
       line-height: 16px;
+    }
+  }
+  .tw\:max-md\:placeholder\:text-\[12px\]\! {
+    @media (width < 48rem) {
+      &::placeholder {
+        font-size: 12px !important;
+      }
     }
   }
   .tw\:max-sm\:grid-cols-1\! {
