@@ -961,9 +961,19 @@
       padding-right: calc(var(--tw-spacing) * 0) !important;
     }
   }
+  .tw\:max-md\:text-\[1px\]\! {
+    @media (width < 48rem) {
+      font-size: 1px !important;
+    }
+  }
   .tw\:max-md\:text-\[10px\] {
     @media (width < 48rem) {
       font-size: 10px;
+    }
+  }
+  .tw\:max-md\:text-\[11px\]\! {
+    @media (width < 48rem) {
+      font-size: 11px !important;
     }
   }
   .tw\:max-md\:text-\[12px\] {

@@ -41,8 +41,7 @@
 -%}
 
 {%- unless target == null and placeholder == null -%}
-  <div
-    class="
+  <div class="
       price
       {%- if price_class %} {{ price_class }}{% endif -%}
       {%- if available == false %} price--sold-out{% endif -%}
@@ -50,8 +49,7 @@
       {%- if compare_at_price > price and product.quantity_price_breaks_configured? %} volume-pricing--sale-badge{% endif -%}
       {%- if product.price_varies == false and product.compare_at_price_varies %} price--no-compare{% endif -%}
       {%- if show_badges %} price--show-badge{% endif -%}
-    "
-  >
+    ">
     <div class="price__container">
       {%- comment -%}
         Explanation of description list:
@@ -79,8 +77,7 @@
           <span class="visually-hidden visually-hidden--inline">{{ 'products.product.price.regular_price' | t }}</span>
           <span class="price-item price-item--regular">
             {{-
-              'products.product.volume_pricing.price_range'
-              | t: minimum: money_price_min, maximum: money_price_max
+              'products.product.volume_pricing.price_range' | t: minimum: money_price_min, maximum: money_price_max
             -}}
           </span>
         {%- else -%}
@@ -92,7 +89,7 @@
       </div>
       <div class="price__sale">
         {%- unless product.price_varies == false and product.compare_at_price_varies %}
-          <span class="visually-hidden visually-hidden--inline">{{ 'products.product.price.regular_price' | t }}</span>
+          <span class="visually-hidden visually-hidden--inline tw:text-[14px]! tw:max-md:text-[11px]!  tw:font-semibold">{{ 'products.product.price.regular_price' | t }}</span>
           <span>
             <s class="price-item price-item--regular">
               {% if settings.currency_code_enabled %}
@@ -104,14 +101,14 @@
           </span>
         {%- endunless -%}
         <span class="visually-hidden visually-hidden--inline">{{ 'products.product.price.sale_price' | t }}</span>
-        <span class="price-item price-item--sale price-item--last">
+        <span class="price-item price-item--sale price-item--last tw:text-[14px]! tw:max-md:text-[11px]!  tw:font-semibold">
           {{ money_price }}
         </span>
       </div>
       {%- if product.selected_or_first_available_variant.unit_price_measurement -%}
-        {% render 'unit-price',
-          price: product.selected_or_first_available_variant.unit_price,
-          measurement: product.selected_or_first_available_variant.unit_price_measurement
+        {% render 'unit-price'
+          , price: product.selected_or_first_available_variant.unit_price
+          , measurement: product.selected_or_first_available_variant.unit_price_measurement
         %}
       {%- endif -%}
     </div>
