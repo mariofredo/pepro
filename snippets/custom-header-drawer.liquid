@@ -1,7 +1,7 @@
 {% comment %} 
-                                Renders a header drawer menu for mobile and desktop. 
-                                Usage: 
-                                {% render 'header-drawer' %}
+                                      Renders a header drawer menu for mobile and desktop. 
+                                      Usage: 
+                                      {% render 'header-drawer' %}
 {% endcomment %}
 {% assign curr_url = request.path %}
 <header-drawer data-breakpoint="{% if section.settings.menu_type_desktop == 'drawer' %}desktop{% else %}tablet{% endif %}">
@@ -25,7 +25,7 @@
                 <li class="{% if link.title == 'ABOUT US' %} tw:mt-auto! {% endif %}">
                   {%- if link.links != blank -%}
                     <div class="brand-btn-ctr">
-                      <button class="brand-btn {% if curr_url contains link.url  %} tw:text-black! tw:font-semibold tw:uppercase tw:text-[14px]! tw:max-md:text-[12px]! {% endif %}">
+                      <button class="brand-btn {% if curr_url contains link.url  %} tw:text-black! tw:font-semibold tw:uppercase! tw:text-[14px]! tw:max-md:text-[12px]! {% endif %}">
                         {{ link.title | escape }}
                         <span class="icon-chevron-down">
                           <svg
@@ -53,7 +53,7 @@
                               <a
                                 id="HeaderDrawer-{{ link.handle }}-{{ childlink.handle }}"
                                 href="{{ childlink.url }}"
-                                class="tw:block! tw:w-full! tw:px-[30px] tw:text-[18px] tw:text-[#7a7a7a]! tw:mb-[20px] tw:hover:text-black! tw:hover:font-semibold tw:uppercase {% if childlink.url == curr_url %} tw:text-black! tw:font-semibold {% endif %}"
+                                class="tw:block! tw:w-full! tw:px-[30px] tw:text-[14px]! tw:max-md:text-[12px]! tw:text-[#7a7a7a]! tw:mb-[20px] tw:hover:text-black! tw:hover:font-semibold tw:uppercase {% if childlink.url == curr_url %} tw:text-black! tw:font-semibold {% endif %}"
                                 {% if childlink.current %}
                                 aria-current="page"
                                 {% endif %}>
@@ -110,9 +110,9 @@
                       aria-current="page"
                       {% endif %}>
                       {% comment %} 
-                                                                                                                                                                                                                                                                                                                                                                                                {{ link.title | escape -}} 
-                                                                                                                                                                                                                                                                                                                                                                                                <sup class="tw:text-[9px]">%</sup>
-                                                                                                                                                                                                                                                                                                                                                                {% endcomment %}
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                        {{ link.title | escape -}} 
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                        <sup class="tw:text-[9px]">%</sup>
+                                                                                                                                                                                                                                                                                                                                                                                                                                  {% endcomment %}
                       <img
                         src="{{ 'deals-btn.svg' |  asset_url }}"
                         width="100"
