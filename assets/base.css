@@ -826,6 +826,9 @@ summary::-webkit-details-marker {
 
 .shopify-policy__title {
   margin: 3rem 0 2rem;
+  text-transform: uppercase;
+}
+.shopify-policy__body {
 }
 
 .title-wrapper--self-padded-tablet-down,
