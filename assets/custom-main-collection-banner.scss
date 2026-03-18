@@ -4,7 +4,8 @@
     flex-direction: column;
     .custom-collection-hero__image-container {
       width: 100%;
-      max-height: 600px;
+      // max-height: 600px;
+      aspect-ratio: 16 / 9;
       overflow: hidden;
       img {
         width: 100%;

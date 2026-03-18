@@ -4,7 +4,7 @@
   <ul class="curated_product_images">
     {% for brand in section.settings.brands %}
       <li class="curated_product_item">
-        <div class="tw:w-full tw:h-full">
+        <div class="tw:w-full tw:h-full tw:max-md:h-[400px]">
           <img
             src="{{ brand.metafields.custom.banner_image | image_url: width: 1920, height: 1080 }}"
             alt="lalalala"

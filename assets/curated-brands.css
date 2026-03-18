@@ -77,6 +77,11 @@
   width: 100%;
   height: 100dvh;
 }
+@media (max-width: 768px) {
+  .curated_product_images li {
+    height: 400px;
+  }
+}
 .curated_product_images li img {
   width: 100%;
   height: 100%;
