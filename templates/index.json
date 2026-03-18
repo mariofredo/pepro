@@ -44,9 +44,8 @@
     "home_featured_product": {
       "type": "home-featured-product",
       "settings": {
-        "title": "FEATURED",
-        "collection_right": "all-products",
-        "collection_left": "247-represent"
+        "heading": "FEATURED",
+        "collection_right": "all-products"
       }
     },
     "product_row": {
