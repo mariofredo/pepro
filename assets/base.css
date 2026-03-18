@@ -2286,7 +2286,7 @@ input[type='checkbox'] {
   }
 
   .announcement-bar .slider-button {
-    height: 3.8rem;
+    height: 3rem;
   }
 }
 
@@ -2316,7 +2316,7 @@ input[type='checkbox'] {
   padding: 1rem 0;
   margin: 0;
   letter-spacing: 0.1rem;
-  min-height: 3.8rem;
+  /* min-height: 3.8rem; */
 }
 
 .announcement-bar-slider--fade-in-next .announcement-bar__message,
