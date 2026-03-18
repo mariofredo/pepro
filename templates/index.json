@@ -45,7 +45,7 @@
       "type": "home-featured-product",
       "settings": {
         "heading": "FEATURED",
-        "collection_right": "all-products"
+        "collection_right": "featured"
       }
     },
     "product_row": {
