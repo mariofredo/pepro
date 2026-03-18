@@ -25,11 +25,11 @@
         "slide_2": {
           "type": "slide",
           "settings": {
-            "image": "shopify://shop_images/bottom-content-about-us-img.jpg",
-            "heading": "BUILT FOR THE RUN.",
-            "text": "A handpicked selection of the world’s finest running brands - designed for performance, crafted with style.",
-            "button_text": "See More",
-            "button_link": "https://google.com"
+            "image": "shopify://shop_images/IMG_2227.jpg",
+            "heading": "REPPIN 247",
+            "text": "Gears that show up when you do. Because progress isn’t occasional. It’s 247.",
+            "button_text": "Shop 247",
+            "button_link": "shopify://collections/247-represent"
           }
         }
       },
