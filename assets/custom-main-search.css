@@ -6,6 +6,7 @@
   margin-top: 10px;
   overflow: hidden;
   z-index: 1000;
+  margin-bottom: 6px;
 }
 .template-search .card-information__size:hover .icon-tabler-x {
   transform: rotate(0deg);
