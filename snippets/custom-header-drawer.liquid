@@ -1,15 +1,12 @@
-{% comment %}
-  Renders a header drawer menu for mobile and desktop.
-  Usage:
-  {% render 'header-drawer' %}
+{% comment %} 
+          Renders a header drawer menu for mobile and desktop. 
+          Usage: 
+          {% render 'header-drawer' %}
 {% endcomment %}
 {% assign curr_url = request.path %}
 <header-drawer data-breakpoint="{% if section.settings.menu_type_desktop == 'drawer' %}desktop{% else %}tablet{% endif %}">
   <details id="Details-menu-drawer-container" class="menu-drawer-container">
-    <summary
-      class="header__icon header__icon--menu header__icon--summary link focus-inset"
-      aria-label="{{ 'sections.header.menu' | t }}"
-    >
+    <summary class="header__icon header__icon--menu header__icon--summary link focus-inset" aria-label="{{ 'sections.header.menu' | t }}">
       <span>
         {{- 'icon-hamburger.svg' | inline_asset_content -}}
         {{- 'icon-close.svg' | inline_asset_content -}}
@@ -41,8 +38,7 @@
                             stroke-width="2"
                             stroke-linecap="round"
                             stroke-linejoin="round"
-                            class="icon icon-tabler icons-tabler-outline icon-tabler-chevron-down"
-                          >
+                            class="icon icon-tabler icons-tabler-outline icon-tabler-chevron-down">
                             <path
                               stroke="none"
                               d="M0 0h24v24H0z"
@@ -59,17 +55,13 @@
                                 href="{{ childlink.url }}"
                                 class="tw:block! tw:w-full! tw:px-[30px] tw:text-[14px]! tw:max-md:text-[12px]! tw:text-[#7a7a7a]! tw:mb-[20px] tw:hover:text-black! tw:hover:font-semibold tw:uppercase {% if childlink.url == curr_url %} tw:text-black! tw:font-semibold {% endif %}"
                                 {% if childlink.current %}
-                                  aria-current="page"
-                                {% endif %}
-                              >
+                                aria-current="page"
+                                {% endif %}>
                                 {{ childlink.title | escape }}
                               </a>
                             {%- else -%}
                               <details id="Details-menu-drawer-{{ link.handle }}-{{ childlink.handle }}">
-                                <summary
-                                  id="HeaderDrawer-{{ link.handle }}-{{ childlink.handle }}"
-                                  class="menu-drawer__menu-item link link--text list-menu__item focus-inset"
-                                >
+                                <summary id="HeaderDrawer-{{ link.handle }}-{{ childlink.handle }}" class="menu-drawer__menu-item link link--text list-menu__item focus-inset">
                                   {{ childlink.title | escape }}
                                   <span class="svg-wrapper">
                                     {{- 'icon-arrow.svg' | inline_asset_content -}}
@@ -78,14 +70,8 @@
                                     {{- 'icon-caret.svg' | inline_asset_content -}}
                                   </span>
                                 </summary>
-                                <div
-                                  id="childlink-{{ childlink.handle | escape }}"
-                                  class="menu-drawer__submenu has-submenu gradient motion-reduce"
-                                >
-                                  <button
-                                    class="menu-drawer__close-button link link--text focus-inset"
-                                    aria-expanded="true"
-                                  >
+                                <div id="childlink-{{ childlink.handle | escape }}" class="menu-drawer__submenu has-submenu gradient motion-reduce">
+                                  <button class="menu-drawer__close-button link link--text focus-inset" aria-expanded="true">
                                     <span class="svg-wrapper">
                                       {{- 'icon-arrow.svg' | inline_asset_content -}}
                                     </span>
@@ -94,8 +80,7 @@
                                   <ul
                                     class="menu-drawer__menu list-menu"
                                     role="list"
-                                    tabindex="-1"
-                                  >
+                                    tabindex="-1">
                                     {%- for grandchildlink in childlink.links -%}
                                       <li>
                                         <a
@@ -103,9 +88,8 @@
                                           href="{{ grandchildlink.url }}"
                                           class="menu-drawer__menu-item link link--text list-menu__item focus-inset{% if grandchildlink.current %} menu-drawer__menu-item--active{% endif %}"
                                           {% if grandchildlink.current %}
-                                            aria-current="page"
-                                          {% endif %}
-                                        >
+                                          aria-current="page"
+                                          {% endif %}>
                                           {{ grandchildlink.title | escape }}
                                         </a>
                                       </li>
@@ -121,31 +105,26 @@
                   {% elsif link.title == 'DEALS' %}
                     <a
                       href="{{ link.url }}"
-                      class="tw:block! tw:w-full! tw:px-[30px] tw:mb-[40px]"
+                      class="tw:block! tw:w-full! tw:px-[30px] tw:text-[14px]! tw:max-md:text-[12px]! tw:text-[#ff0000]! tw:mb-[20px] tw:hover:font-semibold  {% if link.url == curr_url %} tw:text-black! tw:font-semibold {% endif %}"
                       {% if link.current %}
-                        aria-current="page"
-                      {% endif %}
-                    >
-                      {% comment %}
-                        {{ link.title | escape -}}
-                        <sup class="tw:text-[9px]">%</sup>
-                      {% endcomment %}
-                      <img
-                        src="{{ 'deals-btn.svg' |  asset_url }}"
-                        width="100"
-                        height="32"
-                        class="tw:w-auto! tw:h-[18px]! tw:max-md:h-[14px]!"
-                        alt="deals-btn"
-                      >
+                      aria-current="page"
+                      {% endif %}>
+                      {{ link.title | escape -}}
+                    {% comment %} <img
+                                                                                                                                      src="{{ 'deals-btn.svg' |  asset_url }}"
+                                                                                                                                      width="100"
+                                                                                                                                      height="32"
+                                                                                                                                      class="tw:w-auto! tw:h-[18px]! tw:max-md:h-[14px]!"
+                                                                                                                                      alt="deals-btn"
+                                                                                                                          > {% endcomment %}
                     </a>
                   {% elsif link.title == 'REWARDS' or link.title == 'ABOUT US' or link.title == 'CONTACT US' %}
                     <a
                       href="{{ link.url }}"
                       class="tw:block! tw:w-full! tw:px-[30px] tw:text-[12px]! tw:max-md:text-[11px]! tw:mb-[12px] tw:text-[#7a7a7a]! tw:hover:text-black! tw:hover:font-semibold {% if link.url == curr_url %} tw:text-black! tw:font-semibold {% endif %}"
                       {% if link.current %}
-                        aria-current="page"
-                      {% endif %}
-                    >
+                      aria-current="page"
+                      {% endif %}>
                       {{ link.title | escape }}
                     </a>
                   {%- else -%}
@@ -153,9 +132,8 @@
                       href="{{ link.url }}"
                       class="tw:block! tw:w-full! tw:px-[30px] tw:text-[14px]! tw:max-md:text-[12px]! tw:text-[#7a7a7a]! tw:mb-[20px] tw:hover:text-black! tw:hover:font-semibold  {% if link.url == curr_url %} tw:text-black! tw:font-semibold {% endif %}"
                       {% if link.current %}
-                        aria-current="page"
-                      {% endif %}
-                    >
+                      aria-current="page"
+                      {% endif %}>
                       {{ link.title | escape }}
                     </a>
                   {%- endif -%}
@@ -168,8 +146,7 @@
               <a
                 href="{%- if customer -%}{{ routes.account_url }}{%- else -%}{{ routes.account_login_url }}{%- endif -%}"
                 class="menu-drawer__account link focus-inset h5 medium-hide large-up-hide tw:text-[14px]! tw:max-md:text-[12px]!"
-                rel="nofollow"
-              >
+                rel="nofollow">
                 {%- if section.settings.enable_customer_avatar -%}
                   <account-icon>
                     {%- if customer and customer.has_avatar? -%}
@@ -198,12 +175,15 @@
               <div class="menu-drawer__localization header-localization">
                 {%- if localization.available_countries and localization.available_countries.size > 1 -%}
                   <localization-form>
-                    {%- form 'localization', id: 'HeaderCountryMobileForm', class: 'localization-form' -%}
+                    {%- form 'localization'
+                      , id: 'HeaderCountryMobileForm'
+                      , class: 'localization-form' -%}
                       <div>
                         <h2 class="visually-hidden" id="HeaderCountryMobileLabel">
                           {{ 'localization.country_label' | t }}
                         </h2>
-                        {%- render 'country-localization', localPosition: 'HeaderCountryMobile' -%}
+                        {%- render 'country-localization'
+                          , localPosition: 'HeaderCountryMobile' -%}
                       </div>
                     {%- endform -%}
                   </localization-form>
@@ -211,12 +191,15 @@
 
                 {%- if localization.available_languages and localization.available_languages.size > 1 -%}
                   <localization-form>
-                    {%- form 'localization', id: 'HeaderLanguageMobileForm', class: 'localization-form' -%}
+                    {%- form 'localization'
+                      , id: 'HeaderLanguageMobileForm'
+                      , class: 'localization-form' -%}
                       <div>
                         <h2 class="visually-hidden" id="HeaderLanguageMobileLabel">
                           {{ 'localization.language_label' | t }}
                         </h2>
-                        {%- render 'language-localization', localPosition: 'HeaderLanguageMobile' -%}
+                        {%- render 'language-localization'
+                          , localPosition: 'HeaderLanguageMobile' -%}
                       </div>
                     {%- endform -%}
                   </localization-form>

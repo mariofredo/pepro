@@ -147,12 +147,16 @@
       </div>
       <div class="tw:flex tw:flex-col tw:gap-2">
         <div class="card__information">
-          {% if card_product.variants and card_product.variants.size > 1 %}
+          {% if card_product.variants%}
             <div class="card-information__size">
               <div class="card-information__size-list">
                 {% for variant in card_product.variants %}
                   {% if variant.title == 'Default Title' %}
-                    <span class="tw:w-full">Not Available</span>
+                    <span
+                      class="card-information__size-item {% unless variant.available %}card-information__size-item--sold-out{% endunless %}"
+                      data-variant-id="{{ variant.id }}"
+                      data-available="{{ variant.available }}"
+                      title="{% if variant.available %}Add to cart{% else %}Sold out{% endif %}">Add to cart</span>
                   {% else %}
                     <span
                       class="card-information__size-item {% unless variant.available %}card-information__size-item--sold-out{% endunless %}"
@@ -180,8 +184,6 @@
                 <path stroke="none" d="M0 0h24v24H0z" fill="none"/><path d="M18 6l-12 12" /><path d="M6 6l12 12" />
               </svg>
             </div>
-          {% else %}
-            <span class="tw:block! tw:w-full tw:h-[31px] tw:mt-[10px]"></span>
           {% endif %}
 
           <span class="tw:block! tw:text-[12px] tw:max-md:text-[10px] tw:max-[425px]:text-[8px] tw:text-[#7a7a7a] tw:font-semibold tw:uppercase ">

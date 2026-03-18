@@ -26,8 +26,6 @@
     --tw-font-weight-medium: 500;
     --tw-font-weight-semibold: 600;
     --tw-font-weight-bold: 700;
-    --tw-radius-sm: 0.25rem;
-    --tw-radius-xl: 0.75rem;
     --tw-ease-in-out: cubic-bezier(0.4, 0, 0.2, 1);
     --tw-blur-sm: 8px;
     --tw-aspect-video: 16 / 9;
@@ -373,9 +371,6 @@
   .tw\:h-\[65px\] {
     height: 65px;
   }
-  .tw\:h-\[calc\(100vh-240px\)\] {
-    height: calc(100vh - 240px);
-  }
   .tw\:h-\[calc\(100vh-260px\)\] {
     height: calc(100vh - 260px);
   }
@@ -622,9 +617,6 @@
   .tw\:py-3\! {
     padding-block: calc(var(--tw-spacing) * 3) !important;
   }
-  .tw\:py-10 {
-    padding-block: calc(var(--tw-spacing) * 10);
-  }
   .tw\:py-\[10px\] {
     padding-block: 10px;
   }
@@ -633,9 +625,6 @@
   }
   .tw\:py-\[20px\]\! {
     padding-block: 20px !important;
-  }
-  .tw\:py-\[40px\!\] {
-    padding-block: 40px!;
   }
   .tw\:py-\[40px\] {
     padding-block: 40px;
@@ -698,9 +687,6 @@
   .tw\:text-\[16px\]\! {
     font-size: 16px !important;
   }
-  .tw\:text-\[18px\] {
-    font-size: 18px;
-  }
   .tw\:text-\[18px\]\! {
     font-size: 18px !important;
   }
@@ -753,6 +739,15 @@
   }
   .tw\:text-\[\#0247b1\]\! {
     color: #0247b1 !important;
+  }
+  .tw\:text-\[\#\]\! {
+    color: # !important;
+  }
+  .tw\:text-\[\#ff0000\]\! {
+    color: #ff0000 !important;
+  }
+  .tw\:text-\[\#ff\]\! {
+    color: #ff !important;
   }
   .tw\:text-black {
     color: var(--tw-color-black);
@@ -892,16 +887,6 @@
       }
     }
   }
-  .tw\:placeholder\:text-\[12px\]\! {
-    &::placeholder {
-      font-size: 12px !important;
-    }
-  }
-  .tw\:placeholder\:text-\[14px\]\! {
-    &::placeholder {
-      font-size: 14px !important;
-    }
-  }
   .tw\:hover\:font-semibold {
     &:hover {
       @media (hover: hover) {
@@ -915,11 +900,6 @@
       @media (hover: hover) {
         color: var(--tw-color-black) !important;
       }
-    }
-  }
-  .tw\:max-\[768px\]\:text-\[11px\]\! {
-    @media (width < 768px) {
-      font-size: 11px !important;
     }
   }
   .tw\:max-\[425px\]\:text-\[8px\] {
@@ -1002,19 +982,9 @@
       padding-right: calc(var(--tw-spacing) * 0) !important;
     }
   }
-  .tw\:max-md\:text-\[1px\]\! {
-    @media (width < 48rem) {
-      font-size: 1px !important;
-    }
-  }
   .tw\:max-md\:text-\[10px\] {
     @media (width < 48rem) {
       font-size: 10px;
-    }
-  }
-  .tw\:max-md\:text-\[10px\]\! {
-    @media (width < 48rem) {
-      font-size: 10px !important;
     }
   }
   .tw\:max-md\:text-\[11px\]\! {
@@ -1041,13 +1011,6 @@
     @media (width < 48rem) {
       --tw-leading: 16px;
       line-height: 16px;
-    }
-  }
-  .tw\:max-md\:placeholder\:text-\[12px\]\! {
-    @media (width < 48rem) {
-      &::placeholder {
-        font-size: 12px !important;
-      }
     }
   }
   .tw\:max-sm\:grid-cols-1\! {

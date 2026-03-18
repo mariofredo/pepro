@@ -1,11 +1,10 @@
 {{ 'custom-product-row.css' | asset_url | stylesheet_tag }}
-<section
-  class="tw:py-[40px]"
-  style="padding-right: {{ section.settings.padding_right }}px; padding-left: {{ section.settings.padding_left }}px;"
->
+<section class="tw:py-[40px]" style="padding-right: {{ section.settings.padding_right }}px; padding-left: {{ section.settings.padding_left }}px;">
   <div class="product-row__header">
     <h2>{{ section.settings.heading }}</h2>
-    <a href="{{ section.settings.collection.url }}" class="product-row__view-all"> VIEW ALL </a>
+    <a href="{{ section.settings.collection.url }}" class="product-row__view-all">
+      VIEW ALL
+    </a>
   </div>
   <div class="product-row__scroll">
     <ul class="product-row__list">
@@ -19,32 +18,33 @@
                 width="400"
                 height="400"
                 loading="lazy"
-                class="tw:absolute tw:inset-0 tw:z-1 tw:group-hover:opacity-0 tw:group-hover:z-0 tw:transition-opacity tw:ease-in-out tw:duration-300"
-              >
+                class="tw:absolute tw:inset-0 tw:z-1 tw:group-hover:opacity-0 tw:group-hover:z-0 tw:transition-opacity tw:ease-in-out tw:duration-300">
               <img
                 src="{{ product.images[1] | image_url: width: 400 }}"
                 width="400"
                 height="400"
                 loading="lazy"
                 alt="{{ product.title }}"
-                class="tw:absolute tw:inset-0 tw:z-0 tw:opacity-0 tw:group-hover:opacity-100 tw:group-hover:z-2  tw:group-hover:scale-105 tw:transition-all tw:duration-700 tw:ease-in-out"
-              >
+                class="tw:absolute tw:inset-0 tw:z-0 tw:opacity-0 tw:group-hover:opacity-100 tw:group-hover:z-2  tw:group-hover:scale-105 tw:transition-all tw:duration-700 tw:ease-in-out">
             </div>
           </a>
 
-          {% if product.variants and product.variants.size > 1 %}
+          {% if product.variants %}
             <div class="product-row__size">
               <div class="product-row__size-list">
                 {% for variant in product.variants %}
                   {% if variant.title == 'Default Title' %}
-                    <span>Not Available</span>
+                    <span
+                      class="product-row__size-item {% unless variant.available %}product-row__size-item--sold-out{% endunless %}"
+                      data-variant-id="{{ variant.id }}"
+                      data-available="{{ variant.available }}"
+                      title="{% if variant.available %}Add to cart{% else %}Sold out{% endif %}">Add to cart</span>
                   {% else %}
                     <span
                       class="product-row__size-item {% unless variant.available %}product-row__size-item--sold-out{% endunless %}"
                       data-variant-id="{{ variant.id }}"
                       data-available="{{ variant.available }}"
-                      title="{% if variant.available %}Add to cart{% else %}Sold out{% endif %}"
-                    >
+                      title="{% if variant.available %}Add to cart{% else %}Sold out{% endif %}">
                       {{- variant.title -}}
                     </span>
                   {% endif %}
@@ -60,16 +60,14 @@
                 stroke-width="2"
                 stroke-linecap="round"
                 stroke-linejoin="round"
-                class="icon icon-tabler icons-tabler-outline icon-tabler-x"
-              >
+                class="icon icon-tabler icons-tabler-outline icon-tabler-x">
                 <path
                   stroke="none"
                   d="M0 0h24v24H0z"
                   fill="none" /><path d="M18 6l-12 12" /><path d="M6 6l12 12" />
               </svg>
             </div>
-          {% else %}
-            <div class="tw:block! tw:w-full tw:h-[31px] tw:mt-[10px]"></div>
+
           {% endif %}
           <a href="{{ product.url }}">
             <span class="brand tw:block!">{{ product.vendor }}</span>
@@ -89,26 +87,26 @@
           return s.id;
         })
       : ['cart-icon-bubble'];
-
+  
     var sizeItems = document.querySelectorAll('.product-row__size-item');
-
+  
     sizeItems.forEach(function (item) {
       item.addEventListener('click', function (e) {
         e.preventDefault();
         e.stopPropagation();
-
+  
         var variantId = this.getAttribute('data-variant-id');
         var isAvailable = this.getAttribute('data-available') === 'true';
-
+  
         if (!isAvailable) {
           return;
         }
-
+  
         var button = this;
         var originalText = button.textContent;
         button.textContent = 'Adding...';
         button.style.pointerEvents = 'none';
-
+  
         fetch('/cart/add.js', {
           method: 'POST',
           headers: {
@@ -129,10 +127,10 @@
             if (response.status) {
               throw new Error(response.description || 'Failed to add to cart');
             }
-
+  
             button.textContent = 'Added ✓';
             button.classList.add('product-row__size-item--added');
-
+  
             // Use cart drawer's renderContents to sync both drawer and icon bubble
             if (cartDrawer) {
               if (cartDrawer.classList.contains('is-empty')) {
@@ -140,7 +138,7 @@
               }
               cartDrawer.renderContents(response);
             }
-
+  
             setTimeout(function () {
               button.textContent = originalText;
               button.classList.remove('product-row__size-item--added');
@@ -161,43 +159,40 @@
 </script>
 
 {% schema %}
-{
-  "name": "New Arrival Product",
-  "settings": [
-    {
-      "type": "text",
-      "id": "heading",
-      "label": "Heading",
-      "default": "New Arrival"
-    },
-    {
-      "type": "collection",
-      "id": "collection",
-      "label": "Collection"
-    },
-    {
-      "type": "range",
-      "id": "padding_right",
-      "label": "Padding right",
-      "default": 0,
-      "min": 0,
-      "max": 100,
-      "step": 10
-    },
-    {
-      "type": "range",
-      "id": "padding_left",
-      "label": "Padding left",
-      "default": 0,
-      "min": 0,
-      "max": 100,
-      "step": 10
-    }
-  ],
-  "presets": [
-    {
-      "name": "New Arrival Product"
-    }
-  ]
-}
+  {
+    "name": "New Arrival Product",
+    "settings": [
+      {
+        "type": "text",
+        "id": "heading",
+        "label": "Heading",
+        "default": "New Arrival"
+      }, {
+        "type": "collection",
+        "id": "collection",
+        "label": "Collection"
+      }, {
+        "type": "range",
+        "id": "padding_right",
+        "label": "Padding right",
+        "default": 0,
+        "min": 0,
+        "max": 100,
+        "step": 10
+      }, {
+        "type": "range",
+        "id": "padding_left",
+        "label": "Padding left",
+        "default": 0,
+        "min": 0,
+        "max": 100,
+        "step": 10
+      }
+    ],
+    "presets": [
+      {
+        "name": "New Arrival Product"
+      }
+    ]
+  }
 {% endschema %}
