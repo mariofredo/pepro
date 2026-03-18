@@ -619,6 +619,9 @@
   .tw\:py-3\! {
     padding-block: calc(var(--tw-spacing) * 3) !important;
   }
+  .tw\:py-10 {
+    padding-block: calc(var(--tw-spacing) * 10);
+  }
   .tw\:py-\[10px\] {
     padding-block: 10px;
   }
@@ -628,8 +631,14 @@
   .tw\:py-\[20px\]\! {
     padding-block: 20px !important;
   }
+  .tw\:py-\[40px\!\] {
+    padding-block: 40px!;
+  }
   .tw\:py-\[40px\] {
     padding-block: 40px;
+  }
+  .tw\:py-\[40px\]\! {
+    padding-block: 40px !important;
   }
   .tw\:pt-\[20px\] {
     padding-top: 20px;
@@ -639,6 +648,9 @@
   }
   .tw\:pb-0\! {
     padding-bottom: calc(var(--tw-spacing) * 0) !important;
+  }
+  .tw\:pb-\[40px\]\! {
+    padding-bottom: 40px !important;
   }
   .tw\:text-center {
     text-align: center;

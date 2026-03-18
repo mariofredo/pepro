@@ -1,7 +1,7 @@
 {{ 'component-card.css' | asset_url | stylesheet_tag }}
 {{ 'section-collection-list.css' | asset_url | stylesheet_tag }}
 
-<div class="page-width">
+<div class="page-width tw:py-[40px]!">
   <h1 class="title title--primary inline-richtext{% if settings.animations_reveal_on_scroll %} scroll-trigger animate--fade-in{% endif %}">
     {{ section.settings.title }}
   </h1>
@@ -13,8 +13,7 @@
             src="{{ brand.metafields.custom.all_brand_image | image_url: width: 1920, height: 1080 }}"
             alt="all_brand_image"
             width="1920"
-            height="1080"
-          >
+            height="1080">
           <p class="tw:absolute tw:top-1/2 tw:left-1/2 tw:translate-[-50%] tw:text-white tw:text-5xl tw:uppercase tw:font-bold tw:text-center">
             {{ brand.title }}
           </p>
@@ -24,23 +23,22 @@
   </ul>
 </div>
 {% schema %}
-{
-  "name": "t:sections.main-list-collections.name",
-  "class": "section",
-  "settings": [
-    {
-      "type": "inline_richtext",
-      "id": "title",
-      "label": "t:sections.main-list-collections.settings.title.label",
-      "default": "t:sections.main-list-collections.settings.title.default"
-    },
-    {
-      "type": "collection_list",
-      "id": "brands",
-      "label": "Brands",
-      "info": "Add brand images and names to showcase curated brands.",
-      "limit": 6
-    }
-  ]
-}
+  {
+    "name": "t:sections.main-list-collections.name",
+    "class": "section",
+    "settings": [
+      {
+        "type": "inline_richtext",
+        "id": "title",
+        "label": "t:sections.main-list-collections.settings.title.label",
+        "default": "t:sections.main-list-collections.settings.title.default"
+      }, {
+        "type": "collection_list",
+        "id": "brands",
+        "label": "Brands",
+        "info": "Add brand images and names to showcase curated brands.",
+        "limit": 6
+      }
+    ]
+  }
 {% endschema %}
