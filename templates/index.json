@@ -15,10 +15,10 @@
         "slide_1": {
           "type": "slide",
           "settings": {
-            "image": "shopify://shop_images/image_banner_home_1.jpg",
+            "image": "shopify://shop_images/IMG_2218.jpg",
             "heading": "BUILT FOR THE RUN.",
             "text": "A handpicked selection of the world’s finest running brands - designed for performance, crafted with style.",
-            "button_text": "See More",
+            "button_text": "Shop Now",
             "button_link": "https://google.com"
           }
         },
