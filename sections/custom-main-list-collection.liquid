@@ -10,10 +10,11 @@
       <li class="">
         <a href="{{brand.url}}" class="tw:w-full tw:h-full tw:relative tw:block">
           <img
-            src="{{ brand.metafields.custom.all_brand_image | image_url: width: 1920, height: 1080 }}"
-            alt="all_brand_image"
+            src="{{ brand.metafields.custom.brand_image | image_url: width: 1920, height: 1080 }}"
+            alt="brand_image"
             width="1920"
-            height="1080">
+            height="1080"
+          >
           <p class="tw:absolute tw:top-1/2 tw:left-1/2 tw:translate-[-50%] tw:text-white tw:text-5xl tw:uppercase tw:font-bold tw:text-center">
             {{ brand.title }}
           </p>
@@ -23,22 +24,23 @@
   </ul>
 </div>
 {% schema %}
-  {
-    "name": "t:sections.main-list-collections.name",
-    "class": "section",
-    "settings": [
-      {
-        "type": "inline_richtext",
-        "id": "title",
-        "label": "t:sections.main-list-collections.settings.title.label",
-        "default": "t:sections.main-list-collections.settings.title.default"
-      }, {
-        "type": "collection_list",
-        "id": "brands",
-        "label": "Brands",
-        "info": "Add brand images and names to showcase curated brands.",
-        "limit": 6
-      }
-    ]
-  }
+{
+  "name": "t:sections.main-list-collections.name",
+  "class": "section",
+  "settings": [
+    {
+      "type": "inline_richtext",
+      "id": "title",
+      "label": "t:sections.main-list-collections.settings.title.label",
+      "default": "t:sections.main-list-collections.settings.title.default"
+    },
+    {
+      "type": "collection_list",
+      "id": "brands",
+      "label": "Brands",
+      "info": "Add brand images and names to showcase curated brands.",
+      "limit": 6
+    }
+  ]
+}
 {% endschema %}
