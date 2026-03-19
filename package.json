@@ -4,7 +4,7 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "dev": "shopify theme dev",
+    "dev": "shopify theme dev --store=e3f53c-ce.myshopify.com",
     "build:css": "tailwindcss -i ./assets/tailwind.input.css -o ./assets/tailwind.output.css --watch"
   },
   "repository": {
