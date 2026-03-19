@@ -10,7 +10,7 @@
       <li class="">
         <a href="{{brand.url}}" class="tw:w-full tw:h-full tw:relative tw:block">
           <img
-            src="{{ brand.metafields.custom.brand_image | image_url: width: 1920, height: 1080 }}"
+            src="{{ brand.metafields.custom.all_brand_image | image_url: width: 1920, height: 1080 }}"
             alt="brand_image"
             width="1920"
             height="1080"
@@ -38,7 +38,6 @@
       "type": "collection_list",
       "id": "brands",
       "label": "Brands",
-      "info": "Add brand images and names to showcase curated brands.",
       "limit": 6
     }
   ]
