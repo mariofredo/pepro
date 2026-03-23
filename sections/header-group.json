@@ -14,13 +14,6 @@
     "announcement-bar": {
       "type": "announcement-bar",
       "blocks": {
-        "announcement_yd7B67": {
-          "type": "announcement",
-          "settings": {
-            "text": "TAKE 10% off with PEPROAURALITE",
-            "link": "shopify://collections/auralite"
-          }
-        },
         "announcement_ydKwky": {
           "type": "announcement",
           "settings": {
@@ -44,7 +37,6 @@
         }
       },
       "block_order": [
-        "announcement_yd7B67",
         "announcement_ydKwky",
         "announcement-bar-0",
         "announcement_E36KKB"
