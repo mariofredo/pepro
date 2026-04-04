@@ -12,14 +12,14 @@
     "image_banner_slider": {
       "type": "image-banner-slider",
       "blocks": {
-        "slide_keA3JK": {
+        "slide_VN9kEt": {
           "type": "slide",
           "settings": {
-            "image": "shopify://shop_images/IMG_2260.webp",
-            "heading": "AURALITE",
-            "text": "Designed to disappear in motion. AuraLite™ supports long efforts and changing conditions while keeping focus clear and sensation light.",
-            "button_text": "SEAL THE DEAL",
-            "button_link": "shopify://collections/auralite"
+            "image": "shopify://shop_images/FullSizeRender_836d30cf-ecca-444c-a7ec-d66e5bc5a0be.jpg",
+            "heading": "247 Numbers Edition",
+            "text": "Built to accelerate",
+            "button_text": "Explore",
+            "button_link": "shopify://collections/247-represent"
           }
         },
         "slide_1": {
@@ -44,7 +44,7 @@
         }
       },
       "block_order": [
-        "slide_keA3JK",
+        "slide_VN9kEt",
         "slide_1",
         "slide_2"
       ],
