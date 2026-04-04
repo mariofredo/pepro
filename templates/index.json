@@ -31,22 +31,11 @@
             "button_text": "Shop SATISFY",
             "button_link": "shopify://collections/editor-picks"
           }
-        },
-        "slide_2": {
-          "type": "slide",
-          "settings": {
-            "image": "shopify://shop_images/IMG_2227.jpg",
-            "heading": "REPRESENTIN’",
-            "text": "Gears that show up when you do. Because progress isn’t occasional. It’s 247.",
-            "button_text": "Shop 247",
-            "button_link": "shopify://collections/247-represent"
-          }
         }
       },
       "block_order": [
         "slide_VN9kEt",
-        "slide_1",
-        "slide_2"
+        "slide_1"
       ],
       "settings": {
         "autoplay": true
