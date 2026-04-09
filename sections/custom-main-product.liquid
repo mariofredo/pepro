@@ -148,12 +148,13 @@
               {%- when '@app' -%}
                 {% render block %}
               {%- when 'text' -%}
-                <p
+                <a
+                  href="/collections/{{ product.vendor | handle }}"
                   class="tw:text-[18px]! product__text inline-richtext{% if block.settings.text_style == 'uppercase' %} caption-with-letter-spacing{% elsif block.settings.text_style == 'subtitle' %} subtitle{% endif %}"
                   {{ block.shopify_attributes }}
                 >
                   {{- block.settings.text -}}
-                </p>
+                </a>
               {%- when 'title' -%}
                 <div class="product__title" {{ block.shopify_attributes }}>
                   <h1 class="tw:uppercase! tw:font-bold! tw:text-[20px]!">{{ product.title | escape }}</h1>
