@@ -197,6 +197,9 @@
   .tw\:relative {
     position: relative;
   }
+  .tw\:static\! {
+    position: static !important;
+  }
   .tw\:inset-0 {
     inset: calc(var(--tw-spacing) * 0);
   }
@@ -632,8 +635,20 @@
   .tw\:pb-0\! {
     padding-bottom: calc(var(--tw-spacing) * 0) !important;
   }
+  .tw\:pb-\[20px\]\! {
+    padding-bottom: 20px !important;
+  }
   .tw\:pb-\[40px\]\! {
     padding-bottom: 40px !important;
+  }
+  .tw\:pb-\[50px\]\! {
+    padding-bottom: 50px !important;
+  }
+  .tw\:pb-\[60px\]\! {
+    padding-bottom: 60px !important;
+  }
+  .tw\:pb-\[80px\]\! {
+    padding-bottom: 80px !important;
   }
   .tw\:text-center {
     text-align: center;
