@@ -675,6 +675,9 @@
   .tw\:py-3\! {
     padding-block: calc(var(--tw-spacing) * 3) !important;
   }
+  .tw\:py-\[0px\]\! {
+    padding-block: 0px !important;
+  }
   .tw\:py-\[10px\] {
     padding-block: 10px;
   }
@@ -692,6 +695,9 @@
   }
   .tw\:pt-\[20px\] {
     padding-top: 20px;
+  }
+  .tw\:pt-\[20px\]\! {
+    padding-top: 20px !important;
   }
   .tw\:pr-\[20px\] {
     padding-right: 20px;
