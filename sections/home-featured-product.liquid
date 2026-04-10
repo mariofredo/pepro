@@ -166,7 +166,7 @@
       <div class="marquee-content">
         {% for product in section.settings.collection_right.products %}
           <a href="{{product.url}}" class="product-card">
-            <h4>{{ product.title }}</h4>
+            {% comment %} <h4>{{ product.title }}</h4> {% endcomment %}
             <div class="image-placeholder">
               {% if product.featured_image %}
                 <img
