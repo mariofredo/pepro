@@ -15,7 +15,9 @@
     font-weight: 700;
     color: #000;
   }
-
+  .card__information {
+    padding: 0 1rem !important;
+  }
   .card-information__size {
     position: relative;
     display: flex;
@@ -61,6 +63,10 @@
         border-radius: 4px;
         cursor: pointer;
         white-space: nowrap;
+        @media (max-width: 768px) {
+          font-size: 10px;
+          padding: 2px 4px;
+        }
         &:hover {
           background-color: #a7a7a7;
           color: #fff;
