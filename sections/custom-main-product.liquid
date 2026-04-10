@@ -601,7 +601,7 @@
                       disabled
                     {% endunless %}
                   >
-                    BUY NOW
+                    BUY
                   </button>
                 </div>
               {%- when 'popup' -%}
@@ -917,7 +917,17 @@
   role="alert"
   aria-live="polite"
 >
-  <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+  <svg
+    xmlns="http://www.w3.org/2000/svg"
+    width="20"
+    height="20"
+    viewBox="0 0 24 24"
+    fill="none"
+    stroke="currentColor"
+    stroke-width="2"
+    stroke-linecap="round"
+    stroke-linejoin="round"
+  >
     <path d="M10.29 3.86L1.82 18a2 2 0 001.71 3h16.94a2 2 0 001.71-3L13.71 3.86a2 2 0 00-3.42 0z"/><line x1="12" y1="9" x2="12" y2="13"/><line x1="12" y1="17" x2="12.01" y2="17"/>
   </svg>
   <span id="QuantityToastMessage-{{ section.id }}"></span>
@@ -991,18 +1001,14 @@
 
     // --- Variant Inventory & Quantity Validation ---
     const sectionId = '{{ section.id }}';
-    const inventoryData = JSON.parse(
-      document.getElementById('VariantInventory-' + sectionId).textContent
-    );
+    const inventoryData = JSON.parse(document.getElementById('VariantInventory-' + sectionId).textContent);
     const quantityInput = document.getElementById('Quantity-' + sectionId);
     const toast = document.getElementById('QuantityToast-' + sectionId);
     const toastMessage = document.getElementById('QuantityToastMessage-' + sectionId);
     let toastTimer = null;
 
     function getSelectedVariantId() {
-      const input = document.querySelector(
-        '#product-form-installment-' + sectionId + ' input[name="id"]'
-      );
+      const input = document.querySelector('#product-form-installment-' + sectionId + ' input[name="id"]');
       return input ? input.value : null;
     }
 
@@ -1040,10 +1046,7 @@
 
       if (currentQty > maxQty) {
         quantityInput.value = maxQty;
-        showToast(
-          'Only ' + maxQty + ' item' + (maxQty > 1 ? 's' : '') +
-          ' available. Quantity has been adjusted.'
-        );
+        showToast('Only ' + maxQty + ' item' + (maxQty > 1 ? 's' : '') + ' available. Quantity has been adjusted.');
       }
     }
 
@@ -1067,16 +1070,14 @@
     }
 
     // Re-validate when variant changes (the hidden input value changes)
-    const variantInput = document.querySelector(
-      '#product-form-installment-' + sectionId + ' input[name="id"]'
-    );
+    const variantInput = document.querySelector('#product-form-installment-' + sectionId + ' input[name="id"]');
     if (variantInput) {
       variantInput.addEventListener('change', () => {
         setTimeout(clampQuantity, 50);
       });
     }
 
-    // --- Buy Now Button ---
+    // --- Buy Button ---
     const buyNowBtn = document.getElementById('BuyNow-' + sectionId);
     if (buyNowBtn) {
       buyNowBtn.addEventListener('click', async () => {
@@ -1097,9 +1098,7 @@
           if (max <= 0) {
             showToast('Sorry, this item is out of stock.');
           } else {
-            showToast(
-              'Only ' + max + ' available. Please reduce your quantity.'
-            );
+            showToast('Only ' + max + ' available. Please reduce your quantity.');
             quantityInput.value = max;
           }
           return;
