@@ -51,8 +51,11 @@
     "home_highlight_product": {
       "type": "home-highlight-product",
       "settings": {
-        "heading": "HIGHLIGHT",
-        "collection_right": "featured"
+        "image": "shopify://shop_images/0ef15ee2bcbb5c73a5cefb9be537a1df8fc6180a.jpg",
+        "button_text": "SUMMER 2026 BANDIT",
+        "button_link": "shopify://collections/bandit",
+        "collection": "bandit",
+        "heading": "HIGHLIGHT"
       }
     },
     "product_row": {
