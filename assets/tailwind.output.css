@@ -421,6 +421,12 @@
   .tw\:w-\[200px\]\! {
     width: 200px !important;
   }
+  .tw\:w-\[220px\] {
+    width: 220px;
+  }
+  .tw\:w-\[350px\] {
+    width: 350px;
+  }
   .tw\:w-auto {
     width: auto;
   }
@@ -549,6 +555,9 @@
   .tw\:gap-5 {
     gap: calc(var(--tw-spacing) * 5);
   }
+  .tw\:gap-\[6px\] {
+    gap: 6px;
+  }
   .tw\:gap-\[8px\] {
     gap: 8px;
   }
@@ -560,6 +569,9 @@
   }
   .tw\:gap-\[20px\]\! {
     gap: 20px !important;
+  }
+  .tw\:gap-\[60px\] {
+    gap: 60px;
   }
   .tw\:overflow-hidden {
     overflow: hidden;
@@ -988,6 +1000,16 @@
       width: calc(1 / 2 * 100%);
     }
   }
+  .tw\:max-lg\:w-\[220px\] {
+    @media (width < 64rem) {
+      width: 220px;
+    }
+  }
+  .tw\:max-lg\:w-\[350px\] {
+    @media (width < 64rem) {
+      width: 350px;
+    }
+  }
   .tw\:max-lg\:grid-cols-3 {
     @media (width < 64rem) {
       grid-template-columns: repeat(3, minmax(0, 1fr));
@@ -1031,6 +1053,16 @@
   .tw\:max-md\:w-\[120px\]\! {
     @media (width < 48rem) {
       width: 120px !important;
+    }
+  }
+  .tw\:max-md\:w-\[220px\] {
+    @media (width < 48rem) {
+      width: 220px;
+    }
+  }
+  .tw\:max-md\:w-\[280px\] {
+    @media (width < 48rem) {
+      width: 280px;
     }
   }
   .tw\:max-md\:grid-cols-1 {
