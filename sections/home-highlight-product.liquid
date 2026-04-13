@@ -1,6 +1,6 @@
 {{ 'custom-product-row.css' | asset_url | stylesheet_tag }}
 <div class="tw:flex tw:flex-row tw:gap-[10px] tw:items-center tw:py-[40px]">
-  <div class="tw:aspect-square tw:w-[350px] tw:max-md:w-[280px] tw:relative">
+  <div class="tw:aspect-square tw:w-[350px] tw:max-md:w-[280px] tw:relative tw:max-sm:w-1/2 tw:max-sm:h-[310px] tw:max-sm:aspect-auto">
     <div
       class="tw:absolute tw:top-1/2 tw:left-1/2 tw:-translate-x-1/2 tw:-translate-y-1/2 tw:w-full"
     >
@@ -26,6 +26,7 @@
       alt=""
       width="600"
       height="600"
+      class="tw:w-full tw:h-full tw:max-sm:object-cover"
     >
   </div>
   <div class="product-row__scroll tw:h-fit tw:flex-1">
