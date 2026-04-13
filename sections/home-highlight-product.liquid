@@ -1,12 +1,17 @@
 {{ 'custom-product-row.css' | asset_url | stylesheet_tag }}
 <div class="tw:flex tw:flex-row tw:gap-[20px] tw:items-center tw:py-[40px]">
-  <div class="tw:w-auto tw:relative">
+  <div class="tw:max-lg:w-1/2 tw:w-auto tw:relative">
     <div
-      class="tw:absolute tw:top-1/2 tw:left-1/2 tw:-translate-x-1/2 tw:-translate-y-1/2"
+      class="tw:absolute tw:top-1/2 tw:left-1/2 tw:-translate-x-1/2 tw:-translate-y-1/2 tw:w-full"
     >
-      <h4 class="tw:text-center">{{ block.settings.title }}</h4>
-      <a href="{{ block.settings.button_link }}" class="tw:flex tw:flex-row tw:items-center tw:gap-2">
-        {{ block.settings.button_text }}
+      <h4 class="tw:text-center tw:text-[42px]! tw:max-md:text-[20px]! tw:text-white! tw:font-bold! ">
+        {{ section.settings.title }}
+      </h4>
+      <a
+        href="{{ section.settings.button_link }}"
+        class="tw:flex tw:justify-center tw:items-center tw:gap-2 tw:text-white! tw:text-[20px]! tw:max-md:text-[16px]!"
+      >
+        {{ section.settings.button_text }}
         <img
           src="{{ 'icon-arrow-right-white.svg' | asset_url }}"
           alt="icon-arrow-right-white"
