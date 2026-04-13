@@ -699,6 +699,15 @@
   .tw\:pb-0\! {
     padding-bottom: calc(var(--tw-spacing) * 0) !important;
   }
+  .tw\:pb-\[0px\]\! {
+    padding-bottom: 0px !important;
+  }
+  .tw\:pb-\[10px\]\! {
+    padding-bottom: 10px !important;
+  }
+  .tw\:pb-\[20px\]\! {
+    padding-bottom: 20px !important;
+  }
   .tw\:pb-\[40px\]\! {
     padding-bottom: 40px !important;
   }
