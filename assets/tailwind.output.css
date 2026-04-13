@@ -359,6 +359,9 @@
   .tw\:aspect-video\! {
     aspect-ratio: var(--tw-aspect-video) !important;
   }
+  .tw\:h-4 {
+    height: calc(var(--tw-spacing) * 4);
+  }
   .tw\:h-20 {
     height: calc(var(--tw-spacing) * 20);
   }
@@ -398,11 +401,20 @@
   .tw\:h-full\! {
     height: 100% !important;
   }
+  .tw\:h-screen {
+    height: 100vh;
+  }
   .tw\:max-h-dvh {
     max-height: 100dvh;
   }
   .tw\:min-h-\[460px\] {
     min-height: 460px;
+  }
+  .tw\:w-1\/2 {
+    width: calc(1 / 2 * 100%);
+  }
+  .tw\:w-4 {
+    width: calc(var(--tw-spacing) * 4);
   }
   .tw\:w-20 {
     width: calc(var(--tw-spacing) * 20);
@@ -503,6 +515,9 @@
   }
   .tw\:flex-col\! {
     flex-direction: column !important;
+  }
+  .tw\:flex-row {
+    flex-direction: row;
   }
   .tw\:items-center {
     align-items: center;

@@ -1,0 +1,66 @@
+<div class="tw:flex tw:flex-row tw:gap-4 ">
+  <div class="tw:w-1/2 tw:relative">
+    <div>
+      <h2>{{ section.settings.heading }}</h2>
+      <a href="{{ block.settings.button_link }}" class="tw:flex tw:flex-row tw:items-center tw:gap-2">
+        {{ block.settings.button_text }}
+        <img
+          src="{{ 'icon-arrow-right-white.svg' | asset_url }}"
+          alt="icon-arrow-right-white"
+          class="tw:w-4 tw:h-4"
+          width="16"
+          height="16"
+        >
+      </a>
+    </div>
+    <img
+      src="{{ section.settings.image | image_url: width: 600, height: 600 }}"
+      alt=""
+      width="600"
+      height="600"
+    >
+  </div>
+  <div class="tw:w-1/2">
+    {% for product in section.settings.collection.products %}
+      <img
+        src="{{ product.featured_image | image_url: width: 600, height: 600 }}"
+        alt=""
+        width="600"
+        height="600"
+      >
+    {% endfor %}
+  </div>
+</div>
+
+{% schema %}
+{
+  "name": "Home Highlight Product",
+  "settings": [
+    {
+      "type": "image_picker",
+      "id": "image",
+      "label": "Image"
+    },
+    {
+      "type": "text",
+      "id": "button_text",
+      "label": "Button Text"
+    },
+    {
+      "type": "url",
+      "id": "button_link",
+      "label": "Button Link"
+    },
+    {
+      "type": "collection",
+      "id": "collection",
+      "label": "Collection"
+    },
+    {
+      "type": "text",
+      "id": "heading",
+      "label": "Heading"
+    }
+  ]
+}
+{% endschema %}

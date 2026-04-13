@@ -48,6 +48,13 @@
         "collection_right": "featured"
       }
     },
+    "home_highlight_product": {
+      "type": "home-highlight-product",
+      "settings": {
+        "heading": "HIGHLIGHT",
+        "collection_right": "featured"
+      }
+    },
     "product_row": {
       "type": "product-row",
       "settings": {
@@ -74,6 +81,7 @@
   "order": [
     "image_banner_slider",
     "home_featured_product",
+    "home_highlight_product",
     "product_row",
     "curated_brands"
   ]
