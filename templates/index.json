@@ -29,7 +29,7 @@
             "heading": "BUILT FOR THE RUN.",
             "text": "A handpicked selection of the world’s finest running brand - designed for performance, crafted with style.",
             "button_text": "Shop SATISFY",
-            "button_link": "shopify://collections/editor-picks"
+            "button_link": "shopify://collections/satisfy"
           }
         }
       },
@@ -61,7 +61,7 @@
       "type": "curated-brands",
       "settings": {
         "brands": [
-          "editor-picks",
+          "satisfy",
           "247-represent",
           "bandit",
           "oakley",
