@@ -124,12 +124,12 @@
                   </div>
                 {%- endfor -%}
               </div>
-              <div class="swiper-pagination"></div>
+              {% comment %} <div class="swiper-pagination"></div> {% endcomment %}
               <div
-                class="swiper-button-next tw:text-[#0247b1]! tw:w-[20px]! tw:h-[20px]! tw:bottom-[10px]! tw:top-auto!"
+                class="swiper-button-next tw:text-[#0247b1]! tw:w-[20px]! tw:h-[20px]!"
               ></div>
               <div
-                class="swiper-button-prev tw:text-[#0247b1]! tw:w-[20px]! tw:h-[20px]! tw:bottom-[10px]! tw:top-auto!"
+                class="swiper-button-prev tw:text-[#0247b1]! tw:w-[20px]! tw:h-[20px]!"
               ></div>
             </div>
           </div>
@@ -983,9 +983,9 @@
       // Optional parameters
       loop: true,
       // // If we need pagination
-      pagination: {
-        el: '.swiper-pagination',
-      },
+      //pagination: {
+      //   el: '.swiper-pagination',
+      // },
 
       // // Navigation arrows
       navigation: {
