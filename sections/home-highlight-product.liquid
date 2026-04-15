@@ -1,0 +1,215 @@
+{{ 'custom-product-row.css' | asset_url | stylesheet_tag }}
+<div class="tw:flex tw:flex-row tw:gap-[10px] tw:items-center tw:py-[40px]">
+  <div class="tw:aspect-square tw:w-[350px] tw:max-md:w-[280px] tw:relative tw:max-sm:w-1/2 tw:max-sm:h-[310px] tw:max-sm:aspect-auto">
+    <div
+      class="tw:absolute tw:top-1/2 tw:left-1/2 tw:-translate-x-1/2 tw:-translate-y-1/2 tw:w-full"
+    >
+      <h4 class="tw:text-center  tw:max-md:text-[20px]! tw:text-white! tw:font-bold! ">
+        {{ section.settings.title }}
+      </h4>
+      <a
+        href="{{ section.settings.button_link }}"
+        class="tw:flex tw:justify-center tw:items-center tw:gap-2 tw:text-white! tw:text-[16px]!"
+      >
+        {{ section.settings.button_text }}
+        <img
+          src="{{ 'icon-arrow-right-white.svg' | asset_url }}"
+          alt="icon-arrow-right-white"
+          class="tw:w-[40px] tw:h-auto"
+          width="40"
+          height="40"
+        >
+      </a>
+    </div>
+    <img
+      src="{{ section.settings.image | image_url: width: 600, height: 600 }}"
+      alt=""
+      width="600"
+      height="600"
+      class="tw:w-full tw:h-full tw:max-sm:object-cover"
+    >
+  </div>
+  <div class="product-row__scroll tw:h-fit tw:flex-1">
+    <ul class="product-row__list">
+      {% for product in section.settings.collection.products %}
+        <li class="product-row__item">
+          <a href="{{ product.url }}">
+            <div class="tw:aspect-square tw:relative tw:group tw:overflow-hidden">
+              <img
+                src="{{ product.featured_image | image_url: width: 400 }}"
+                alt="{{ product.title }}"
+                width="400"
+                height="400"
+                loading="lazy"
+                class="tw:absolute tw:inset-0 tw:z-1 tw:group-hover:opacity-0 tw:group-hover:z-0 tw:transition-opacity tw:ease-in-out tw:duration-300"
+              >
+              <img
+                src="{{ product.images[1] | image_url: width: 400 }}"
+                width="400"
+                height="400"
+                loading="lazy"
+                alt="{{ product.title }}"
+                class="tw:absolute tw:inset-0 tw:z-0 tw:opacity-0 tw:group-hover:opacity-100 tw:group-hover:z-2 tw:group-hover:scale-105 tw:transition-all tw:duration-700 tw:ease-in-out"
+              >
+            </div>
+          </a>
+
+          {% if product.variants %}
+            <div class="product-row__size">
+              <div class="product-row__size-list">
+                {% for variant in product.variants %}
+                  {% if variant.title == 'Default Title' %}
+                    <span
+                      class="product-row__size-item {% unless variant.available %}product-row__size-item--sold-out{% endunless %}"
+                      data-variant-id="{{ variant.id }}"
+                      data-available="{{ variant.available }}"
+                      title="{% if variant.available %}Add to cart{% else %}Sold out{% endif %}"
+                      >ONE SIZE</span
+                    >
+                  {% else %}
+                    <span
+                      class="product-row__size-item {% unless variant.available %}product-row__size-item--sold-out{% endunless %}"
+                      data-variant-id="{{ variant.id }}"
+                      data-available="{{ variant.available }}"
+                      title="{% if variant.available %}Add to cart{% else %}Sold out{% endif %}"
+                    >
+                      {{- variant.title -}}
+                    </span>
+                  {% endif %}
+                {% endfor %}
+              </div>
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                width="24"
+                height="24"
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="#000"
+                stroke-width="2"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                class="icon icon-tabler icons-tabler-outline icon-tabler-x"
+              >
+                <path stroke="none" d="M0 0h24v24H0z" fill="none" /><path d="M18 6l-12 12" /><path d="M6 6l12 12" />
+              </svg>
+            </div>
+          {% endif %}
+
+          <a href="{{ product.url }}">
+            <span class="brand tw:block!">{{ product.vendor }}</span>
+            <p class="title">{{ product.title }}</p>
+            <p class="price">{{ product.price | money }}</p>
+          </a>
+        </li>
+      {% endfor %}
+    </ul>
+  </div>
+</div>
+<script>
+  document.addEventListener('DOMContentLoaded', function () {
+    var cartDrawer = document.querySelector('cart-drawer');
+    var sectionsToRender = cartDrawer
+      ? cartDrawer.getSectionsToRender().map(function (s) {
+          return s.id;
+        })
+      : ['cart-icon-bubble'];
+
+    var sizeItems = document.querySelectorAll('.product-row__size-item');
+
+    sizeItems.forEach(function (item) {
+      item.addEventListener('click', function (e) {
+        e.preventDefault();
+        e.stopPropagation();
+
+        var variantId = this.getAttribute('data-variant-id');
+        var isAvailable = this.getAttribute('data-available') === 'true';
+
+        if (!isAvailable) return;
+
+        var button = this;
+        var originalText = button.textContent;
+        button.textContent = 'Adding...';
+        button.style.pointerEvents = 'none';
+
+        fetch('/cart/add.js', {
+          method: 'POST',
+          headers: {
+            'Content-Type': 'application/json',
+            'X-Requested-With': 'XMLHttpRequest',
+          },
+          body: JSON.stringify({
+            id: parseInt(variantId),
+            quantity: 1,
+            sections: sectionsToRender.join(','),
+            sections_url: window.location.pathname,
+          }),
+        })
+          .then(function (response) {
+            return response.json();
+          })
+          .then(function (response) {
+            if (response.status) {
+              throw new Error(response.description || 'Failed to add to cart');
+            }
+
+            button.textContent = 'Added ✓';
+            button.classList.add('product-row__size-item--added');
+
+            if (cartDrawer) {
+              if (cartDrawer.classList.contains('is-empty')) {
+                cartDrawer.classList.remove('is-empty');
+              }
+              cartDrawer.renderContents(response);
+            }
+
+            setTimeout(function () {
+              button.textContent = originalText;
+              button.classList.remove('product-row__size-item--added');
+              button.style.pointerEvents = '';
+            }, 1500);
+          })
+          .catch(function (err) {
+            console.error(err);
+            button.textContent = 'Error!';
+            setTimeout(function () {
+              button.textContent = originalText;
+              button.style.pointerEvents = '';
+            }, 1500);
+          });
+      });
+    });
+  });
+</script>
+
+{% schema %}
+{
+  "name": "Home Highlight Product",
+  "settings": [
+    {
+      "type": "image_picker",
+      "id": "image",
+      "label": "Image"
+    },
+    {
+      "type": "text",
+      "id": "title",
+      "label": "Title"
+    },
+    {
+      "type": "text",
+      "id": "button_text",
+      "label": "Button Text"
+    },
+    {
+      "type": "url",
+      "id": "button_link",
+      "label": "Button Link"
+    },
+    {
+      "type": "collection",
+      "id": "collection",
+      "label": "Collection"
+    }
+  ]
+}
+{% endschema %}
