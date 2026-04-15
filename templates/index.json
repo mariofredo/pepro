@@ -33,10 +33,7 @@
           }
         }
       },
-      "block_order": [
-        "slide_VN9kEt",
-        "slide_1"
-      ],
+      "block_order": ["slide_VN9kEt", "slide_1"],
       "settings": {
         "autoplay": true
       }
@@ -48,16 +45,16 @@
         "collection_right": "featured"
       }
     },
-    "home_highlight_product": {
-      "type": "home-highlight-product",
-      "settings": {
-        "image": "shopify://shop_images/0ef15ee2bcbb5c73a5cefb9be537a1df8fc6180a.jpg",
-        "title": "BANDIT SUMMER 2026",
-        "button_text": "BROWSE",
-        "button_link": "shopify://collections/bandit",
-        "collection": "bandit"
-      }
-    },
+    // "home_highlight_product": {
+    //   "type": "home-highlight-product",
+    //   "settings": {
+    //     "image": "shopify://shop_images/0ef15ee2bcbb5c73a5cefb9be537a1df8fc6180a.jpg",
+    //     "title": "BANDIT SUMMER 2026",
+    //     "button_text": "BROWSE",
+    //     "button_link": "shopify://collections/bandit",
+    //     "collection": "bandit"
+    //   }
+    // },
     "product_row": {
       "type": "product-row",
       "settings": {
@@ -84,7 +81,7 @@
   "order": [
     "image_banner_slider",
     "home_featured_product",
-    "home_highlight_product",
+    // "home_highlight_product",
     "product_row",
     "curated_brands"
   ]
