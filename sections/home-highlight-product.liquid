@@ -1,10 +1,50 @@
 {{ 'custom-product-row.css' | asset_url | stylesheet_tag }}
-<div class="tw:flex tw:flex-row tw:gap-[10px] tw:items-center tw:py-[40px]">
-  <div class="tw:aspect-square tw:w-[350px] tw:max-md:w-[280px] tw:relative tw:max-sm:w-1/2 tw:max-sm:h-[310px] tw:max-sm:aspect-auto">
+<style>
+  .marquee-text-highlight {
+    width: 100%;
+    overflow: hidden;
+    background-color: {{ section.settings.marquee_bg_color }};
+    padding: 8px 0;
+  }
+
+  .marquee-text-highlight__track {
+    display: flex;
+    width: max-content;
+    animation: marqueeTextScroll {{ section.settings.marquee_speed }}s linear infinite;
+  }
+
+  .marquee-text-highlight__item {
+    display: flex;
+    align-items: center;
+    white-space: nowrap;
+    font-size: {{ section.settings.marquee_font_size }}px;
+    font-weight: 700;
+    color: {{ section.settings.marquee_text_color }};
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    flex-shrink: 0;
+  }
+
+  .marquee-text-highlight__separator {
+    margin: 0 20px;
+    display: inline-block;
+  }
+
+  @keyframes marqueeTextScroll {
+    0% {
+      transform: translateX(0);
+    }
+    100% {
+      transform: translateX(-50%);
+    }
+  }
+</style>
+<div class="tw:flex tw:flex-col tw:items-center tw:py-[20px]">
+  <div class="tw:w-full tw:relative">
     <div
-      class="tw:absolute tw:top-1/2 tw:left-1/2 tw:-translate-x-1/2 tw:-translate-y-1/2 tw:w-full"
+      class="tw:absolute tw:top-1/2 tw:left-1/2 tw:-translate-x-1/2 tw:-translate-y-1/2 tw:w-full tw:z-2"
     >
-      <h4 class="tw:text-center  tw:max-md:text-[20px]! tw:text-white! tw:font-bold! ">
+      <h4 class="tw:text-center tw:max-md:text-[20px]! tw:text-white! tw:font-bold! tw:text-[32px]!">
         {{ section.settings.title }}
       </h4>
       <a
@@ -21,15 +61,26 @@
         >
       </a>
     </div>
+    <div class="tw:block! tw:absolute tw:inset-0 tw:z-1 tw:h-full tw:w-full tw:bg-black/20"></div>
     <img
-      src="{{ section.settings.image | image_url: width: 600, height: 600 }}"
+      src="{{ section.settings.image | image_url: width: 1920, height: 1080 }}"
       alt=""
-      width="600"
-      height="600"
-      class="tw:w-full tw:h-full tw:max-sm:object-cover"
+      width="1920"
+      height="1080"
+      class="tw:w-full tw:h-[280px]! tw:max-md:h-auto tw:object-cover"
     >
   </div>
-  <div class="product-row__scroll tw:h-fit tw:flex-1">
+  <div class="marquee-text-highlight">
+    <div class="marquee-text-highlight__track">
+      {% for i in (1..20) %}
+        <span class="marquee-text-highlight__item">
+          {{ section.settings.marquee_text }}
+          <span class="marquee-text-highlight__separator">{{ section.settings.marquee_separator }}</span>
+        </span>
+      {% endfor %}
+    </div>
+  </div>
+  <div class="product-row__scroll tw:h-fit tw:w-full">
     <ul class="product-row__list">
       {% for product in section.settings.collection.products %}
         <li class="product-row__item">
@@ -209,6 +260,48 @@
       "type": "collection",
       "id": "collection",
       "label": "Collection"
+    },
+    {
+      "type": "text",
+      "id": "marquee_text",
+      "label": "Marquee Text",
+      "default": "SPRING & SUMMER COLLECTION"
+    },
+    {
+      "type": "text",
+      "id": "marquee_separator",
+      "label": "Marquee Separator",
+      "default": "[ 2026 ]"
+    },
+    {
+      "type": "range",
+      "id": "marquee_speed",
+      "label": "Marquee Speed (seconds)",
+      "min": 5,
+      "max": 60,
+      "step": 1,
+      "default": 20
+    },
+    {
+      "type": "range",
+      "id": "marquee_font_size",
+      "label": "Marquee Font Size (px)",
+      "min": 10,
+      "max": 32,
+      "step": 1,
+      "default": 14
+    },
+    {
+      "type": "color",
+      "id": "marquee_bg_color",
+      "label": "Marquee Background Color",
+      "default": "#1a3a8f"
+    },
+    {
+      "type": "color",
+      "id": "marquee_text_color",
+      "label": "Marquee Text Color",
+      "default": "#ffffff"
     }
   ]
 }
