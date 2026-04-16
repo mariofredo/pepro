@@ -33,26 +33,12 @@
           }
         }
       },
-      "block_order": ["slide_VN9kEt", "slide_1"],
+      "block_order": [
+        "slide_VN9kEt",
+        "slide_1"
+      ],
       "settings": {
         "autoplay": true
-      }
-    },
-    "home_featured_product": {
-      "type": "home-featured-product",
-      "settings": {
-        "heading": "FEATURED",
-        "collection_right": "featured"
-      }
-    },
-    "home_highlight_product": {
-      "type": "home-highlight-product",
-      "settings": {
-        "image": "shopify://shop_images/0ef15ee2bcbb5c73a5cefb9be537a1df8fc6180a.jpg",
-        "title": "BANDIT SUMMER 2026",
-        "button_text": "BROWSE",
-        "button_link": "shopify://collections/bandit",
-        "collection": "bandit"
       }
     },
     "product_row": {
@@ -62,6 +48,29 @@
         "collection": "all-products",
         "padding_right": 20,
         "padding_left": 20
+      }
+    },
+    "home_highlight_product": {
+      "type": "home-highlight-product",
+      "settings": {
+        "image": "shopify://shop_images/0ef15ee2bcbb5c73a5cefb9be537a1df8fc6180a.jpg",
+        "title": "BANDIT SUMMER 2026",
+        "button_text": "VIEW ALL",
+        "button_link": "shopify://collections/bandit",
+        "collection": "bandit",
+        "marquee_text": "SPRING & SUMMER COLLECTION",
+        "marquee_separator": "[ 2026 ]",
+        "marquee_speed": 40,
+        "marquee_font_size": 14,
+        "marquee_bg_color": "#1a3a8f",
+        "marquee_text_color": "#ffffff"
+      }
+    },
+    "home_featured_product": {
+      "type": "home-featured-product",
+      "settings": {
+        "heading": "FEATURED",
+        "collection_right": "featured"
       }
     },
     "curated_brands": {
