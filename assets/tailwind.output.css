@@ -296,6 +296,12 @@
   .tw\:mt-10\! {
     margin-top: calc(var(--tw-spacing) * 10) !important;
   }
+  .tw\:mt-\[20px\] {
+    margin-top: 20px;
+  }
+  .tw\:mt-\[40px\] {
+    margin-top: 40px;
+  }
   .tw\:mt-auto\! {
     margin-top: auto !important;
   }
@@ -346,6 +352,9 @@
   }
   .tw\:grid\! {
     display: grid !important;
+  }
+  .tw\:inline-flex {
+    display: inline-flex;
   }
   .tw\:aspect-square {
     aspect-ratio: 1 / 1;
@@ -604,6 +613,9 @@
   .tw\:border-gray-400 {
     border-color: var(--tw-color-gray-400);
   }
+  .tw\:border-white\! {
+    border-color: var(--tw-color-white) !important;
+  }
   .tw\:bg-\[\#0247B1\] {
     background-color: #0247B1;
   }
@@ -800,6 +812,14 @@
   .tw\:text-\[32px\]\! {
     font-size: 32px !important;
   }
+  .tw\:leading-0 {
+    --tw-leading: calc(var(--tw-spacing) * 0);
+    line-height: calc(var(--tw-spacing) * 0);
+  }
+  .tw\:leading-\[10px\] {
+    --tw-leading: 10px;
+    line-height: 10px;
+  }
   .tw\:leading-\[14px\] {
     --tw-leading: 14px;
     line-height: 14px;
@@ -907,6 +927,11 @@
     transition-timing-function: var(--tw-ease, var(--default-transition-timing-function));
     transition-duration: var(--tw-duration, var(--default-transition-duration));
   }
+  .tw\:transition-colors {
+    transition-property: color, background-color, border-color, outline-color, text-decoration-color, fill, stroke, --tw-gradient-from, --tw-gradient-via, --tw-gradient-to;
+    transition-timing-function: var(--tw-ease, var(--default-transition-timing-function));
+    transition-duration: var(--tw-duration, var(--default-transition-duration));
+  }
   .tw\:transition-opacity {
     transition-property: opacity;
     transition-timing-function: var(--tw-ease, var(--default-transition-timing-function));
@@ -967,6 +992,14 @@
       }
     }
   }
+  .tw\:hover\:border-b {
+    &:hover {
+      @media (hover: hover) {
+        border-bottom-style: var(--tw-border-style);
+        border-bottom-width: 1px;
+      }
+    }
+  }
   .tw\:hover\:font-semibold {
     &:hover {
       @media (hover: hover) {
@@ -979,6 +1012,13 @@
     &:hover {
       @media (hover: hover) {
         color: var(--tw-color-black) !important;
+      }
+    }
+  }
+  .tw\:hover\:underline\! {
+    &:hover {
+      @media (hover: hover) {
+        text-decoration-line: underline !important;
       }
     }
   }
