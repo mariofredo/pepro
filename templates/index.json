@@ -53,11 +53,11 @@
     "home_highlight_product": {
       "type": "home-highlight-product",
       "settings": {
-        "image": "shopify://shop_images/0ef15ee2bcbb5c73a5cefb9be537a1df8fc6180a.jpg",
-        "title": "BANDIT SUMMER 2026",
+        "image": "shopify://shop_images/WhatsApp_Image_2026-04-16_at_15.25.34.jpg",
+        "title": "WESTERN HYDRODYNAMIC RESEARCH",
         "button_text": "VIEW ALL",
-        "button_link": "shopify://collections/bandit",
-        "collection": "bandit",
+        "button_link": "shopify://collections/western-hydrodynamic-research",
+        "collection": "western-hydrodynamic-research",
         "marquee_text": "SPRING & SUMMER COLLECTION",
         "marquee_separator": "[ 2026 ]",
         "marquee_speed": 40,
