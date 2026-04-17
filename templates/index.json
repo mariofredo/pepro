@@ -60,7 +60,7 @@
         "collection": "western-hydrodynamic-research",
         "marquee_text": "WHR INSTITUTE:",
         "marquee_separator": "BEACH UTILITY PRODUCTS, FROM THE EDGE OF SPACE TO THE BOTTOM OF THE OCEAN",
-        "marquee_speed": 60,
+        "marquee_speed": 100,
         "marquee_font_size": 12,
         "marquee_bg_color": "#1a3a8f",
         "marquee_text_color": "#ffffff"
