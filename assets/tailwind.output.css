@@ -679,9 +679,6 @@
   .tw\:px-6\! {
     padding-inline: calc(var(--tw-spacing) * 6) !important;
   }
-  .tw\:px-\[15px\] {
-    padding-inline: 15px;
-  }
   .tw\:px-\[20px\] {
     padding-inline: 20px;
   }
@@ -693,9 +690,6 @@
   }
   .tw\:px-\[40px\] {
     padding-inline: 40px;
-  }
-  .tw\:px-\[px\] {
-    padding-inline: px;
   }
   .tw\:py-1 {
     padding-block: calc(var(--tw-spacing) * 1);

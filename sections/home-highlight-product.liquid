@@ -23,10 +23,11 @@
     text-transform: uppercase;
     letter-spacing: 0.05em;
     flex-shrink: 0;
+    gap: 10px;
+    margin: 0 5px;
   }
 
   .marquee-text-highlight__separator {
-    margin: 0 20px;
     display: inline-block;
   }
 
@@ -76,8 +77,12 @@
     <div class="marquee-text-highlight__track">
       {% for i in (1..20) %}
         <span class="marquee-text-highlight__item">
-          {{ section.settings.marquee_text }}
-          <span class="marquee-text-highlight__separator">{{ section.settings.marquee_separator }}</span>
+          <span>
+            {{ section.settings.marquee_text }}
+          </span>
+          <span>•</span>
+          <span>{{ section.settings.marquee_text_2 }}</span>
+          <span>•</span>
         </span>
       {% endfor %}
     </div>
@@ -265,15 +270,15 @@
     },
     {
       "type": "text",
-      "id": "marquee_text",
-      "label": "Marquee Text",
+      "id": "marquee_text_1",
+      "label": "Marquee Text 1",
       "default": "SPRING & SUMMER COLLECTION"
     },
     {
       "type": "text",
-      "id": "marquee_separator",
-      "label": "Marquee Separator",
-      "default": "[ 2026 ]"
+      "id": "marquee_text_2",
+      "label": "Marquee Text 2",
+      "default": "HIGH QUALITY LEATHER GOODS"
     },
     {
       "type": "range",
