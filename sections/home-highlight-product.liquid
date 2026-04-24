@@ -50,7 +50,7 @@
       </h4>
       <a
         href="{{ section.settings.button_link }}"
-        class="tw:inline-flex tw:justify-center tw:items-center tw:gap-2 tw:text-white! tw:text-[16px]! tw:hover:border-b tw:border-white! tw:transition-colors tw:duration-300 tw:leading-[20px]"
+        class="tw:inline-flex tw:justify-center tw:items-center tw:gap-2 tw:text-white! tw:text-[16px]! tw:max-md:text-[12px]! tw:hover:border-b tw:border-white! tw:transition-colors tw:duration-300 tw:leading-[20px]"
       >
         {{ section.settings.button_text }}
         {% comment %}
@@ -87,7 +87,7 @@
       {% endfor %}
     </div>
   </div>
-  <div class="product-row__scroll tw:h-fit tw:w-full tw:mt-[40px]">
+  <div class="product-row__scroll tw:h-fit tw:w-full tw:mt-[20px]">
     <ul class="product-row__list">
       {% for product in section.settings.collection.products %}
         <li class="product-row__item">

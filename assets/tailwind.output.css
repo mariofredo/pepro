@@ -296,6 +296,9 @@
   .tw\:mt-10\! {
     margin-top: calc(var(--tw-spacing) * 10) !important;
   }
+  .tw\:mt-\[20px\] {
+    margin-top: 20px;
+  }
   .tw\:mt-\[40px\] {
     margin-top: 40px;
   }
