@@ -150,7 +150,7 @@
               id="product-grid"
               data-id="{{ section.id }}"
               class="
-                                tw:grid tw:grid-cols-5 tw:gap-[20px] tw:max-lg:grid-cols-3 tw:max-md:grid-cols-2 tw:max-sm:grid-cols-2 {% if section.settings.quick_add == 'bulk' %} collection-quick-add-bulk{% endif %}
+                                                                                                                                tw:grid tw:grid-cols-5 tw:gap-[20px] tw:max-lg:grid-cols-3 tw:max-md:grid-cols-2 tw:max-sm:grid-cols-2 {% if section.settings.quick_add == 'bulk' %} collection-quick-add-bulk{% endif %}
               "
             >
               {% assign skip_card_product_styles = false %}
@@ -282,17 +282,17 @@
     {
       "type": "range",
       "id": "products_per_page",
-      "min": 8,
-      "max": 36,
-      "step": 4,
-      "default": 16,
+      "min": 5,
+      "max": 100,
+      "step": 1,
+      "default": 20,
       "label": "t:sections.main-collection-product-grid.settings.products_per_page.label"
     },
     {
       "type": "range",
       "id": "columns_desktop",
       "min": 1,
-      "max": 6,
+      "max": 5,
       "step": 1,
       "default": 4,
       "label": "t:sections.main-collection-product-grid.settings.columns_desktop.label"

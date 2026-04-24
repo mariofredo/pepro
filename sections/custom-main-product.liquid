@@ -308,12 +308,14 @@
                         if (isOpen) {
                           content.style.maxHeight = '0';
                           content.style.opacity = '0';
-                          icon.style.transform = 'rotate(45deg)';
+                          content.style.overflow = 'auto';
+                          icon.style.transform = 'rotate(0deg)';
                           toggle.setAttribute('aria-expanded', 'false');
                         } else {
                           content.style.maxHeight = content.scrollHeight + 'px';
                           content.style.opacity = '1';
-                          icon.style.transform = 'rotate(0deg)';
+                          content.style.overflow = 'hidden';
+                          icon.style.transform = 'rotate(45deg)';
                           toggle.setAttribute('aria-expanded', 'true');
                         }
                       });
@@ -375,7 +377,7 @@
                       for="Quantity-{{ section.id }}"
                       aria-labelledby="quantity-label-{{ section.id }}"
                     >
-                      <span aria-hidden="true">{{ 'products.product.quantity.label' | t }}</span>
+                      <span aria-hidden="true">{{ 'products.product.quantity.label' | t | upcase }}</span>
                       <span class="quantity__rules-cart{% if cart_qty == 0 %} hidden{% endif %}" aria-hidden="true">
                         {%- render 'loading-spinner' -%}
                         <span

@@ -3270,6 +3270,10 @@ details-disclosure > details {
   text-decoration-thickness: 0.2rem;
 }
 
+.rte code {
+  white-space: break-spaces;
+}
+
 .rte blockquote {
   display: inline-flex;
 }
