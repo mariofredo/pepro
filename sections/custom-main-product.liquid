@@ -593,18 +593,42 @@
                       </volume-pricing>
                     {%- endif -%}
                   </div>
-                  <button
-                    type="button"
-                    id="BuyNow-{{ section.id }}"
-                    class="tw:w-full! tw:h-[47px] tw:bg-[#0247b1] tw:text-white tw:p-2 tw:whitespace-nowrap tw:cursor-pointer tw:max-w-full"
-                    data-section-id="{{ section.id }}"
-                    data-form-id="{{ product_form_id }}"
-                    {% unless product.selected_or_first_available_variant.available %}
+                  {% comment %} BUY button — kept but hidden; function preserved in JS below {% endcomment %}
+                  {% comment %}
+                    <button
+                      type="button"
+                      id="BuyNow-{{ section.id }}"
+                      class="tw:w-full! tw:h-[47px] tw:bg-[#0247b1] tw:text-white tw:p-2 tw:whitespace-nowrap tw:cursor-pointer tw:max-w-full"
+                      data-section-id="{{ section.id }}"
+                      data-form-id="{{ product_form_id }}"
+                      style="display:none;"
                       disabled
-                    {% endunless %}
-                  >
-                    BUY
-                  </button>
+                    >
+                      BUY
+                    </button>
+                  {% endcomment %}
+
+                  {% comment %}
+                    <button
+                      type="button"
+                      id="AddToCart-{{ section.id }}"
+                      class="tw:w-full! tw:h-[47px] tw:bg-[#0247b1] tw:text-white tw:p-2 tw:whitespace-nowrap tw:cursor-pointer tw:max-w-full"
+                      data-section-id="{{ section.id }}"
+                      data-form-id="{{ product_form_id }}"
+                      {% unless product.selected_or_first_available_variant.available %}
+                        disabled
+                      {% endunless %}
+                    >
+                      ADD TO CART
+                    </button>
+                  {% endcomment %}
+                  {%- render 'custom-buy-buttons',
+                    block: block,
+                    product: product,
+                    product_form_id: product_form_id,
+                    section_id: section.id,
+                    show_pickup_availability: true
+                  -%}
                 </div>
               {%- when 'popup' -%}
                 <modal-opener
@@ -1010,8 +1034,39 @@
     let toastTimer = null;
 
     function getSelectedVariantId() {
-      const input = document.querySelector('#product-form-installment-' + sectionId + ' input[name="id"]');
-      return input ? input.value : null;
+      // Primary: the main product form's hidden id input is what Dawn
+      // explicitly rewrites in updateVariantInputs() on every variant change.
+      // It's a single scoped update with no DOM-replacement timing window.
+      const productInfo = document.querySelector('product-info[data-section="' + sectionId + '"]');
+      const mainInput = productInfo
+        ? productInfo.querySelector('#product-form-' + sectionId + ' input[name="id"]')
+        : null;
+      if (mainInput && mainInput.value) return mainInput.value;
+
+      // Fallback 1: data-selected-variant JSON (variant-selects element).
+      // Use :scope + last-of-type to bias toward the freshly-inserted node
+      // during Dawn's 500ms viewTransition window, where two variant-selects
+      // can coexist with the same id.
+      const liveVariantSelects = document.querySelector(
+        'product-info[data-section="' + sectionId + '"] variant-selects:not([style*="display: none"])'
+      );
+      const node = liveVariantSelects ? liveVariantSelects.querySelector('[data-selected-variant]') : null;
+      if (node && node.textContent.trim()) {
+        try {
+          const parsed = JSON.parse(node.textContent);
+          if (parsed && parsed.id) return parsed.id;
+        } catch (e) {
+          /* fall through */
+        }
+      }
+
+      // Fallback 2: URL param (Dawn calls updateURL with the variant id).
+      const urlVariant = new URLSearchParams(window.location.search).get('variant');
+      if (urlVariant) return urlVariant;
+
+      // Fallback 3: installment form input.
+      const installmentInput = document.querySelector('#product-form-installment-' + sectionId + ' input[name="id"]');
+      return installmentInput ? installmentInput.value : null;
     }
 
     function getCurrentInventory() {
@@ -1079,17 +1134,86 @@
       });
     }
 
-    // --- Buy Button ---
-    const buyNowBtn = document.getElementById('BuyNow-' + sectionId);
-    if (buyNowBtn) {
-      buyNowBtn.addEventListener('click', async () => {
+    // --- Buy Button (disabled/hidden, function preserved) ---
+    // const buyNowBtn = document.getElementById('BuyNow-' + sectionId);
+    // if (buyNowBtn) {
+    //   buyNowBtn.addEventListener('click', async () => {
+    //     const variantId = getSelectedVariantId();
+    //     if (!variantId) return;
+
+    //     const qty = parseInt(quantityInput?.value, 10) || 1;
+    //     const inv = getCurrentInventory();
+
+    //     // Final check before submitting
+    //     if (
+    //       inv &&
+    //       inv.inventory_management === 'shopify' &&
+    //       inv.inventory_policy !== 'continue' &&
+    //       qty > inv.inventory_quantity
+    //     ) {
+    //       const max = inv.inventory_quantity;
+    //       if (max <= 0) {
+    //         showToast('Sorry, this item is out of stock.');
+    //       } else {
+    //         showToast('Only ' + max + ' available. Please reduce your quantity.');
+    //         quantityInput.value = max;
+    //       }
+    //       return;
+    //     }
+
+    //     // Disable button + show loading state
+    //     buyNowBtn.disabled = true;
+    //     const originalText = buyNowBtn.textContent;
+    //     buyNowBtn.textContent = 'PROCESSING...';
+
+    //     try {
+    //       const res = await fetch('/cart/add.js', {
+    //         method: 'POST',
+    //         headers: { 'Content-Type': 'application/json' },
+    //         body: JSON.stringify({ items: [{ id: parseInt(variantId, 10), quantity: qty }] }),
+    //       });
+
+    //       if (!res.ok) {
+    //         const err = await res.json();
+    //         showToast(err.description || 'Could not add to cart. Please try again.');
+    //         buyNowBtn.disabled = false;
+    //         buyNowBtn.textContent = originalText;
+    //         return;
+    //       }
+
+    //       window.location.href = '/checkout';
+    //     } catch (e) {
+    //       showToast('Something went wrong. Please try again.');
+    //       buyNowBtn.disabled = false;
+    //       buyNowBtn.textContent = originalText;
+    //     }
+    //   });
+    // }
+
+    // --- Add To Cart Button ---
+    const addToCartBtn = document.getElementById('AddToCart-' + sectionId);
+    if (addToCartBtn) {
+      // Keep button in sync with the variant picker via Dawn's pub/sub.
+      // variantChange fires every time the user selects a different variant.
+      subscribe(PUB_SUB_EVENTS.variantChange, (event) => {
+        if (event.data.sectionId !== sectionId) return;
+        const variant = event.data.variant;
+        if (!variant || !variant.available) {
+          addToCartBtn.disabled = true;
+          addToCartBtn.textContent = variant ? 'SOLD OUT' : 'UNAVAILABLE';
+        } else {
+          addToCartBtn.disabled = false;
+          addToCartBtn.textContent = 'ADD TO CART';
+        }
+      });
+
+      addToCartBtn.addEventListener('click', async () => {
         const variantId = getSelectedVariantId();
         if (!variantId) return;
 
         const qty = parseInt(quantityInput?.value, 10) || 1;
         const inv = getCurrentInventory();
 
-        // Final check before submitting
         if (
           inv &&
           inv.inventory_management === 'shopify' &&
@@ -1106,31 +1230,67 @@
           return;
         }
 
-        // Disable button + show loading state
-        buyNowBtn.disabled = true;
-        const originalText = buyNowBtn.textContent;
-        buyNowBtn.textContent = 'PROCESSING...';
+        addToCartBtn.disabled = true;
+        const originalText = addToCartBtn.textContent.trim();
+        addToCartBtn.textContent = 'ADDING...';
+
+        // Mirror Dawn's product-form.js: FormData + sections so Shopify returns
+        // rendered HTML and the cart drawer/notification updates instantly.
+        const cartComponent = document.querySelector('cart-drawer') || document.querySelector('cart-notification');
+
+        const formData = new FormData();
+        formData.append('id', parseInt(variantId, 10));
+        formData.append('quantity', qty);
+        if (cartComponent) {
+          formData.append(
+            'sections',
+            cartComponent
+              .getSectionsToRender()
+              .map((s) => s.id)
+              .join(',')
+          );
+          formData.append('sections_url', window.location.pathname);
+          cartComponent.setActiveElement(addToCartBtn);
+        }
 
         try {
           const res = await fetch('/cart/add.js', {
             method: 'POST',
-            headers: { 'Content-Type': 'application/json' },
-            body: JSON.stringify({ items: [{ id: parseInt(variantId, 10), quantity: qty }] }),
+            headers: { 'X-Requested-With': 'XMLHttpRequest' },
+            body: formData,
           });
 
-          if (!res.ok) {
-            const err = await res.json();
-            showToast(err.description || 'Could not add to cart. Please try again.');
-            buyNowBtn.disabled = false;
-            buyNowBtn.textContent = originalText;
+          const data = await res.json();
+
+          if (!res.ok || data.status) {
+            showToast(data.description || 'Could not add to cart. Please try again.');
+            addToCartBtn.disabled = false;
+            addToCartBtn.textContent = originalText;
             return;
           }
 
-          window.location.href = '/checkout';
+          addToCartBtn.textContent = 'ADDED!';
+
+          if (cartComponent) {
+            cartComponent.classList.remove('is-empty');
+            cartComponent.renderContents(data);
+          }
+
+          // Notify the rest of Dawn (quantity rules, price-per-item, etc.)
+          publish(PUB_SUB_EVENTS.cartUpdate, {
+            source: 'product-form',
+            productVariantId: variantId,
+            cartData: data,
+          });
+
+          setTimeout(() => {
+            addToCartBtn.disabled = false;
+            addToCartBtn.textContent = originalText;
+          }, 1500);
         } catch (e) {
           showToast('Something went wrong. Please try again.');
-          buyNowBtn.disabled = false;
-          buyNowBtn.textContent = originalText;
+          addToCartBtn.disabled = false;
+          addToCartBtn.textContent = originalText;
         }
       });
     }

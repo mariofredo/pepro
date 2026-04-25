@@ -1,4 +1,4 @@
-/*! tailwindcss v4.2.0 | MIT License | https://tailwindcss.com */
+/*! tailwindcss v4.2.2 | MIT License | https://tailwindcss.com */
 @layer properties;
 @layer theme, base, components, utilities;
 @layer theme {
@@ -299,9 +299,6 @@
   .tw\:mt-\[20px\] {
     margin-top: 20px;
   }
-  .tw\:mt-\[40px\] {
-    margin-top: 40px;
-  }
   .tw\:mt-auto\! {
     margin-top: auto !important;
   }
@@ -365,6 +362,9 @@
   .tw\:aspect-video\! {
     aspect-ratio: var(--tw-aspect-video) !important;
   }
+  .tw\:h-11\.75\! {
+    height: calc(var(--tw-spacing) * 11.75) !important;
+  }
   .tw\:h-20 {
     height: calc(var(--tw-spacing) * 20);
   }
@@ -380,8 +380,14 @@
   .tw\:h-\[20px\]\! {
     height: 20px !important;
   }
+  .tw\:h-\[47ox\]\! {
+    height: 47ox !important;
+  }
   .tw\:h-\[47px\] {
     height: 47px;
+  }
+  .tw\:h-\[47px\]\! {
+    height: 47px !important;
   }
   .tw\:h-\[65px\] {
     height: 65px;
@@ -501,6 +507,9 @@
   }
   .tw\:cursor-pointer {
     cursor: pointer;
+  }
+  .tw\:cursor-pointer\! {
+    cursor: pointer !important;
   }
   .tw\:list-none {
     list-style-type: none;
@@ -709,9 +718,6 @@
   .tw\:py-\[20px\] {
     padding-block: 20px;
   }
-  .tw\:py-\[40px\] {
-    padding-block: 40px;
-  }
   .tw\:py-\[40px\]\! {
     padding-block: 40px !important;
   }
@@ -819,6 +825,9 @@
   }
   .tw\:whitespace-nowrap {
     white-space: nowrap;
+  }
+  .tw\:whitespace-nowrap\! {
+    white-space: nowrap !important;
   }
   .tw\:text-\[\#7a7a7a\] {
     color: #7a7a7a;
