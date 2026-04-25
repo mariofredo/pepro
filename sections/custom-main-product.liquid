@@ -593,9 +593,24 @@
                       </volume-pricing>
                     {%- endif -%}
                   </div>
+                  {% comment %} BUY button — kept but hidden; function preserved in JS below {% endcomment %}
+                  {% comment %}
+                    <button
+                      type="button"
+                      id="BuyNow-{{ section.id }}"
+                      class="tw:w-full! tw:h-[47px] tw:bg-[#0247b1] tw:text-white tw:p-2 tw:whitespace-nowrap tw:cursor-pointer tw:max-w-full"
+                      data-section-id="{{ section.id }}"
+                      data-form-id="{{ product_form_id }}"
+                      style="display:none;"
+                      disabled
+                    >
+                      BUY
+                    </button>
+                  {% endcomment %}
+
                   <button
                     type="button"
-                    id="BuyNow-{{ section.id }}"
+                    id="AddToCart-{{ section.id }}"
                     class="tw:w-full! tw:h-[47px] tw:bg-[#0247b1] tw:text-white tw:p-2 tw:whitespace-nowrap tw:cursor-pointer tw:max-w-full"
                     data-section-id="{{ section.id }}"
                     data-form-id="{{ product_form_id }}"
@@ -603,7 +618,7 @@
                       disabled
                     {% endunless %}
                   >
-                    BUY
+                    ADD TO CART
                   </button>
                 </div>
               {%- when 'popup' -%}
@@ -1010,8 +1025,12 @@
     let toastTimer = null;
 
     function getSelectedVariantId() {
-      const input = document.querySelector('#product-form-installment-' + sectionId + ' input[name="id"]');
-      return input ? input.value : null;
+      // Primary: main product form kept in sync by Dawn's variant selector JS
+      const mainInput = document.querySelector('#product-form-' + sectionId + ' input.product-variant-id');
+      if (mainInput && mainInput.value) return mainInput.value;
+      // Fallback: installment form
+      const installmentInput = document.querySelector('#product-form-installment-' + sectionId + ' input[name="id"]');
+      return installmentInput ? installmentInput.value : null;
     }
 
     function getCurrentInventory() {
@@ -1079,17 +1098,72 @@
       });
     }
 
-    // --- Buy Button ---
-    const buyNowBtn = document.getElementById('BuyNow-' + sectionId);
-    if (buyNowBtn) {
-      buyNowBtn.addEventListener('click', async () => {
+    // --- Buy Button (disabled/hidden, function preserved) ---
+    // const buyNowBtn = document.getElementById('BuyNow-' + sectionId);
+    // if (buyNowBtn) {
+    //   buyNowBtn.addEventListener('click', async () => {
+    //     const variantId = getSelectedVariantId();
+    //     if (!variantId) return;
+
+    //     const qty = parseInt(quantityInput?.value, 10) || 1;
+    //     const inv = getCurrentInventory();
+
+    //     // Final check before submitting
+    //     if (
+    //       inv &&
+    //       inv.inventory_management === 'shopify' &&
+    //       inv.inventory_policy !== 'continue' &&
+    //       qty > inv.inventory_quantity
+    //     ) {
+    //       const max = inv.inventory_quantity;
+    //       if (max <= 0) {
+    //         showToast('Sorry, this item is out of stock.');
+    //       } else {
+    //         showToast('Only ' + max + ' available. Please reduce your quantity.');
+    //         quantityInput.value = max;
+    //       }
+    //       return;
+    //     }
+
+    //     // Disable button + show loading state
+    //     buyNowBtn.disabled = true;
+    //     const originalText = buyNowBtn.textContent;
+    //     buyNowBtn.textContent = 'PROCESSING...';
+
+    //     try {
+    //       const res = await fetch('/cart/add.js', {
+    //         method: 'POST',
+    //         headers: { 'Content-Type': 'application/json' },
+    //         body: JSON.stringify({ items: [{ id: parseInt(variantId, 10), quantity: qty }] }),
+    //       });
+
+    //       if (!res.ok) {
+    //         const err = await res.json();
+    //         showToast(err.description || 'Could not add to cart. Please try again.');
+    //         buyNowBtn.disabled = false;
+    //         buyNowBtn.textContent = originalText;
+    //         return;
+    //       }
+
+    //       window.location.href = '/checkout';
+    //     } catch (e) {
+    //       showToast('Something went wrong. Please try again.');
+    //       buyNowBtn.disabled = false;
+    //       buyNowBtn.textContent = originalText;
+    //     }
+    //   });
+    // }
+
+    // --- Add To Cart Button ---
+    const addToCartBtn = document.getElementById('AddToCart-' + sectionId);
+    if (addToCartBtn) {
+      addToCartBtn.addEventListener('click', async () => {
         const variantId = getSelectedVariantId();
         if (!variantId) return;
 
         const qty = parseInt(quantityInput?.value, 10) || 1;
         const inv = getCurrentInventory();
 
-        // Final check before submitting
         if (
           inv &&
           inv.inventory_management === 'shopify' &&
@@ -1106,10 +1180,9 @@
           return;
         }
 
-        // Disable button + show loading state
-        buyNowBtn.disabled = true;
-        const originalText = buyNowBtn.textContent;
-        buyNowBtn.textContent = 'PROCESSING...';
+        addToCartBtn.disabled = true;
+        const originalText = addToCartBtn.textContent;
+        addToCartBtn.textContent = 'ADDING...';
 
         try {
           const res = await fetch('/cart/add.js', {
@@ -1121,16 +1194,21 @@
           if (!res.ok) {
             const err = await res.json();
             showToast(err.description || 'Could not add to cart. Please try again.');
-            buyNowBtn.disabled = false;
-            buyNowBtn.textContent = originalText;
+            addToCartBtn.disabled = false;
+            addToCartBtn.textContent = originalText;
             return;
           }
 
-          window.location.href = '/checkout';
+          addToCartBtn.textContent = 'ADDED!';
+          document.dispatchEvent(new CustomEvent('cart:refresh', { bubbles: true }));
+          setTimeout(() => {
+            addToCartBtn.disabled = false;
+            addToCartBtn.textContent = originalText;
+          }, 1500);
         } catch (e) {
           showToast('Something went wrong. Please try again.');
-          buyNowBtn.disabled = false;
-          buyNowBtn.textContent = originalText;
+          addToCartBtn.disabled = false;
+          addToCartBtn.textContent = originalText;
         }
       });
     }
