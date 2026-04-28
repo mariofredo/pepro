@@ -1453,7 +1453,7 @@
         "id": "cart_marquee_text",
         "label": "Marquee text",
         "info": "Add one phrase per line. Phrases will be separated by a bullet (•) in the marquee.",
-        "default": "PRECISION ENGINEERED VISKLEY\nOWN EVERY MOMENT WITH OAKLON\nPRECISION ENGINEERED VISKLEY\nOWN EVERY MOMENT WITH OAKLON\nOWN EVERY ENGINEERED OAKLEY"
+        "default": "SHOW UP. PROGRESS. REPEAT\nPÈPRO"
       },
       {
         "type": "range",
