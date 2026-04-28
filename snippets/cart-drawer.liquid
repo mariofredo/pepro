@@ -146,23 +146,15 @@
       {%- endif -%}
       <div class="drawer__header">
         {% comment %} <h2 class="drawer__heading">{{ 'sections.cart.title' | t }}</h2> {% endcomment %}
-        {%- if settings.cart_drawer_logo != blank -%}
-          {%- assign cart_logo_width = settings.cart_drawer_logo_width | default: 80 -%}
-          {{
-            settings.cart_drawer_logo
-            | image_url: width: 512
-            | image_tag:
-            alt: settings.cart_drawer_logo.alt | default: shop.name,
-            widths: '128, 256, 512',
-            width: cart_logo_width,
-            height: cart_logo_width | divided_by: settings.cart_drawer_logo.aspect_ratio | ceil,
-            loading: 'lazy',
-            class: "w-30",
-            style: 'width: ' | append: cart_logo_width | append: 'px; height: auto;'
-          }}
-        {%- endif -%}
+        <img
+          src="{{  'pepro_logo.png' | asset_url }}"
+          alt="{{ shop.name }}"
+          width="100"
+          height="100"
+          class="tw:10 tw:h-auto"
+        >
         <button
-          class="drawer__close"
+          class="drawer__close tw:flex! tw:items-center tw:justify-center"
           type="button"
           onclick="this.closest('cart-drawer').close()"
           aria-label="{{ 'accessibility.close' | t }}"
