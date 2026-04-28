@@ -1445,6 +1445,22 @@
         "info": "t:settings_schema.cart.settings.cart_drawer.collection.info"
       },
       {
+        "type": "image_picker",
+        "id": "cart_drawer_logo",
+        "label": "Cart drawer logo",
+        "info": "Image displayed in the cart drawer header next to the close button."
+      },
+      {
+        "type": "range",
+        "id": "cart_drawer_logo_width",
+        "label": "Cart drawer logo width",
+        "min": 40,
+        "max": 240,
+        "step": 4,
+        "unit": "px",
+        "default": 80
+      },
+      {
         "type": "color_scheme",
         "id": "cart_color_scheme",
         "label": "t:sections.all.colors.label",

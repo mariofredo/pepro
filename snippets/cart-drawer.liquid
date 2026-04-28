@@ -92,10 +92,7 @@
       tabindex="-1"
     >
       {%- if settings.cart_marquee_enabled and settings.cart_marquee_text != blank -%}
-        {%- assign cart_marquee_items = settings.cart_marquee_text
-          | newline_to_br
-          | split: '<br />'
-        -%}
+        {%- assign cart_marquee_items = settings.cart_marquee_text | newline_to_br | split: '<br />' -%}
         <div class="cart-marquee" aria-hidden="true">
           <div class="cart-marquee__track">
             {%- for round in (1..2) -%}
@@ -148,7 +145,22 @@
         </div>
       {%- endif -%}
       <div class="drawer__header">
-        <h2 class="drawer__heading">{{ 'sections.cart.title' | t }}</h2>
+        {% comment %} <h2 class="drawer__heading">{{ 'sections.cart.title' | t }}</h2> {% endcomment %}
+        {%- if settings.cart_drawer_logo != blank -%}
+          {%- assign cart_logo_width = settings.cart_drawer_logo_width | default: 80 -%}
+          {{
+            settings.cart_drawer_logo
+            | image_url: width: 512
+            | image_tag:
+            alt: settings.cart_drawer_logo.alt | default: shop.name,
+            widths: '128, 256, 512',
+            width: cart_logo_width,
+            height: cart_logo_width | divided_by: settings.cart_drawer_logo.aspect_ratio | ceil,
+            loading: 'lazy',
+            class: "w-30",
+            style: 'width: ' | append: cart_logo_width | append: 'px; height: auto;'
+          }}
+        {%- endif -%}
         <button
           class="drawer__close"
           type="button"
