@@ -1,4 +1,4 @@
-/*! tailwindcss v4.2.2 | MIT License | https://tailwindcss.com */
+/*! tailwindcss v4.2.0 | MIT License | https://tailwindcss.com */
 @layer properties;
 @layer theme, base, components, utilities;
 @layer theme {
@@ -362,9 +362,6 @@
   .tw\:aspect-video\! {
     aspect-ratio: var(--tw-aspect-video) !important;
   }
-  .tw\:h-11\.75\! {
-    height: calc(var(--tw-spacing) * 11.75) !important;
-  }
   .tw\:h-20 {
     height: calc(var(--tw-spacing) * 20);
   }
@@ -379,9 +376,6 @@
   }
   .tw\:h-\[20px\]\! {
     height: 20px !important;
-  }
-  .tw\:h-\[47ox\]\! {
-    height: 47ox !important;
   }
   .tw\:h-\[47px\] {
     height: 47px;

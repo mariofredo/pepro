@@ -15,6 +15,70 @@
   .drawer {
     visibility: hidden;
   }
+
+  {%- if settings.cart_marquee_enabled and settings.cart_marquee_text != blank -%}
+  cart-drawer .drawer__inner {
+    position: relative;
+    padding-left: 4.4rem;
+  }
+
+  cart-drawer.is-empty .drawer__inner {
+    padding: 0 0 0 4.4rem;
+  }
+
+  .cart-marquee {
+    position: absolute;
+    top: 0;
+    left: 0;
+    bottom: 0;
+    width: 3.2rem;
+    overflow: hidden;
+    z-index: 2;
+    pointer-events: none;
+    background: {{ settings.cart_marquee_background }};
+  }
+
+  .cart-marquee__track {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 2.4rem;
+    padding: 1.6rem 0;
+    animation: cart-marquee-scroll {{ settings.cart_marquee_speed }}s linear infinite;
+    will-change: transform;
+  }
+
+  .cart-marquee__item,
+  .cart-marquee__sep {
+    writing-mode: vertical-rl;
+    transform: rotate(180deg);
+    white-space: nowrap;
+    color: {{ settings.cart_marquee_text_color }};
+    font-weight: 700;
+    font-size: 1.1rem;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    line-height: 1;
+  }
+
+  .cart-marquee__sep {
+    font-size: 1.4rem;
+    letter-spacing: 0;
+  }
+
+  @keyframes cart-marquee-scroll {
+    from { transform: translateY(0); }
+    to { transform: translateY(-50%); }
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    .cart-marquee__track { animation: none; }
+  }
+  {%- endif -%}
 </style>
 
 <cart-drawer class="drawer{% if cart == empty %} is-empty{% endif %}">
@@ -27,6 +91,25 @@
       aria-label="{{ 'sections.cart.title' | t }}"
       tabindex="-1"
     >
+      {%- if settings.cart_marquee_enabled and settings.cart_marquee_text != blank -%}
+        {%- assign cart_marquee_items = settings.cart_marquee_text
+          | newline_to_br
+          | split: '<br />'
+        -%}
+        <div class="cart-marquee" aria-hidden="true">
+          <div class="cart-marquee__track">
+            {%- for round in (1..2) -%}
+              {%- for phrase in cart_marquee_items -%}
+                {%- assign phrase_text = phrase | strip -%}
+                {%- if phrase_text != blank -%}
+                  <span class="cart-marquee__item">{{ phrase_text }}</span>
+                  <span class="cart-marquee__sep">&bull;</span>
+                {%- endif -%}
+              {%- endfor -%}
+            {%- endfor -%}
+          </div>
+        </div>
+      {%- endif -%}
       {%- if cart == empty -%}
         <div class="drawer__inner-empty">
           <div class="cart-drawer__warnings center{% if settings.cart_drawer_collection != blank %} cart-drawer__warnings--has-collection{% endif %}">

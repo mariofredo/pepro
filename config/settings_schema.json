@@ -1449,6 +1449,45 @@
         "id": "cart_color_scheme",
         "label": "t:sections.all.colors.label",
         "default": "scheme-1"
+      },
+      {
+        "type": "header",
+        "content": "Cart drawer marquee"
+      },
+      {
+        "type": "checkbox",
+        "id": "cart_marquee_enabled",
+        "label": "Enable cart marquee",
+        "default": true
+      },
+      {
+        "type": "textarea",
+        "id": "cart_marquee_text",
+        "label": "Marquee text",
+        "info": "Add one phrase per line. Phrases will be separated by a bullet (•) in the marquee.",
+        "default": "PRECISION ENGINEERED VISKLEY\nOWN EVERY MOMENT WITH OAKLON\nPRECISION ENGINEERED VISKLEY\nOWN EVERY MOMENT WITH OAKLON\nOWN EVERY ENGINEERED OAKLEY"
+      },
+      {
+        "type": "range",
+        "id": "cart_marquee_speed",
+        "label": "Animation duration",
+        "min": 10,
+        "max": 120,
+        "step": 5,
+        "unit": "s",
+        "default": 40
+      },
+      {
+        "type": "color",
+        "id": "cart_marquee_background",
+        "label": "Marquee background",
+        "default": "#0247B1"
+      },
+      {
+        "type": "color",
+        "id": "cart_marquee_text_color",
+        "label": "Marquee text color",
+        "default": "#FFFFFF"
       }
     ]
   }
