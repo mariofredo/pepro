@@ -1453,7 +1453,7 @@
         "id": "cart_marquee_text",
         "label": "Marquee text",
         "info": "Add one phrase per line. Phrases will be separated by a bullet (•) in the marquee.",
-        "default": "SHOW UP. PROGRESS. REPEAT\nPÈPRO"
+        "default": "SHOW UP. PROGRESS. REPEAT\nKEEP MOVING WITH PÈPRO\nSHOW UP. PROGRESS. REPEAT\nKEEP MOVING WITH PÈPRO\nSHOW UP. PROGRESS. REPEAT\nKEEP MOVING WITH PÈPRO"
       },
       {
         "type": "range",
