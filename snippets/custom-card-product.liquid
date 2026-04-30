@@ -133,14 +133,14 @@
             {%- if card_product.available == false -%}
               <span
                 id="NoMediaStandardBadge-{{ section_id }}-{{ card_product.id }}"
-                class="tw:bg-black tw:text-white tw:px-2 tw:py-1 tw:whitespace-nowrap"
+                class="tw:bg-black tw:text-[12px]! tw:text-white tw:px-2 tw:py-1 tw:whitespace-nowrap"
               >
                 {{- 'products.product.sold_out' | t | upcase }}
               </span>
             {%- elsif card_product.compare_at_price > card_product.price and card_product.available -%}
               <span
                 id="NoMediaStandardBadge-{{ section_id }}-{{ card_product.id }}"
-                class="tw:bg-black tw:text-white tw:px-2 tw:py-1 tw:whitespace-nowrap"
+                class="tw:bg-black tw:text-[12px]! tw:text-white tw:px-2 tw:py-1 tw:whitespace-nowrap"
               >
                 {{- 'products.product.on_sale' | t | upcase }}
               </span>
