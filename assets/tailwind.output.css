@@ -499,6 +499,9 @@
   .tw\:cursor-default\! {
     cursor: default !important;
   }
+  .tw\:cursor-not-allowed {
+    cursor: not-allowed;
+  }
   .tw\:cursor-pointer {
     cursor: pointer;
   }
@@ -579,6 +582,9 @@
   }
   .tw\:rounded-lg {
     border-radius: var(--tw-radius-lg);
+  }
+  .tw\:rounded-none {
+    border-radius: 0;
   }
   .tw\:rounded-none\! {
     border-radius: 0 !important;
