@@ -126,20 +126,20 @@
               </a>
             </h3>
           </div>
-          <div class="tw:absolute tw:left-0 tw:top-0">
+          <div class="tw:absolute tw:left-0 tw:bottom-0">
             {%- if card_product.available == false -%}
               <span
                 id="NoMediaStandardBadge-{{ section_id }}-{{ card_product.id }}"
-                class="tw:bg-black tw:text-white tw:px-2 tw:py-1 tw:rounded-full tw:whitespace-nowrap"
+                class="tw:bg-black tw:text-white tw:px-2 tw:py-1 tw:whitespace-nowrap"
               >
-                {{- 'products.product.sold_out' | t -}}
+                {{- 'products.product.sold_out' | t | upcase }}
               </span>
             {%- elsif card_product.compare_at_price > card_product.price and card_product.available -%}
               <span
                 id="NoMediaStandardBadge-{{ section_id }}-{{ card_product.id }}"
-                class="tw:bg-black tw:text-white tw:px-2 tw:py-1 tw:rounded-full tw:whitespace-nowrap"
+                class="tw:bg-black tw:text-white tw:px-2 tw:py-1 tw:whitespace-nowrap"
               >
-                {{- 'products.product.on_sale' | t -}}
+                {{- 'products.product.on_sale' | t | upcase }}
               </span>
             {%- endif -%}
           </div>
@@ -147,7 +147,7 @@
       </div>
       <div class="tw:flex tw:flex-col tw:gap-2">
         <div class="card__information">
-          {% if card_product.variants%}
+          {% if card_product.variants %}
             <div class="card-information__size">
               <div class="card-information__size-list">
                 {% for variant in card_product.variants %}
@@ -156,7 +156,9 @@
                       class="card-information__size-item {% unless variant.available %}card-information__size-item--sold-out{% endunless %}"
                       data-variant-id="{{ variant.id }}"
                       data-available="{{ variant.available }}"
-                      title="{% if variant.available %}Add to cart{% else %}Sold out{% endif %}">ONE SIZE</span>
+                      title="{% if variant.available %}Add to cart{% else %}Sold out{% endif %}"
+                      >ONE SIZE</span
+                    >
                   {% else %}
                     <span
                       class="card-information__size-item {% unless variant.available %}card-information__size-item--sold-out{% endunless %}"
@@ -313,7 +315,7 @@
                           -%}
                           <span>{{ 'sections.quick_order_list.each' | t: money: price }}</span>
                         </li>
-                        {%- for price_break in card_product.selected_or_first_available_variant.quantity_price_breaks -%}
+                        {%- for price_break in card_product.selected_or_firstk_available_variant.quantity_price_breaks -%}
                           <li>
                             <span>
                               {{- price_break.minimum_quantity -}}
